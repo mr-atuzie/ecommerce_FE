@@ -1,8 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 function App() {
   return (
-    <div className=" text-3xl font-light h-screen flex justify-center items-center">
-      Jesus is King
-    </div>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
 
