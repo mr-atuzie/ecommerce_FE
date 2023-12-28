@@ -32,65 +32,65 @@ export const productData = [
   {
     id: 1,
     imageurl:
-      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/59/0685531/1.jpg?2796",
     name: "Colorful sneakers",
-    price: "$19.99",
+    price: "109",
     description: "Some text about the product..",
   },
   {
     id: 2,
     imageurl:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/36/317217/1.jpg?8982",
     name: "Sport sneakers",
-    price: "$21.99",
+    price: "261",
     description: "Some text about the product..",
   },
   {
     id: 3,
     imageurl:
-      "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://cdn.shopify.com/s/files/1/0684/2619/products/olufe-womens-dress-black-red-swirls3_600x.jpg",
     name: "iWatch",
-    price: "$99.99",
+    price: "999",
     description: "Some text about the product..",
   },
   {
     id: 4,
     imageurl:
-      "https://images.unsplash.com/photo-1610824352934-c10d87b700cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://i.pinimg.com/736x/d9/de/d0/d9ded0157d398f5262ce18f8349d1d8b.jpg",
     name: "Water Bottle",
-    price: "$14.99",
+    price: "149",
     description: "Some text about the product..",
   },
   {
     id: 5,
     imageurl:
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://i.pinimg.com/736x/73/0f/a2/730fa2fc0589079ce469f8025f35e3c6.jpg",
     name: "Vans sneakers",
-    price: "$38.99",
+    price: "389",
     description: "Some text about the product..",
   },
   {
     id: 6,
     imageurl:
-      "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://i.pinimg.com/736x/1e/96/8e/1e968ecffb82ce005e8d44dbe8a2f759.jpg",
     name: "Coco Noir",
-    price: "$149.99",
+    price: "199",
     description: "Some text about the product..",
   },
   {
     id: 7,
     imageurl:
-      "https://images.unsplash.com/photo-1589782182703-2aaa69037b5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTJ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://i.pinimg.com/originals/fa/24/6c/fa246ce7e92c765e55740ae428ee3e70.jpg",
     name: "Sunglasses",
-    price: "$38.99",
+    price: "389",
     description: "Some text about the product..",
   },
   {
     id: 8,
     imageurl:
-      "https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://i.pinimg.com/236x/bc/cb/7f/bccb7f449f0663d7540dc47c626854bf.jpg",
     name: "Dove cream",
-    price: "$49.99",
+    price: "499",
     description: "Some text about the product..",
   },
 ];
