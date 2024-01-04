@@ -1,99 +1,128 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { HiOutlineShoppingBag, HiOutlineUser } from "react-icons/hi2";
-import { IoSearchOutline } from "react-icons/io5";
+import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const logo = (
   <Link to="/">
-    <h2 className=" text-4xl font-light text-pink-500">W</h2>
+    <h2 className=" text-3xl font-bold">
+      Shop<span className="text-red-600">iify</span>.
+    </h2>
   </Link>
 );
 
 const activeLink = ({ isActive }) =>
-  isActive ? "text-pink-600" : "text-black";
+  isActive ? "text-red-600" : "text-gray-600";
 
 const Header = () => {
-  const links = [
-    { title: "home", to: "/" },
-    { title: "about", to: "/about" },
-    { title: "blog", to: "/blog" },
-    { title: "service", to: "/service" },
-    { title: "contact", to: "/contact" },
-  ];
+  const [showMenu, setShowMenu] = useState(false);
 
-  const lists = [
-    "New arrivals",
-    "clothing",
-    "shoes",
-    "bags",
-    "accessories",
-    "premium",
-    "Brands",
-    "sale",
-  ];
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const hideMenu = () => {
+    setShowMenu(false);
+  };
+
+  const cart = (
+    <span className="  ">
+      <Link className=" flex" to={"/cart"}>
+        <div className=" ml-1 relative flex items-center ">
+          <FaShoppingCart size={20} />
+          <p className=" bg-red-600 text-white h-4 w-4 text-xs text-center flex justify-center items-center rounded-full absolute -top-1 left-3">
+            0
+          </p>
+        </div>
+      </Link>
+    </span>
+  );
+
   return (
-    <header className=" py-3 ">
-      <div className="w-[90%] lg:w-[80%] mx-auto">
-        <div className=" flex items-center justify-between ">
-          <div className=" flex items-center gap-20">
-            {logo}
+    <header className=" sticky top-0 w-full z-50 bg-white shadow-sm  py-3">
+      <div className=" flex items-center justify-between w-[90%] lg:w-[80%] mx-auto">
+        {logo}
 
-            <ul className=" flex gap-6">
-              {links.map((link, index) => {
-                const { title, to } = link;
-                return (
-                  <li key={index} className=" font-medium capitalize">
-                    <NavLink to={to} className={activeLink}>
-                      {title}
-                    </NavLink>
-                  </li>
-                );
-              })}
+        <div className=" hidden  lg:flex">
+          <NavLink className={activeLink} to="/shop">
+            Shop
+          </NavLink>
+        </div>
+
+        <nav className=" hidden  lg:flex gap-4">
+          <span className="flex gap-4">
+            <NavLink className={activeLink} to={"/login"}>
+              Login
+            </NavLink>
+
+            <NavLink className={activeLink} to={"/register"}>
+              Register
+            </NavLink>
+
+            <NavLink className={activeLink} to={"/orders"}>
+              My Orders
+            </NavLink>
+          </span>
+
+          {cart}
+        </nav>
+
+        <div className=" flex  items-center lg:hidden gap-4">
+          {cart}
+          <HiOutlineMenuAlt3
+            className="text-gray-100 cursor-pointer"
+            size={22}
+            onClick={toggleMenu}
+          />
+        </div>
+      </div>
+      {showMenu && (
+        <div
+          onClick={hideMenu}
+          className=" z-40  bg-black/50 fixed lg:hidden top-0 right-0  w-full h-screen"
+        >
+          <div className=" w-[60%] bg-black h-screen p-4">
+            <div className=" flex justify-between items-center">
+              {logo}{" "}
+              <FaTimes onClick={hideMenu} size={20} className=" text-white" />
+            </div>
+
+            <hr className="border-b  border-gray-600 my-5" />
+
+            <ul>
+              <li className="border-b  border-gray-600 mb-5 pb-1.5">
+                <NavLink className={activeLink} to="/shop">
+                  Shop
+                </NavLink>
+              </li>
+
+              <li className="border-b  border-gray-600 mb-5 pb-1.5">
+                <NavLink className={activeLink} to="/shop">
+                  Login
+                </NavLink>
+              </li>
+              <li className="border-b  border-gray-600 mb-5 pb-1.5">
+                <NavLink className={activeLink} to="/shop">
+                  Register
+                </NavLink>
+              </li>
+              <li className="border-b  border-gray-600 mb-5 pb-1.5">
+                <span className="  text-gray-100">
+                  <Link className=" flex" to={"/cart"}>
+                    Cart
+                    <div className=" ml-1 relative flex items-center ">
+                      <FaShoppingCart size={13} />
+                      <p className=" bg-red-600 text-white h-4 w-4 text-xs text-center flex justify-center items-center rounded-full absolute -top-1 left-3">
+                        0
+                      </p>
+                    </div>
+                  </Link>
+                </span>
+              </li>
             </ul>
           </div>
-          <div className=" flex gap-10">
-            <form>
-              <div className=" py-1.5  px-2.5 w-[250px] flex bg-gray-300 rounded-lg items-center">
-                <IoSearchOutline size={25} />
-                <input
-                  type="search"
-                  id="default-search"
-                  className="block w-full  text-sm text-gray-900 bg-transparent    focus:ring-blue-500 focus:border-blue-500 "
-                  placeholder="Search"
-                  required
-                />
-              </div>
-            </form>
-
-            <div className=" flex gap-5 items-center">
-              <div>
-                <Link to={"/"}>
-                  <div className=" flex items-center gap-2 ">
-                    <span>Log in</span>
-                    <HiOutlineUser size={25} />
-                  </div>
-                </Link>
-              </div>
-
-              <HiOutlineShoppingBag size={25} />
-            </div>
-          </div>
         </div>
-        <hr className=" border border-gray-500 my-4" />
-        <ul className=" flex  gap-6 ">
-          {lists.map((list, index) => {
-            return (
-              <li
-                key={index}
-                className=" cursor-pointer text-sm font-medium capitalize"
-              >
-                {list}
-              </li>
-            );
-          })}
-        </ul>
-        <hr className=" border border-gray-500 mt-4" />
-      </div>
+      )}
     </header>
   );
 };

@@ -1,15 +1,21 @@
 import React from "react";
-import Hero from "../components/Hero";
-import Info from "../components/Info";
+import Slider from "../components/Slider";
+// import Info from "../components/Info";
 import ProductSlider from "../components/ProductSlider";
+import ProductCategory from "../components/ProductCategory";
+import SocialMediaLinks from "../components/SocialMediaLinks";
 
 const PageHeading = ({ heading, btnText }) => {
   return (
     <>
-      <div className="w-[90%] lg:w-[80%] mx-auto">
-        <h2 className=" text-xl lg:text-2xl mt-6 mb-3  font-medium ">
-          {heading}
-        </h2>
+      <div className="w-[90%] lg:w-[80%] mx-auto mb-4">
+        <div className="  flex justify-between items-center w-full">
+          <h2 className=" text-xl lg:text-2xl font-extralight">{heading}</h2>
+
+          <button className=" bg-gray-200 text-sm p-1.5 font-medium">
+            {btnText}
+          </button>
+        </div>
       </div>
     </>
   );
@@ -18,16 +24,24 @@ const PageHeading = ({ heading, btnText }) => {
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Info />
-      <section className="">
-        <PageHeading heading={"New Arrivals"} />
+      <Slider />
+      dogshit
+      <section className=" py-14">
+        <PageHeading heading={"Latest Products"} btnText={"Shop Now>>>"} />
         <ProductSlider />
       </section>
-      <section className="">
-        <PageHeading heading={"Trending"} />
+      <section className=" bg-gray-200">
+        <ProductCategory />
+      </section>
+      <section className=" py-14">
+        <PageHeading heading={"Mobile Phones"} btnText={"Shop Now>>>"} />
         <ProductSlider />
       </section>
+      <section className=" py-14">
+        <PageHeading heading={"Men's Fashion"} btnText={"Shop Now>>>"} />
+        <ProductSlider />
+      </section>
+      <SocialMediaLinks />
     </>
   );
 };

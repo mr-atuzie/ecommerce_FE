@@ -1,52 +1,47 @@
 import React from "react";
-import { MdOutlineStars } from "react-icons/md";
-import { FaRegCommentDots } from "react-icons/fa";
-import { LuTruck } from "react-icons/lu";
+import { BsCartCheckFill } from "react-icons/bs";
+import { FaCreditCard } from "react-icons/fa";
+import { MdLocalShipping } from "react-icons/md";
+import { BiSupport } from "react-icons/bi";
 
 const data = [
   {
-    icon: <MdOutlineStars size={30} />,
-    heading: "High Quality",
-    text: "We stock high quality pieces from your favourite name-brand",
+    icon: <MdLocalShipping size={25} color="blue" />,
+    heading: "Free Shipping",
+    text: "We offer free shipping on special products",
   },
   {
-    icon: <LuTruck size={30} />,
-    heading: "Fast and Reliable",
-    text: "Your orders gets to you just in time.",
+    icon: <FaCreditCard size={25} color="green" />,
+    heading: "Secure Payment",
+    text: "Make secure payment for your product.",
   },
   {
-    icon: <FaRegCommentDots size={30} />,
-    heading: "Customer Service",
-    text: "We are here to listen if you need to talk to us.",
+    icon: <BsCartCheckFill size={25} color="red" />,
+    heading: "Quality Products",
+    text: "We sell products from only tested and proven brands.",
+  },
+  {
+    icon: <BiSupport size={25} color="purple" />,
+    heading: "24/7 Support",
+    text: "Get access to support from our exprt support team.",
   },
 ];
 
 const Info = () => {
   return (
-    <section className="">
-      <div className="w-[90%]  lg:w-[80%] mx-auto ">
-        <div className=" flex justify-around items-center">
-          {data.map((info, index) => {
-            const { icon, heading, text } = info;
-            return (
-              <div
-                key={index}
-                className=" w-full flex flex-col  items-center justify-center"
-              >
-                <div>{icon}</div>
-
-                <h4 className=" text-lg lg:text-xl font-medium mt-3">
-                  {heading}
-                </h4>
-                <p className=" text-center  max-w-sm text-sm  text-gray-500">
-                  {text}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-        <hr className=" border border-gray-500 mt-4" />
-      </div>
+    <section className=" w-[90%] py-14 lg:w-[80%] mx-auto flex flex-col gap-8 lg:flex-row justify-evenly items-center">
+      {data.map((info, index) => {
+        const { icon, heading, text } = info;
+        return (
+          <div key={index} className=" w-full border p-3 shadow flex gap-4">
+            <div className="">{icon}</div>
+            <div className="">
+              <h4 className=" text-lg lg:text-xl font-semibold">{heading}</h4>
+              <p className=" text-xs">{text}</p>
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 };

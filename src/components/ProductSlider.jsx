@@ -5,7 +5,6 @@ import "swiper/css";
 import { productData } from "../data";
 import { Link } from "react-router-dom";
 import { shortenText } from "../utils";
-import { FaRegHeart } from "react-icons/fa";
 
 const ProductSlider = () => {
   return (
@@ -25,26 +24,23 @@ const ProductSlider = () => {
           return (
             <SwiperSlide key={index}>
               <Link to={"/"}>
-                <div className=" h-60 relative">
-                  <img
-                    className=" h-full w-full object-cover"
-                    src={imageurl}
-                    alt=""
-                  />
-
-                  <div className=" w-7 h-7 flex items-center justify-center bg-white rounded-full absolute top-2 right-2">
-                    <FaRegHeart />
-                  </div>
-                </div>
-
-                <div className=" mt-2">
-                  <h4 className=" font-semibold ">{shortenText(name, 18)}</h4>
-                  <p className=" text-gray-600 text-sm">
-                    {shortenText(description, 26)}
-                  </p>
-                  <p className=" font-semibold">AED{price}</p>
-                </div>
+                <img
+                  className=" h-64 w-full object-cover"
+                  src={imageurl}
+                  alt=""
+                />
+                <p className=" mt-1 text-center text-sm text-red-600 font-medium">
+                  {price}
+                </p>
+                <h4 className=" text-center ">{shortenText(name, 18)}</h4>
+                <p className=" text-gray-500 text-sm">
+                  {shortenText(description, 26)}
+                </p>
               </Link>
+
+              <button className=" mt-2 bg-red-600 text-white font-medium text-sm w-full py-2.5">
+                Add To Cart
+              </button>
             </SwiperSlide>
           );
         })}
