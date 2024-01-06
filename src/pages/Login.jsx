@@ -18,7 +18,7 @@ const Login = () => {
         </h2>
         <form onSubmit={loginUser}>
           <input
-            className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded"
+            className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
             type="text"
             placeholder="Email"
             required
@@ -27,7 +27,7 @@ const Login = () => {
           />
 
           <input
-            className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded"
+            className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
             type="password"
             placeholder="Password"
             required
