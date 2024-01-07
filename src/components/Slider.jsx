@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Slider = () => {
   const navigate = useNavigate();
   return (
-    <div className=" w-full h-[80vh] mx-auto flex relative ">
+    <div className=" w-full lg:h-[80vh] mx-auto flex relative ">
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
