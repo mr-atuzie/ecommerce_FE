@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className=" text-sm  bg-black text-gray-500">
       <div className=" h-[40vh]  w-[90%] lg:w-[80%] mx-auto flex justify-around items-center">
-        <div className=" w-full flex justify-between">
+        <div className=" w-full flex  justify-between flex-col lg:flex-row">
           <div>
             <h1 className=" font-semibold text-white  uppercase mb-2">
               Get to know us

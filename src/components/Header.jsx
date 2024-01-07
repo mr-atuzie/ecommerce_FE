@@ -70,7 +70,7 @@ const Header = () => {
         <div className=" flex  items-center lg:hidden gap-4">
           {cart}
           <HiOutlineMenuAlt3
-            className="text-gray-100 cursor-pointer"
+            className=" cursor-pointer"
             size={22}
             onClick={toggleMenu}
           />
@@ -97,12 +97,12 @@ const Header = () => {
               </li>
 
               <li className="border-b  border-gray-600 mb-5 pb-1.5">
-                <NavLink className={activeLink} to="/shop">
+                <NavLink className={activeLink} to="/login">
                   Login
                 </NavLink>
               </li>
               <li className="border-b  border-gray-600 mb-5 pb-1.5">
-                <NavLink className={activeLink} to="/shop">
+                <NavLink className={activeLink} to="/register">
                   Register
                 </NavLink>
               </li>

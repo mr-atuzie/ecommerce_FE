@@ -11,13 +11,31 @@ const initialState = {
   message: "",
 };
 
-// eslint-disable-next-line
 //Register User
 export const register = createAsyncThunk(
   "auth/register",
   async (userData, thunkAPI) => {
     try {
       return await authService.registerUser(userData);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+//login User
+export const login = createAsyncThunk(
+  "auth/login",
+  async (userData, thunkAPI) => {
+    try {
+      return await authService.loginUser(userData);
     } catch (error) {
       const message =
         (error.response &&
@@ -44,6 +62,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      //Register
       .addCase(register.pending, (state) => {
         state.isLoading = true;
       })
@@ -56,6 +75,27 @@ const authSlice = createSlice({
         toast.success("Registration successfull");
       })
       .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.user = null;
+
+        toast.error(action.payload);
+      })
+      //login
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isLoggedIn = true;
+        state.user = action.payload;
+
+        toast.success("login successfull");
+      })
+      .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;
