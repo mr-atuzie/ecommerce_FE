@@ -6,12 +6,16 @@ import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   axios.defaults.withCredentials = true;
+
   return (
     <>
       <BrowserRouter>
+        <ToastContainer />
         <Header />
 
         <Routes>
