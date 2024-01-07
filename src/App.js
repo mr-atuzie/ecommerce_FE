@@ -5,8 +5,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import axios from "axios";
 
 const App = () => {
+  axios.defaults.withCredentials = true;
   return (
     <>
       <BrowserRouter>
