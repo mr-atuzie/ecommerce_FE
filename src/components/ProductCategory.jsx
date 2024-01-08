@@ -68,18 +68,17 @@ const ProductCategory = () => {
     <div className=" w-[90%] py-14 lg:w-[80%] mx-auto ">
       <h2 className=" text-3xl font-semibold mb-4">Categories</h2>
 
-      <div className=" w-full grid grid-cols-6 gap-4">
+      <div className=" w-full grid grid-cols-4 lg:grid-cols-6 gap-4">
         {categories.map((category) => {
           const { id, title, image } = category;
           return (
-            <article key={id} className=" relative h-40 bg-white shadow-md">
-              <h3 className=" absolute font-semibold mb-1 text-sm">{title}</h3>
-
+            <article key={id}>
               <img
-                className="  w-full h-full  object-cover"
+                className=" w-full  h-20 lg:h-40 bg-white shadow-md  object-cover"
                 src={image}
                 alt={title}
               />
+              <h3 className="  mt-2 text-center text-xs lg:text-sm">{title}</h3>
             </article>
           );
         })}
