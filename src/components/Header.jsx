@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaShoppingCart, FaTimes } from "react-icons/fa";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { FaShoppingBag, FaTimes } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const logo = (
   <Link to="/">
@@ -29,8 +29,8 @@ const Header = () => {
     <span className="  ">
       <Link className=" flex" to={"/cart"}>
         <div className=" ml-1 relative flex items-center ">
-          <FaShoppingCart size={20} />
-          <p className=" bg-red-600 text-white h-4 w-4 text-xs text-center flex justify-center items-center rounded-full absolute -top-1 left-3">
+          <FaShoppingBag size={20} />
+          <p className=" bg-red-600 text-white h-4 w-4  font-medium text-xs text-center flex justify-center items-center rounded-full absolute -top-1 left-3">
             0
           </p>
         </div>
@@ -69,7 +69,7 @@ const Header = () => {
 
         <div className=" flex  items-center lg:hidden gap-4">
           {cart}
-          <HiOutlineMenuAlt3
+          <RxHamburgerMenu
             className=" cursor-pointer"
             size={22}
             onClick={toggleMenu}
@@ -83,35 +83,28 @@ const Header = () => {
         >
           <div className=" w-[60%] bg-black h-screen p-4">
             <div className=" flex justify-between items-center">
-              {logo}{" "}
-              <FaTimes onClick={hideMenu} size={20} className=" text-white" />
+              {logo} <FaTimes onClick={hideMenu} size={20} />
             </div>
 
-            <hr className="border-b  border-gray-600 my-5" />
+            <hr className=" my-5" />
 
             <ul>
-              <li className="border-b  border-gray-600 mb-5 pb-1.5">
-                <NavLink className={activeLink} to="/shop">
-                  Shop
-                </NavLink>
+              <li className=" mb-5 pb-1.5">
+                <NavLink to="/shop">Shop</NavLink>
               </li>
 
-              <li className="border-b  border-gray-600 mb-5 pb-1.5">
-                <NavLink className={activeLink} to="/login">
-                  Login
-                </NavLink>
+              <li className="mb-5 pb-1.5">
+                <NavLink to="/login">Login</NavLink>
               </li>
-              <li className="border-b  border-gray-600 mb-5 pb-1.5">
-                <NavLink className={activeLink} to="/register">
-                  Register
-                </NavLink>
+              <li className="  mb-5 pb-1.5">
+                <NavLink to="/register">Register</NavLink>
               </li>
-              <li className="border-b  border-gray-600 mb-5 pb-1.5">
+              <li className="  mb-5 pb-1.5">
                 <span className="  text-gray-100">
                   <Link className=" flex" to={"/cart"}>
                     Cart
                     <div className=" ml-1 relative flex items-center ">
-                      <FaShoppingCart size={13} />
+                      <FaShoppingBag size={13} />
                       <p className=" bg-red-600 text-white h-4 w-4 text-xs text-center flex justify-center items-center rounded-full absolute -top-1 left-3">
                         0
                       </p>

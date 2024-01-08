@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const SocialMediaLinks = () => {
   return (
     <div className=" py-10 bg-black ">
-      <div className=" w-[90%] h-full   lg:w-[80%] mx-auto flex items-center  justify-between">
+      <div className=" w-[90%] h-full   lg:w-[80%] mx-auto flex flex-col gap-4 lg:gap-0 lg:flex-row items-center  justify-between">
         <div>
           <h2 className=" text-xl text-white font-bold">
             Shop<span className="text-red-600">iify</span>.
