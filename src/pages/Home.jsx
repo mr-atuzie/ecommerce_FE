@@ -12,7 +12,7 @@ const PageHeading = ({ heading, btnText }) => {
         <div className="  flex justify-between items-center w-full">
           <h2 className=" text-xl lg:text-2xl font-extralight">{heading}</h2>
 
-          <button className=" bg-gray-200 text-sm p-1.5 font-medium">
+          <button className=" bg-gray-200 text-xs lg:text-sm p-1.5 font-medium">
             {btnText}
           </button>
         </div>
@@ -25,7 +25,6 @@ const Home = () => {
   return (
     <>
       <Slider />
-      dogshit
       <section className=" py-14">
         <PageHeading heading={"Latest Products"} btnText={"Shop Now>>>"} />
         <ProductSlider />
