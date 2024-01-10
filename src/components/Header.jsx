@@ -4,6 +4,7 @@ import { FaShoppingBag, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { RESET_AUTH, logout } from "../redux/features/auth/authSlice";
+import ShowOnLogin, { ShowOnLogout } from "../protect/Protect";
 
 const logo = (
   <Link to="/">
@@ -61,19 +62,27 @@ const Header = () => {
 
         <nav className=" hidden  lg:flex gap-4">
           <span className="flex gap-4">
-            <NavLink className={activeLink} to={"/login"}>
-              Login
-            </NavLink>
+            <ShowOnLogout>
+              <NavLink className={activeLink} to={"/login"}>
+                Login
+              </NavLink>
+            </ShowOnLogout>
 
-            <NavLink className={activeLink} to={"/register"}>
-              Register
-            </NavLink>
+            <ShowOnLogout>
+              <NavLink className={activeLink} to={"/register"}>
+                Register
+              </NavLink>
+            </ShowOnLogout>
 
-            <NavLink className={activeLink} to={"/orders"}>
-              My Orders
-            </NavLink>
+            <ShowOnLogin>
+              <NavLink className={activeLink} to={"/orders"}>
+                My Orders
+              </NavLink>
+            </ShowOnLogin>
 
-            <button onClick={logoutUser}>Logout</button>
+            <ShowOnLogin>
+              <button onClick={logoutUser}>Logout</button>
+            </ShowOnLogin>
           </span>
 
           {cart}
