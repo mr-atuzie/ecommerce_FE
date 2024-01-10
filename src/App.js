@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { loginStatus } from "./redux/features/auth/authSlice";
+import Profile from "./pages/Profile";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -30,10 +31,9 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/orders" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
 
         <Footer />
