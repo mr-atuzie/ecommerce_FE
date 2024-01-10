@@ -43,6 +43,7 @@ const Login = () => {
 
     dispatch(RESET_AUTH());
   }, [isLoggedIn, isSuccess, dispatch, navigate]);
+
   return (
     <>
       {isLoading && <Loader />}

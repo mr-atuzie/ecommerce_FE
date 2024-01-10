@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingBag, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import { RESET_AUTH, logout } from "../redux/features/auth/authSlice";
 
 const logo = (
   <Link to="/">
@@ -16,6 +18,8 @@ const activeLink = ({ isActive }) =>
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -23,6 +27,12 @@ const Header = () => {
 
   const hideMenu = () => {
     setShowMenu(false);
+  };
+
+  const logoutUser = async () => {
+    await dispatch(logout());
+    await dispatch(RESET_AUTH);
+    navigate("/login");
   };
 
   const cart = (
@@ -62,6 +72,8 @@ const Header = () => {
             <NavLink className={activeLink} to={"/orders"}>
               My Orders
             </NavLink>
+
+            <button onClick={logoutUser}>Logout</button>
           </span>
 
           {cart}
