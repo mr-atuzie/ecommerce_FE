@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaShoppingBag, FaTimes } from "react-icons/fa";
+import { FaShoppingBag, FaTimes, FaUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { RESET_AUTH, logout } from "../redux/features/auth/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../protect/Protect";
+import { Username } from "../pages/Profile";
 
 const logo = (
   <Link to="/">
@@ -80,12 +81,28 @@ const Header = () => {
               </NavLink>
             </ShowOnLogin>
 
+            {/* <ShowOnLogin>
+              <NavLink className={activeLink} to={"/profile"}>
+                Profile
+              </NavLink>
+            </ShowOnLogin> */}
+
             <ShowOnLogin>
               <button onClick={logoutUser}>Logout</button>
             </ShowOnLogin>
           </span>
 
           {cart}
+
+          <ShowOnLogin>
+            <NavLink
+              className={`${activeLink} flex gap-2 items-center`}
+              to={"/profile"}
+            >
+              <FaUserCircle />
+              <Username />
+            </NavLink>
+          </ShowOnLogin>
         </nav>
 
         <div className=" flex  items-center lg:hidden gap-4">
@@ -100,9 +117,9 @@ const Header = () => {
       {showMenu && (
         <div
           onClick={hideMenu}
-          className=" z-40  bg-black/50 fixed lg:hidden top-0 right-0  w-full h-screen"
+          className=" z-40 fixed lg:hidden top-0 right-0  w-full h-screen"
         >
-          <div className=" w-[60%] bg-black h-screen p-4">
+          <div className=" w-[60%] bg-white h-screen p-4">
             <div className=" flex justify-between items-center">
               {logo} <FaTimes onClick={hideMenu} size={20} />
             </div>
@@ -121,7 +138,10 @@ const Header = () => {
                 <NavLink to="/register">Register</NavLink>
               </li>
               <li className="  mb-5 pb-1.5">
-                <span className="  text-gray-100">
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
+              <li className="  mb-5 pb-1.5">
+                <span className="  ">
                   <Link className=" flex" to={"/cart"}>
                     Cart
                     <div className=" ml-1 relative flex items-center ">
