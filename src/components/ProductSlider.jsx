@@ -7,9 +7,12 @@ import { Link } from "react-router-dom";
 import { shortenText } from "../utils";
 import ProductCard from "./ProductCard";
 
-const ProductSlider = () => {
+const ProductSlider = ({ heading }) => {
   return (
     <>
+      <div className=" mb-3">
+        <h2 className=" text-xl lg:text-2xl font-bold">{heading}</h2>
+      </div>
       {/* desktop */}
       <div className=" hidden lg:block">
         <Swiper
@@ -63,14 +66,14 @@ const ProductSlider = () => {
           }}
         >
           {productData.map((slide, index) => {
-            const { imageurl, name, price, description } = slide;
+            const { images, name, price, desc } = slide;
             return (
               <SwiperSlide key={index}>
                 <ProductCard
-                  imageurl={imageurl}
+                  imageurl={images[0]}
                   name={name}
                   price={price}
-                  description={description}
+                  description={desc}
                 />
               </SwiperSlide>
             );
