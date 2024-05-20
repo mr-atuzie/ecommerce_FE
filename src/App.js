@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import axios from "axios";
@@ -11,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { loginStatus } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile";
+import Layout from "./Layout";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -27,16 +26,16 @@ const App = () => {
     <>
       <BrowserRouter>
         <ToastContainer />
-        <Header />
 
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
 
-        <Footer />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </>
   );

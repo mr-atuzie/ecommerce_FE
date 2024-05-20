@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProfileMenu from "../components/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
-import SocialMediaLinks from "../components/SocialMediaLinks";
 import {
   getUser,
   updatePhoto,
@@ -245,7 +244,6 @@ const Profile = () => {
           )}
         </div>
       </section>
-      <SocialMediaLinks />
     </>
   );
 };
