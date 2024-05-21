@@ -33,7 +33,7 @@ export const productData = [
     id: 1.1,
     name: "Nike Storm-FIT ADV",
     desc: `You're about to tee off when wet weather hits. Good thing you're wearing this jacket. It's fully seam-sealed so you stay dry as you make your way through 18 holes. The relaxed, stretchy fit means you have the motion—from backswing to follow-through—to put some power behind that drive.`,
-    price: 8500,
+    price: 800,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9b3e51d9-a513-4ed1-816e-2d740c83081e/storm-fit-adv-mens-full-zip-golf-jacket-L8xgC5.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d9e84c13-0c63-4629-a025-602d98a0415a/storm-fit-adv-mens-full-zip-golf-jacket-L8xgC5.png",
@@ -47,7 +47,7 @@ export const productData = [
     id: 4.91,
     name: "Nike Sportswear Style Essentials",
     desc: `The Nike Sportswear Style Essentials Utility Pants blend an athletic construction with a look that's ready for the street. Sturdy nylon fabric and an elastic waistband provide a classic warmup feel. Cargo pockets are finished with multi-stitch details and exposed tape brings a fresh look to this comfortable fit.`,
-    price: 7500,
+    price: 500,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/89113904-628d-4ecd-8935-04e0d1b9fc3c/sportswear-style-essentials-mens-utility-pants-XZC1F1.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8d673877-7ac3-462e-98cc-1d275dac5d6f/sportswear-style-essentials-mens-utility-pants-XZC1F1.png",
@@ -61,7 +61,7 @@ export const productData = [
     id: 3.1,
     name: "Air Jordan 1 Mid",
     desc: `Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.`,
-    price: 23000,
+    price: 230,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0fd4ce0b-1657-4a31-b670-3d925774c2a3/air-jordan-1-mid-shoes-PCCmCV.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/0d62111e-2e0d-4490-b247-54404cf3fbb3/air-jordan-1-mid-shoes-PCCmCV.png",
@@ -75,7 +75,7 @@ export const productData = [
     id: 2.1,
     name: "Nike Sportswear Somos Familia",
     desc: `Somos familia! We are family! In honor of Latino Heritage Month, we’re celebrating the histories, cultures and contributions of Latin Americans, including the strong family bonds shared across Latino cultures. Made from soft cotton, this classic-fit tee has a familiar feel you’ll want to wear all month long.`,
-    price: 5000,
+    price: 500,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fd913dce-934b-406f-8aab-dace8b96fdf5/sportswear-somos-familia-short-sleeve-t-shirt-7fK8NV.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9867e41f-5eee-40d1-bb41-03860c04af00/sportswear-somos-familia-short-sleeve-t-shirt-7fK8NV.png",
@@ -89,7 +89,7 @@ export const productData = [
     id: 3.7,
     name: "Kyrie Infinity III",
     desc: `he faster Kyrie slows down, the quicker he can speed up or change direction. His ability to control his movement keeps defenders guessing—and him in control. The Kyrie Infinity provides a tight custom fit, enhanced responsiveness in the forefoot and traction up the sides, allowing players to accelerate and decelerate on demand and take advantage of the separation they create.`,
-    price: 26500,
+    price: 650,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/6ae8ba79-ea00-4a0a-9923-829fd53ddc5d/kyrie-infinity-basketball-shoes-LvzsVp.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/004887d8-6dc1-4dfe-8337-83d35c25212f/kyrie-infinity-basketball-shoes-LvzsVp.png",
@@ -103,7 +103,7 @@ export const productData = [
     id: 3.8,
     name: "Air Jordan 1 Mid",
     desc: `Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.`,
-    price: 18000,
+    price: 180,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a15d88b1-c61f-44c4-bd5b-ac96c64f1b4c/air-jordan-1-mid-shoes-M2KS6n.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/31c73e57-f3d5-4251-be72-d6f3af4ca54f/air-jordan-1-mid-shoes-M2KS6n.png",
@@ -117,7 +117,7 @@ export const productData = [
     id: 4.8,
     name: "Jordan Essentials",
     desc: `Gear up in all-day versatility, utility and a touch of Jordan heritage. They're made from durable twill with distinct stitch lines that hook back to the brand's iconic Flight Suit. Multiple cargo pockets keep your essentials close at hand.`,
-    price: 12500,
+    price: 250,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9aa024cf-5e1f-4487-a856-f84e38aae364/jordan-essentials-mens-utility-pants-F0MNZ6.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/077ed78d-d829-4e44-b5de-6337f00f22ff/jordan-essentials-mens-utility-pants-F0MNZ6.png",
@@ -131,7 +131,7 @@ export const productData = [
     id: 4.9,
     name: "Jordan Essentials II",
     desc: `Gear up in all-day versatility, utility and a touch of Jordan heritage. They're made from durable twill with distinct stitch lines that hook back to the brand's iconic Flight Suit. Multiple cargo pockets keep your essentials close at hand.`,
-    price: 12500,
+    price: 500,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/261ae0df-f174-4376-a50d-ebea5e73621e/jordan-essentials-mens-utility-pants-F0MNZ6.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/13bd9298-5828-489e-b43b-2ec982afa2e8/jordan-essentials-mens-utility-pants-F0MNZ6.png",
@@ -145,7 +145,7 @@ export const productData = [
     id: 3.9,
     name: "Nike Air Vapormax Plus",
     desc: `The Nike Air VaporMax Plus looks to the past and propels you into the future. Nodding to the 1998 Air Max Plus with its floating cage, padded upper and heel logo, it adds revolutionary VaporMax Air technology to ramp up the comfort and create a modern look.`,
-    price: 22000,
+    price: 200,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/n7ecvkfbtzhqdjyyroqw/air-vapormax-plus-mens-shoes-nC0dzF.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/mtfpaanteqilwhdt0irb/air-vapormax-plus-mens-shoes-nC0dzF.png",
@@ -159,7 +159,7 @@ export const productData = [
     id: 4.3,
     name: "Nike Dri-FIT ADV A.P.S.",
     desc: `Whatever your workout, these pants will beat the heat with advanced sweat-wicking technology. They're breathable and stretchy, so you can get the most out of your high-intensity training without being held back.`,
-    price: 7500,
+    price: 700,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7391dc3f-380a-4ae6-b20f-e8719a271fc2/dri-fit-adv-aps-mens-woven-fitness-pants-ZjGkZh.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a4a747bb-5aa9-47d7-ba9b-5af3ffe52a49/dri-fit-adv-aps-mens-woven-fitness-pants-ZjGkZh.png",
@@ -174,7 +174,7 @@ export const productData = [
     id: 3.91,
     name: "Nike Air Zoom Pegasus 38",
     desc: `The road is your runway. Get ready to take flight in the workhorse with wings. Back with extra bounce that’s perfect for hitting the pavement. Whether you’re racking up everyday miles or on your long run, feel the spring in your step with the same cushioned support as its predecessor. Breathable mesh in the upper combines the comfort and durability you want with a wider fit at the toes.`,
-    price: 16500,
+    price: 600,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/52438ca1-4769-4f25-b1fc-26c113f29b62/air-zoom-pegasus-38-womens-road-running-shoes-gg8GBK.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/28fcaf83-43da-4b58-9dde-65441c4edafe/air-zoom-pegasus-38-womens-road-running-shoes-gg8GBK.png",
@@ -188,7 +188,7 @@ export const productData = [
     id: 2.2,
     name: "Nike SB",
     desc: `This long-sleeve Nike SB tee is made with soft, mid-weight cotton in a roomy fit for easy comfort. The printed graphic depicts 2 pigeons sharing a slice of pizza while debating who has the cleaner kick-flip.`,
-    price: 6000,
+    price: 600,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/653a91aa-c211-44f4-b05c-10a13bfc688e/sb-mens-long-sleeve-skate-t-shirt-vLQp3k.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3e70ef85-8fcc-4ce5-ab99-9dbec287cc04/sb-mens-long-sleeve-skate-t-shirt-vLQp3k.png",
@@ -202,7 +202,7 @@ export const productData = [
     id: 1.2,
     name: "Nike Storm-FIT Victory",
     desc: `Made from quiet, weather-resistant fabric, the Nike Storm-FIT Victory Jacket is your new go-to for rainy tee times or windy afternoons at the range. Thoughtful details, like a notched collar that lets you address the ball without fabric folding beneath your chin, help you stay comfortable from teebox 1 to hole 18.`,
-    price: 9000,
+    price: 900,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9cfd8189-5baa-4249-a1f6-876c6200a486/storm-fit-victory-mens-full-zip-golf-jacket-lPjpCJ.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/4b75e102-e77e-4ef4-b957-2b37efd5ebbd/storm-fit-victory-mens-full-zip-golf-jacket-lPjpCJ.png",
@@ -216,7 +216,7 @@ export const productData = [
     id: 1.3,
     name: "NikeCourt Advantage",
     desc: `Gear up for your pre-game routine in our Advantage Jacket. Designed for dynamic movement, it lets you move side-to-side and power through your swing in smooth, stretchy fabric. Playing in the rain? We made this one water-repellent so wet conditions can't dampen your serve.`,
-    price: 8000,
+    price: 800,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/4ae9ec9c-1ad9-45de-8c57-fe2c44aa500c/nikecourt-advantage-mens-tennis-jacket-QK01b0.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6d39da96-947e-4431-ac06-14669f62930b/nikecourt-advantage-mens-tennis-jacket-QK01b0.png",
@@ -230,7 +230,7 @@ export const productData = [
     id: 4.2,
     name: "Cropped Pants II",
     desc: `The Nike Sportswear Cropped Pants were designed with your favorite shoes in mind. Their twill fabric is perfect for everyday wear. Not your dad's slacks, these trousers have a chino look and a special fit designed to show off your sneakers from every angle.`,
-    price: 8500,
+    price: 850,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b4443328-539f-4a55-87f1-12ef2bebc2f4/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/d3084dc6-5ed1-4f1d-a102-0cbb530a9527/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
@@ -244,7 +244,7 @@ export const productData = [
     id: 1.4,
     name: "NikeCourt Dri-FIT Rafa",
     desc: `Warm-up and cool-down in signature Rafa style. The NikeCourt Dri-FIT Rafa Jacket is a lightweight layer with more than enough stretch to get through your pre-match routine. Perforations in high-heat areas like your back and underarms increase airflow to help you stay cool. This product is made with at least 75% recycled polyester fibers.`,
-    price: 12000,
+    price: 120,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/db1e3ba8-8349-4e8b-b2c7-b1ab83fc5919/nikecourt-dri-fit-rafa-mens-tennis-jacket-mgcgw1.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9baa5b28-fd2e-4263-b64f-a61534df732a/nikecourt-dri-fit-rafa-mens-tennis-jacket-mgcgw1.png",
@@ -258,7 +258,7 @@ export const productData = [
     id: 2.3,
     name: "Nike SB",
     desc: `This long-sleeve Nike SB tee is made with soft, mid-weight cotton in a roomy fit for easy comfort. The printed graphic depicts 2 pigeons sharing a slice of pizza while debating who has the cleaner kick-flip.`,
-    price: 6500,
+    price: 650,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3edad025-8a80-47dc-9656-2cc5bdd0a0c5/sb-mens-long-sleeve-skate-t-shirt-vLQp3k.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/224edaa0-e9a6-4044-91ea-34316cbf700b/sb-mens-long-sleeve-skate-t-shirt-vLQp3k.png",
@@ -272,7 +272,7 @@ export const productData = [
     id: 4.1,
     name: "Cropped Pants ",
     desc: `The Nike Sportswear Cropped Pants were designed with your favorite shoes in mind. Their twill fabric is perfect for everyday wear. Not your dad's slacks, these trousers have a chino look and a special fit designed to show off your sneakers from every angle.`,
-    price: 8500,
+    price: 850,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f8d264bf-4baa-4ad4-8578-9c8118c0588d/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/94087631-1a47-4d91-9d3b-cf976fa27e57/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
@@ -287,7 +287,7 @@ export const productData = [
     id: 2.4,
     name: "Kyrie",
     desc: `Roomy and soft, this Kyrie tee rewards your journey with comfort on and off the court.`,
-    price: 8500,
+    price: 850,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/621dad9f-65d2-45ce-b150-e61026f4d826/kyrie-mens-long-sleeve-t-shirt-5G7NhL.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f60f30d4-9cf8-4158-9ac5-f86d61a956c8/kyrie-mens-long-sleeve-t-shirt-5G7NhL.png",
@@ -301,7 +301,7 @@ export const productData = [
     id: 1.5,
     name: "Nike Sportswear",
     desc: `The clean lines of the classic coach's jacket have made an impression on the sidelines and streets alike. Built around a silky woven shell fabric and a buttery-soft lining, it embodies the composure and dependability of the coaches that adopted it.`,
-    price: 10000,
+    price: 1000,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/05bf687d-3aa8-4dab-990d-eed97cd2b8ee/sportswear-mens-coaches-jacket-RRQsGg.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3317f60f-72c3-49c2-b487-f8f79b5e65dc/sportswear-mens-coaches-jacket-RRQsGg.png",
@@ -315,7 +315,7 @@ export const productData = [
     id: 4.4,
     name: "Nike Sportswear",
     desc: `We gave these classic French terry sweats a worn-in look that feels like you've been saving them for decades. A playful, puff-printed graphic on the left leg brings youthful optimism to your look and the loop-back fleece delivers soft warmth for daily wear.`,
-    price: 6700,
+    price: 670,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2690b977-f65a-4cea-bc1c-7b368abce93a/sportswear-mens-washed-french-terry-pants-tp1v4c.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d57d149d-d969-4f03-ad3c-5a70dfc6fc68/sportswear-mens-washed-french-terry-pants-tp1v4c.png",
@@ -329,7 +329,7 @@ export const productData = [
     id: 1.6,
     name: "Nike Sportswear",
     desc: `The coach that always has your back, the Nike Sportswear Coaches Jacket is made with unlined woven fabric perfect for sunny days that call for a lightweight layer.`,
-    price: 11000,
+    price: 1000,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1ea6d1ff-ba4b-4e54-a04a-0d2f1057bdbe/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1642e131-3ec5-40a8-8ae7-e017bbb3bc39/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
@@ -343,7 +343,7 @@ export const productData = [
     id: 2.8,
     name: "Jordan 23 Engineered",
     desc: `Look good, feel even better in this soft tee made from at least 75% organic cotton. It has a classic, relaxed fit and features a subtle printed graphic to elevate an everyday staple.`,
-    price: 6600,
+    price: 600,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1133afe6-0a42-46fa-9f20-e228089b519d/jordan-23-engineered-mens-t-shirt-kkMQPD.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3340c1aa-03d3-4358-8e53-3100f6f3d816/jordan-23-engineered-mens-t-shirt-kkMQPD.png",
@@ -357,7 +357,7 @@ export const productData = [
     id: 3.6,
     name: "Kyrie Infinity I",
     desc: `he faster Kyrie slows down, the quicker he can speed up or change direction. His ability to control his movement keeps defenders guessing—and him in control. The Kyrie Infinity provides a tight custom fit, enhanced responsiveness in the forefoot and traction up the sides, allowing players to accelerate and decelerate on demand and take advantage of the separation they create.`,
-    price: 28500,
+    price: 850,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6573a53c-83a5-4226-a358-acbb93768714/kyrie-infinity-basketball-shoes-LvzsVp.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/dd6d3850-7efd-48d2-88d7-15ff137e8bc7/kyrie-infinity-basketball-shoes-LvzsVp.png",
@@ -371,7 +371,7 @@ export const productData = [
     id: 2.9,
     name: "Jordan 23 Engineered Black",
     desc: `Look good, feel even better in this soft tee made from at least 75% organic cotton. It has a classic, relaxed fit and features a subtle printed graphic to elevate an everyday staple.`,
-    price: 6600,
+    price: 600,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/cd30ab18-95c1-44d8-aaf0-c6ae1f904019/jordan-23-engineered-mens-t-shirt-kkMQPD.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/d8f41bbf-9757-4bd7-9295-996918fb661a/jordan-23-engineered-mens-t-shirt-kkMQPD.png",
@@ -385,7 +385,7 @@ export const productData = [
     id: 1.7,
     name: "Nike Sportswear",
     desc: `The coach that always has your back, the Nike Sportswear Coaches Jacket is made with unlined woven fabric perfect for sunny days that call for a lightweight layer.`,
-    price: 10800,
+    price: 800,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/2d03b986-ac12-4ddc-bdac-5caf7fb98f0c/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/8a0dffe6-40ff-4612-8d15-44114eac5fea/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
@@ -399,7 +399,7 @@ export const productData = [
     id: 4.7,
     name: "Nike Sportswear Tech Fleece III",
     desc: `Introducing the new straight leg Tech Fleece bungee pants. These pants have 2 iconic Nike Tech Fleece Pockets with taped zipper surrounds and reflective zipper pulls. Made with soft fleece and 2 adjustable toggles at each leg opening, they let you cinch up and show off your sneakers or keep it casual and open for airflow.`,
-    price: 7600,
+    price: 700,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/76fbe3ee-2196-46a3-b098-9729bff99026/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/7b32bcbe-4d98-4e44-9a23-92d7e5a59974/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",
@@ -413,7 +413,7 @@ export const productData = [
     id: 1.8,
     name: "Nike Sportswear",
     desc: `Fresh yet familiar, the Nike Sportswear Jacket elevates the classic coaches jacket with heavyweight canvas and a quilted woven liner. Satin embroidery on the chest and back panel adds a timeless look.`,
-    price: 15200,
+    price: 520,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6c902503-3303-4148-b09d-79197e1befa2/sportswear-mens-jacket-Sk6djG.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/ae4a9dcd-29ea-41f1-a72c-af14ddc2f38a/sportswear-mens-jacket-Sk6djG.png",
@@ -427,7 +427,7 @@ export const productData = [
     id: 3.4,
     name: "Air Jordan 1 Mid",
     desc: `Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.`,
-    price: 23400,
+    price: 400,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d81fee2a-e014-4fa1-9f6c-1870e8554a07/air-jordan-1-mid-shoes-3DR8L9.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6958211e-0d3c-47d8-a285-21ef9db34359/air-jordan-1-mid-shoes-3DR8L9.png",
@@ -441,7 +441,7 @@ export const productData = [
     id: 1.9,
     name: "Nike Storm-FIT",
     desc: `Inspired by the classic coaches jacket, the Nike Storm-FIT Jacket is a weather-ready staple that's built for the course and the concrete. The sleeves zip off so you can switch between a short-sleeve jacket and a classic, long-sleeve look, depending on what the day brings.`,
-    price: 13500,
+    price: 500,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a0025b96-3cd8-42af-8284-4e45b8d57940/storm-fit-mens-convertible-golf-jacket-6CTk3k.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/61bb2356-cc33-40f2-9d94-3a71f3a0db7b/storm-fit-mens-convertible-golf-jacket-6CTk3k.png",
@@ -455,7 +455,7 @@ export const productData = [
     id: 2.5,
     name: "Kyrie Black",
     desc: `Roomy and soft, this Kyrie tee rewards your journey with comfort on and off the court.`,
-    price: 7500,
+    price: 500,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/52fcec28-d349-4342-9d8f-fa1747b2f5dd/kyrie-mens-long-sleeve-t-shirt-5G7NhL.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/4986b550-5f8b-4838-8bb2-12462091b4e1/kyrie-mens-long-sleeve-t-shirt-5G7NhL.png",
@@ -469,7 +469,7 @@ export const productData = [
     id: 2.6,
     name: "Jordan 23 Engineered",
     desc: `Stay ready for the weather and look effortlessly cool. This cozy pullover is made with soft cotton for warmth and comfort. Minimal graphics let the stitching—inspired by MJ's iconic Wings jacket—shine through.`,
-    price: 9900,
+    price: 900,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/645e6d7d-875a-465e-b1ab-36820906cb9d/jordan-23-engineered-mens-long-sleeve-crew-3ng7rv.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/818efeaf-5522-49e8-9c30-5f3704cfcea9/jordan-23-engineered-mens-long-sleeve-crew-3ng7rv.png",
@@ -483,7 +483,7 @@ export const productData = [
     id: 2.7,
     name: "Jordan 23 Engineered Black",
     desc: `Stay ready for the weather and look effortlessly cool. This cozy pullover is made with soft cotton for warmth and comfort. Minimal graphics let the stitching—inspired by MJ's iconic Wings jacket—shine through.`,
-    price: 8000,
+    price: 800,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/94ce9acd-5659-4452-9fff-5783ba1feb55/jordan-23-engineered-mens-long-sleeve-crew-3ng7rv.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8e12c889-273f-4cf3-869b-3601c94cbdfc/jordan-23-engineered-mens-long-sleeve-crew-3ng7rv.png",
@@ -497,7 +497,7 @@ export const productData = [
     id: 3.2,
     name: `Nike Blazer Mid '77 Vintage`,
     desc: `In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning.`,
-    price: 30700,
+    price: 700,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/ef4dbed6-c621-4879-8db3-f87296bfb570/blazer-mid-77-vintage-mens-shoes-nw30B2.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/8bc7d689-de2c-4b49-986c-b42153895bc0/blazer-mid-77-vintage-mens-shoes-nw30B2.png",
@@ -511,7 +511,7 @@ export const productData = [
     id: 3.3,
     name: `Nike Blazer Mid '77 Vintage`,
     desc: `In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning.`,
-    price: 28900,
+    price: 900,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5ae3d658-7948-4212-8a97-b4ac30005e90/blazer-mid-77-vintage-mens-shoes-nw30B2.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/0babed5e-4aa3-48ff-9fcf-fe94df14b958/blazer-mid-77-vintage-mens-shoes-nw30B2.png",
@@ -525,7 +525,7 @@ export const productData = [
     id: 1.91,
     name: "Nike Repel Tiger Woods",
     desc: `There are few things more classic than a Harrington jacket. The Nike Repel Tiger Woods Jacket invokes that timeless style with a classic, popped collar, a 2-way zipper, and slanted pockets—all in a lightweight, water-repellent design. The whole look is tied together with a chest patch that celebrates Tiger Wood's iconic fist pump.`,
-    price: 8800,
+    price: 800,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1d2fffd1-2031-4726-b44b-02436e5e3fdd/repel-tiger-woods-mens-golf-jacket-p5jpwt.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/89c5c231-01f0-43ee-9689-f068cb27c1f1/repel-tiger-woods-mens-golf-jacket-p5jpwt.png",
@@ -539,7 +539,7 @@ export const productData = [
     id: 4.5,
     name: "Nike Sportswear Tech Fleece",
     desc: `Introducing the new straight leg Tech Fleece bungee pants. These pants have 2 iconic Nike Tech Fleece Pockets with taped zipper surrounds and reflective zipper pulls. Made with soft fleece and 2 adjustable toggles at each leg opening, they let you cinch up and show off your sneakers or keep it casual and open for airflow.`,
-    price: 9000,
+    price: 900,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7a7843b2-0553-4c3e-abd3-9bedd06bf243/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/836dc1ad-6d88-4133-8892-2dada5377376/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",
@@ -553,7 +553,7 @@ export const productData = [
     id: 4.6,
     name: "Nike Sportswear Tech Fleece II",
     desc: `Introducing the new straight leg Tech Fleece bungee pants. These pants have 2 iconic Nike Tech Fleece Pockets with taped zipper surrounds and reflective zipper pulls. Made with soft fleece and 2 adjustable toggles at each leg opening, they let you cinch up and show off your sneakers or keep it casual and open for airflow.`,
-    price: 9000,
+    price: 900,
     images: [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6fece374-a63c-4822-a71a-05ecaeb76478/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/b78e7651-66b0-480b-b198-5a78a7e75d9f/sportswear-tech-fleece-mens-pants-0Tg4Xp.png",

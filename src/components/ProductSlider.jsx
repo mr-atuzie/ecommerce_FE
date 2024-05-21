@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import { productData } from "../data";
-import { Link } from "react-router-dom";
-import { shortenText } from "../utils";
 import ProductCard from "./ProductCard";
 
 const ProductSlider = ({ heading }) => {
@@ -14,7 +12,7 @@ const ProductSlider = ({ heading }) => {
         <h2 className=" text-xl capitalize lg:text-2xl font-bold">{heading}</h2>
       </div>
       {/* desktop */}
-      <div className=" hidden lg:block">
+      {/* <div className=" hidden lg:block">
         <Swiper
           modules={[Pagination, Autoplay]}
           slidesPerView={5}
@@ -51,7 +49,7 @@ const ProductSlider = ({ heading }) => {
             );
           })}
         </Swiper>
-      </div>
+      </div> */}
 
       {/* mobile */}
       <div className=" block lg:hidden">
@@ -61,12 +59,13 @@ const ProductSlider = ({ heading }) => {
           spaceBetween={20}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
         >
-          {productData.map((slide, index) => {
-            const { images, name, price, desc } = slide;
+          {productData.map((product, index) => {
+            const { images, name, price, desc } = product;
+
             return (
               <SwiperSlide key={index}>
                 <ProductCard
