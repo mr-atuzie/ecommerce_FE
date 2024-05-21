@@ -11,6 +11,8 @@ import { loginStatus } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile";
 import Layout from "./Layout";
 import CategoryPage from "./pages/CategoryPage";
+import Private from "./components/Private";
+import ProductPage from "./pages/ProductPage";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -29,13 +31,20 @@ const App = () => {
         <ToastContainer />
 
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/profile"
+              element={
+                <Private>
+                  <Profile />
+                </Private>
+              }
+            />
             <Route path="/category/:id" element={<CategoryPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

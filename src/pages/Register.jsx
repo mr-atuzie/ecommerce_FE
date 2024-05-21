@@ -60,7 +60,7 @@ const Register = () => {
           </h2>
           <form onSubmit={registerUser}>
             <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
+              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="text"
               placeholder="Name"
               required
@@ -68,7 +68,7 @@ const Register = () => {
               onChange={(e) => setName(e.target.value)}
             />
             <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
+              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="email"
               placeholder="Email"
               required
@@ -77,7 +77,7 @@ const Register = () => {
             />
 
             <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
+              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="password"
               placeholder="Password"
               required
@@ -86,7 +86,7 @@ const Register = () => {
             />
 
             <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded placeholder:text-sm placeholder:font-light"
+              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="password"
               placeholder="Confirm Password"
               required
@@ -95,14 +95,14 @@ const Register = () => {
             />
 
             <button
-              className="mb-4 rounded bg-red-600 text-white font-medium text-sm w-full py-2.5"
+              className="mb-4 rounded bg-emerald-500 text-white font-medium text-sm w-full py-2.5"
               type="submit"
             >
               Register
             </button>
           </form>
 
-          <span className=" text-sm text-gray-500 gap-1 flex items-center">
+          <span className=" text-sm text-center justify-center text-gray-500 gap-1 flex items-center">
             <p>Already have an account?</p>
             <Link className="font-semibold text-black" to={"/login"}>
               Login

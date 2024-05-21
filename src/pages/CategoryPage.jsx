@@ -13,18 +13,20 @@ const CategoryPage = () => {
   }, [id]);
 
   return (
-    <div className=" py-5 mb-32">
+    <div className=" mb-32">
       <h2 className=" text-lg capitalize font-bold mb-2 lg:text-2xl">
-        Category: {id}
+        {id}({products.length})
       </h2>
 
       <div className=" grid gap-4 grid-cols-2">
         {products?.map((product, index) => {
-          const { images, name, price, desc } = product;
+          const { images, name, price, desc, id } = product;
 
           return (
             <ProductCard
-              imageurl={images[1]}
+              key={index}
+              id={id}
+              imageurl={images[2]}
               name={name}
               price={price}
               description={desc}

@@ -232,9 +232,9 @@ export const productData = [
     desc: `The Nike Sportswear Cropped Pants were designed with your favorite shoes in mind. Their twill fabric is perfect for everyday wear. Not your dad's slacks, these trousers have a chino look and a special fit designed to show off your sneakers from every angle.`,
     price: 850,
     images: [
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b4443328-539f-4a55-87f1-12ef2bebc2f4/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/d3084dc6-5ed1-4f1d-a102-0cbb530a9527/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/61fdde70-f910-4b3d-825e-830a49ca1b41/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/40c3a6f2-30ae-471a-ad1e-2bf6d6fd1a35/sportswear-tech-fleece-mens-open-hem-sweatpants-914LdQ.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/893fe2b7-3334-4bbd-8d33-ab2897ffdd22/sportswear-tech-fleece-mens-open-hem-sweatpants-914LdQ.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/911a5e95-2a37-4b72-a6f0-a9ccf415cfd9/sportswear-tech-fleece-mens-open-hem-sweatpants-914LdQ.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/a5bb2829-aff0-44f7-adff-ec9d21f48eb1/sportswear-style-essentials-mens-unlined-cropped-pants-tWG7Gw.png",
     ],
     category: "trousers",

@@ -3,21 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const ProductSlider = ({ heading, products }) => {
-  console.log({
-    heading,
-    products,
-  });
   return (
     <>
-      <div className=" bg-white py-5 mb-6">
-        <div className=" flex justify-between">
-          <h2 className=" text-lg capitalize font-bold mb-2 lg:text-2xl">
-            {heading}
-          </h2>
+      <div className=" bg-white py-5 mb-8">
+        <div className=" flex items-center justify-between">
+          <h2 className="  capitalize font-bold mb-2 lg:text-2xl">{heading}</h2>
 
-          <button className=" bg-transparent items-center text-xs flex gap-1 text-gray-400">
+          <Link
+            to={`/category/${products[0].category}`}
+            className=" bg-transparent items-center text-xs flex gap-1 text-gray-400"
+          >
             View more
             <span>
               <svg
@@ -35,7 +33,7 @@ const ProductSlider = ({ heading, products }) => {
                 />
               </svg>
             </span>
-          </button>
+          </Link>
         </div>
 
         {/* desktop */}
@@ -82,7 +80,7 @@ const ProductSlider = ({ heading, products }) => {
         <div className=" block lg:hidden">
           <Swiper
             modules={[Pagination, Autoplay]}
-            slidesPerView={2.3}
+            slidesPerView={2.2}
             spaceBetween={15}
             pagination={{ clickable: true }}
             autoplay={{
@@ -91,11 +89,12 @@ const ProductSlider = ({ heading, products }) => {
             }}
           >
             {products?.map((product, index) => {
-              const { images, name, price, desc } = product;
+              const { images, name, price, desc, id } = product;
 
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
+                    id={id}
                     imageurl={images[1]}
                     name={name}
                     price={price}

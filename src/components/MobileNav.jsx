@@ -55,7 +55,7 @@ const MobileNav = () => {
       </NavLink>
 
       <NavLink
-        to="#"
+        to="/profile"
         className={({ isActive }) => (isActive ? " text-primary" : "")}
       >
         <div className=" flex flex-col gap-1 justify-center items-center">

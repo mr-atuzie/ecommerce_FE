@@ -30,7 +30,7 @@ const Home = () => {
         <ProductSlider
           heading={"Most popular trousers"}
           products={productData.filter(
-            (product) => product.category === "shirts"
+            (product) => product.category === "trousers"
           )}
         />
       </div>
