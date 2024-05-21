@@ -8,7 +8,7 @@ const CartItem = ({ id, imageurl, name, price }) => {
       to={`/product/${id}`}
       className=" flex gap-2 bg-white mb-4 border shadow-md overflow-hidden"
     >
-      <div className=" w-20">
+      <div className=" w-24">
         {imageurl && (
           <img
             className="  w-full object-cover aspect-square "
