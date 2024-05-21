@@ -11,9 +11,9 @@ const ProductSlider = ({ heading, products }) => {
   });
   return (
     <>
-      <div className=" mb-6">
+      <div className=" mb-8">
         <div className=" flex justify-between">
-          <h2 className=" tracking-wide capitalize mb-2 lg:text-2xl font-medium">
+          <h2 className=" tracking-wide capitalize font-bold mb-2 lg:text-2xl">
             {heading}
           </h2>
 
