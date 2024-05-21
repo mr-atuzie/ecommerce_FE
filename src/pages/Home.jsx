@@ -5,30 +5,30 @@ import { productData } from "../data";
 const Home = () => {
   return (
     <>
-      <div className=" mb-32 bg-gray-200">
+      <div className=" mb-32 bg-gray-100">
         <ProductSlider
-          heading={"Jackets"}
+          heading={"Top Deals on Jackets"}
           products={productData.filter(
             (product) => product.category === "Jackets"
           )}
         />
 
         <ProductSlider
-          heading={"shoes"}
+          heading={"Top sneakers collection"}
           products={productData.filter(
             (product) => product.category === "shoes"
           )}
         />
 
         <ProductSlider
-          heading={"shirts"}
+          heading={"Best selling shirts"}
           products={productData.filter(
             (product) => product.category === "shirts"
           )}
         />
 
         <ProductSlider
-          heading={"trousers"}
+          heading={"Most popular trousers"}
           products={productData.filter(
             (product) => product.category === "shirts"
           )}

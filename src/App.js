@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { loginStatus } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile";
 import Layout from "./Layout";
+import CategoryPage from "./pages/CategoryPage";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/category/:id" element={<CategoryPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

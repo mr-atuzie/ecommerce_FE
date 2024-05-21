@@ -5,7 +5,7 @@ const ProductCard = ({ imageurl, price, name, description }) => {
   return (
     <div>
       <img
-        className="rounded-xl min-h-56 bg-gray-100  w-full  aspect-square  object-cover"
+        className="rounded-xl min-h-52 bg-gray-100  w-full  aspect-square  object-cover"
         src={imageurl}
         alt=""
       />

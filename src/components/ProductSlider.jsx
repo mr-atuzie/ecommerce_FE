@@ -82,8 +82,8 @@ const ProductSlider = ({ heading, products }) => {
         <div className=" block lg:hidden">
           <Swiper
             modules={[Pagination, Autoplay]}
-            slidesPerView={2.4}
-            spaceBetween={20}
+            slidesPerView={2.3}
+            spaceBetween={15}
             pagination={{ clickable: true }}
             autoplay={{
               delay: 7000,
@@ -96,7 +96,7 @@ const ProductSlider = ({ heading, products }) => {
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
-                    imageurl={images[0]}
+                    imageurl={images[1]}
                     name={name}
                     price={price}
                     description={desc}

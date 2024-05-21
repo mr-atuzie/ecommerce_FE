@@ -6,7 +6,7 @@ import MobileNav from "./components/MobileNav";
 const Layout = () => {
   return (
     <>
-      <div className="  w-[95%] mx-auto">
+      <div className="  w-[92%] mx-auto">
         <Header />
         <Outlet />
       </div>
