@@ -10,7 +10,7 @@ const ProductCard = ({ imageurl, price, name, description }) => {
         alt=""
       />
 
-      <h2 className=" text-sm truncate lg:text-base mt-1 font-medium">
+      <h2 className=" text-xs truncate lg:text-base mt-1 font-medium">
         {name}
       </h2>
 
@@ -21,7 +21,7 @@ const ProductCard = ({ imageurl, price, name, description }) => {
       <div className="flex items-center justify-between">
         <p className="font-bold">${USDollar.format(price)}</p>
 
-        <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1.5">
+        <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -12,9 +12,32 @@ const ProductSlider = ({ heading, products }) => {
   return (
     <>
       <div className=" mb-6">
-        <h2 className=" text-lg tracking-wide uppercase lg:text-2xl font-semibold">
-          {heading}
-        </h2>
+        <div className=" flex justify-between">
+          <h2 className=" tracking-wide capitalize mb-2 lg:text-2xl font-medium">
+            {heading}
+          </h2>
+
+          <button className=" bg-transparent items-center text-xs flex gap-1 text-gray-400">
+            more
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-3 h-3"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+
         {/* desktop */}
         {/* <div className=" hidden lg:block">
         <Swiper
