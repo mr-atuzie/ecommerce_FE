@@ -13,6 +13,7 @@ import Layout from "./Layout";
 import CategoryPage from "./pages/CategoryPage";
 import Private from "./components/Private";
 import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -35,6 +36,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route
               path="/profile"
               element={

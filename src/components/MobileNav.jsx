@@ -30,7 +30,7 @@ const MobileNav = () => {
       </NavLink>
 
       <NavLink
-        to="*"
+        to="/cart"
         className={({ isActive }) => (isActive ? " text-emerald-500" : "")}
       >
         <div className=" flex flex-col justify-center gap-1 items-center">
