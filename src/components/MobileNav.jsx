@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const MobileNav = () => {
   return (
-    <div className=" bg-white border-t bottom-0 z-50  fixed w-full py-3 flex justify-around lg:hidden">
+    <div className=" bg-white border-t bottom-0 z-50  fixed w-full py-3 flex justify-center items-center gap-5 lg:hidden">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? " text-emerald-500" : "")}
