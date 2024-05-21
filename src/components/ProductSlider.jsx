@@ -2,17 +2,21 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import { productData } from "../data";
 import ProductCard from "./ProductCard";
 
-const ProductSlider = ({ heading }) => {
+const ProductSlider = ({ heading, products }) => {
+  console.log({
+    heading,
+    products,
+  });
   return (
     <>
-      <div className=" mb-3">
-        <h2 className=" text-xl capitalize lg:text-2xl font-bold">{heading}</h2>
-      </div>
-      {/* desktop */}
-      {/* <div className=" hidden lg:block">
+      <div className=" mb-6">
+        <h2 className=" text-lg tracking-wide uppercase lg:text-2xl font-semibold">
+          {heading}
+        </h2>
+        {/* desktop */}
+        {/* <div className=" hidden lg:block">
         <Swiper
           modules={[Pagination, Autoplay]}
           slidesPerView={5}
@@ -51,33 +55,34 @@ const ProductSlider = ({ heading }) => {
         </Swiper>
       </div> */}
 
-      {/* mobile */}
-      <div className=" block lg:hidden">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          slidesPerView={2}
-          spaceBetween={20}
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-        >
-          {productData.map((product, index) => {
-            const { images, name, price, desc } = product;
+        {/* mobile */}
+        <div className=" block lg:hidden">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            slidesPerView={2}
+            spaceBetween={20}
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+          >
+            {products?.map((product, index) => {
+              const { images, name, price, desc } = product;
 
-            return (
-              <SwiperSlide key={index}>
-                <ProductCard
-                  imageurl={images[0]}
-                  name={name}
-                  price={price}
-                  description={desc}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+              return (
+                <SwiperSlide key={index}>
+                  <ProductCard
+                    imageurl={images[0]}
+                    name={name}
+                    price={price}
+                    description={desc}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </div>
     </>
   );

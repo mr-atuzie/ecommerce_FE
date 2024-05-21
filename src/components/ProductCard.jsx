@@ -5,7 +5,7 @@ const ProductCard = ({ imageurl, price, name, description }) => {
   return (
     <div>
       <img
-        className="rounded-xl min-h-60  w-full  aspect-square  object-cover"
+        className="rounded-xl min-h-56 bg-gray-100  w-full  aspect-square  object-cover"
         src={imageurl}
         alt=""
       />
@@ -18,10 +18,10 @@ const ProductCard = ({ imageurl, price, name, description }) => {
         {shortenText(description, 26)}
       </p>
 
-      <div className="flex items-center mt-1 justify-between">
-        <p className="text-lg font-semibold">${USDollar.format(price)}</p>
+      <div className="flex items-center justify-between">
+        <p className="font-bold">${USDollar.format(price)}</p>
 
-        <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2">
+        <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1.5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

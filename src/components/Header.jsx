@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className=" sticky top-0 w-full z-40 bg-white   py-3">
       <input
-        className=" block p-2.5 w-full bg-gray-100 border rounded placeholder:text-sm placeholder:font-light"
+        className=" block p-2 w-full bg-gray-100 border rounded placeholder:text-sm placeholder:font-light"
         type="text"
         placeholder="Search for product"
         required

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const MobileNav = () => {
   return (
-    <div className=" bg-white border-t bottom-0 z-50  fixed w-full py-3 flex justify-center items-center gap-12 lg:hidden">
+    <div className=" bg-white border-t bottom-0 z-50  fixed w-full py-3 flex justify-evenly items-center  lg:hidden">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? " text-emerald-500" : "")}
@@ -16,7 +16,7 @@ const MobileNav = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -41,7 +41,7 @@ const MobileNav = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -66,7 +66,7 @@ const MobileNav = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
