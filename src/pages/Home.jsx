@@ -4,9 +4,7 @@ import ProductSlider from "../components/ProductSlider";
 const Home = () => {
   return (
     <>
-      <section className=" ">
-        <ProductSlider />
-      </section>
+      <ProductSlider heading={"Jackets"} />
     </>
   );
 };

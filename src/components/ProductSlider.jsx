@@ -11,7 +11,7 @@ const ProductSlider = ({ heading }) => {
   return (
     <>
       <div className=" mb-3">
-        <h2 className=" text-xl lg:text-2xl font-bold">{heading}</h2>
+        <h2 className=" text-xl capitalize lg:text-2xl font-bold">{heading}</h2>
       </div>
       {/* desktop */}
       <div className=" hidden lg:block">
