@@ -5,7 +5,7 @@ import { productData } from "../data";
 const Home = () => {
   return (
     <>
-      <div className=" mb-32">
+      <div className=" mb-32 bg-gray-200">
         <ProductSlider
           heading={"Jackets"}
           products={productData.filter(

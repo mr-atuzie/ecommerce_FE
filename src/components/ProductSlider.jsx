@@ -11,14 +11,14 @@ const ProductSlider = ({ heading, products }) => {
   });
   return (
     <>
-      <div className=" mb-8">
+      <div className=" bg-white py-5 mb-6">
         <div className=" flex justify-between">
-          <h2 className=" tracking-wide capitalize font-bold mb-2 lg:text-2xl">
+          <h2 className=" text-lg capitalize font-bold mb-2 lg:text-2xl">
             {heading}
           </h2>
 
           <button className=" bg-transparent items-center text-xs flex gap-1 text-gray-400">
-            more
+            View more
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,11 +82,11 @@ const ProductSlider = ({ heading, products }) => {
         <div className=" block lg:hidden">
           <Swiper
             modules={[Pagination, Autoplay]}
-            slidesPerView={2}
+            slidesPerView={2.4}
             spaceBetween={20}
             pagination={{ clickable: true }}
             autoplay={{
-              delay: 5000,
+              delay: 7000,
               disableOnInteraction: false,
             }}
           >
