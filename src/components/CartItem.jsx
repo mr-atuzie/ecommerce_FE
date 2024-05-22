@@ -17,7 +17,7 @@ const CartItem = ({ id, imageurl, name, price }) => {
       )}
 
       <div className=" w-full px-2">
-        <h2 className=" font-semibold leading-5 text-sm truncate">{name}</h2>
+        <h2 className=" font-medium leading-5 text-xs truncate">{name}</h2>
         <div className="flex items-center mt-0.5 justify-between">
           <p className="font-bold">${USDollar.format(price)}</p>
 

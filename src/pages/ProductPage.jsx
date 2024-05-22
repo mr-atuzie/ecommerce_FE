@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { productData } from "../data";
+import ProductSlider from "../components/ProductSlider";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -11,9 +12,16 @@ const ProductPage = () => {
     const item = productData.find((product) => product.id === Number(id));
     setProduct(item);
   }, [id]);
+
   return (
-    <div>
-      <div className="  justify-center overflow-hidden flex gap-3">
+    <div className="py-4 mb-32">
+      <h1 className=" font-semibold capitalize">{product?.name}</h1>
+      <p className="text-xs uppercase text-gray-500 mb-1  ">
+        {product?.category}
+      </p>
+
+      <h1 className=" font-semibold capitalize mb-1">${product?.price}</h1>
+      <div className="   justify-center overflow-hidden flex gap-3">
         <div className=" w-[80%] ">
           <div>
             <img
@@ -29,7 +37,9 @@ const ProductPage = () => {
               <img
                 onClick={() => setImagePreview(index)}
                 key={index}
-                className="object-cover rounded-xl w-20 aspect-square "
+                className={`${
+                  index === imagePreview ? " border-2 border-emerald-600" : ""
+                } object-cover rounded-xl w-20 aspect-square `}
                 src={image}
                 alt=""
               />
@@ -37,6 +47,55 @@ const ProductPage = () => {
           })}
         </div>
       </div>
+
+      <p className=" text-gray-700 mt-2 text-sm">{product?.desc}</p>
+
+      <div className=" flex justify-between my-4">
+        <button className="bg-emerald-600 py-2 rounded-xl justify-center   w-[47%] text-center text-white text-sm flex gap-1 items-center">
+          Add to cart
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border-2 border-emerald-600 bg-white text-sm flex gap-1 items-center">
+          Favourite
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <ProductSlider
+        heading={`You may also like`}
+        hide
+        products={productData}
+      />
     </div>
   );
 };

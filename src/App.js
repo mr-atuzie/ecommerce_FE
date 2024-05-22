@@ -14,6 +14,7 @@ import CategoryPage from "./pages/CategoryPage";
 import Private from "./components/Private";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
+import ScrollTop from "./components/ScrollTop";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -30,7 +31,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <ToastContainer />
-
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
