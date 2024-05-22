@@ -15,6 +15,7 @@ import Private from "./components/Private";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import ScrollTop from "./components/ScrollTop";
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -33,11 +34,12 @@ const App = () => {
         <ToastContainer />
         <ScrollTop />
         <Routes>
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route index element={<Home />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/login" element={<Login />} />
             <Route
               path="/profile"
               element={

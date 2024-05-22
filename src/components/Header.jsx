@@ -1,9 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   // const [showMenu, setShowMenu] = useState(false);
   // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const logoutUser = async () => {
   //   await dispatch(logout());
@@ -11,11 +12,16 @@ const Header = () => {
   //   navigate("/login");
   // };
 
+  const handleSearch = () => {
+    navigate("/search");
+  };
+
   return (
     <header className="flex items-center sticky top-0 gap-2 w-full z-40 bg-white   py-3">
       <input
         className=" block p-2 w-full bg-gray-100 border rounded-xl placeholder:text-sm placeholder:font-light"
         type="text"
+        onClick={handleSearch}
         placeholder="Search for product"
         required
       />
