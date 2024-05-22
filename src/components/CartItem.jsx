@@ -10,16 +10,16 @@ const CartItem = ({ id, imageurl, name, price }) => {
     >
       {imageurl && (
         <img
-          className="rounded-xl  w-20 object-cover aspect-square "
+          className="rounded-xl  w-16 object-cover aspect-square "
           src={imageurl}
           alt=""
         />
       )}
 
       <div className=" w-full px-2">
-        <h2 className=" font-medium leading-5 text-xs truncate">{name}</h2>
-        <div className="flex items-center mt-0.5 justify-between">
-          <p className="font-bold">${USDollar.format(price)}</p>
+        <h2 className="leading-5 text-sm truncate">{name}</h2>
+        <div className="flex items-center  justify-between">
+          <p className="font-semibold text-sm">${USDollar.format(price)}</p>
 
           <div className=" flex items-center gap-3">
             <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1">

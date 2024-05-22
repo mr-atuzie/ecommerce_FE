@@ -5,7 +5,7 @@ import CartItem from "../components/CartItem";
 const CartPage = () => {
   return (
     <div className=" mb-32">
-      {productData.map((product, index) => {
+      {productData.slice(0, 9).map((product, index) => {
         const { images, name, price, id } = product;
         return (
           <CartItem
