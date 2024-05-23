@@ -40,7 +40,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/135f5fa5-77ae-4fe6-a4e1-05cc2d93e0e4/storm-fit-adv-mens-full-zip-golf-jacket-L8xgC5.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/2bf64a46-7952-484e-97ff-a9be19cbbe6a/storm-fit-adv-mens-full-zip-golf-jacket-L8xgC5.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "S",
   },
   {
@@ -209,7 +209,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c734be11-905d-4f76-b24f-6fa72a6cc1da/storm-fit-victory-mens-full-zip-golf-jacket-lPjpCJ.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/b941d875-e8b1-47e5-9fd9-4ffa10d863cb/storm-fit-victory-mens-full-zip-golf-jacket-lPjpCJ.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "M",
   },
   {
@@ -223,7 +223,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a628b43c-d223-4157-af73-537ac309de38/nikecourt-advantage-mens-tennis-jacket-QK01b0.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/62734d86-d391-4463-8c9b-822b21d88966/nikecourt-advantage-mens-tennis-jacket-QK01b0.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "L",
   },
   {
@@ -251,7 +251,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/50e3ebe0-06a0-421a-87bd-8173877a590e/nikecourt-dri-fit-rafa-mens-tennis-jacket-mgcgw1.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5a0f2af7-3644-42c5-b015-b63a76ac5c91/nikecourt-dri-fit-rafa-mens-tennis-jacket-mgcgw1.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "XL",
   },
   {
@@ -308,7 +308,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/505f790f-b70c-40c3-a90f-358c588b2ab8/sportswear-mens-coaches-jacket-RRQsGg.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c46ec11b-a2ae-4e54-8cdb-0e4c03cf49b5/sportswear-mens-coaches-jacket-RRQsGg.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "2XL",
   },
   {
@@ -336,7 +336,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b488e35d-8ec5-4706-b2da-2c75b68289c8/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/3ca1e33a-02e1-47a8-ac0f-32a057d2c4ec/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "S",
   },
   {
@@ -392,7 +392,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/1f118843-810e-49a9-9420-fc56c1d8b354/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8a1dbaf9-0dd0-422d-b0ef-8782ce3b9acd/sportswear-mens-unlined-coaches-jacket-VWg7lq.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "M",
   },
   {
@@ -420,7 +420,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/caabcc3e-f112-42cc-802f-17a83543493e/sportswear-mens-jacket-Sk6djG.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/eefe6443-2360-4c5b-ab63-58164d654338/sportswear-mens-jacket-Sk6djG.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "L",
   },
   {
@@ -448,7 +448,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/daa6c9cf-01ab-4981-9011-19b5a25915a0/storm-fit-mens-convertible-golf-jacket-6CTk3k.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d7e7ceb9-5ee5-443d-b504-d3a105718f0b/storm-fit-mens-convertible-golf-jacket-6CTk3k.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "XL",
   },
   {
@@ -532,7 +532,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8dcb6f11-f413-45c3-b699-68d4053d369f/repel-tiger-woods-mens-golf-jacket-p5jpwt.png",
       "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7515746-bc6d-4df4-9723-719b2b14a243/repel-tiger-woods-mens-golf-jacket-p5jpwt.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "L",
   },
   {
@@ -602,7 +602,7 @@ export const productData = [
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/960220df-7a47-459d-ac76-289423f8ce5d/club-mens-knit-fairway-cardigan-0MCMgC.png",
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3e9bc9aa-9de0-4d09-a26d-ac506b6b96c5/club-mens-knit-fairway-cardigan-0MCMgC.png",
     ],
-    category: "Jackets",
+    category: "jackets",
     size: "L",
   },
   {

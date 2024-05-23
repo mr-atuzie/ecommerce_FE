@@ -7,11 +7,23 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [imagePreview, setImagePreview] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const item = productData.find((product) => product.id === Number(id));
     setProduct(item);
   }, [id]);
+
+  const handleQuantity = (value) => {
+    console.log(value);
+    if (value === "add") {
+      setQuantity(quantity + 1);
+    }
+
+    if (value === "sub" && quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   return (
     <div className="py-4 mb-32">
@@ -49,6 +61,44 @@ const ProductPage = () => {
       </div>
 
       <p className=" text-gray-700 mt-2 text-sm">{product?.desc}</p>
+
+      <div className=" flex items-center gap-3 mt-2">
+        <button
+          onClick={() => handleQuantity("add")}
+          className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <span className=" text-sm font-medium">{quantity}</span>
+        <button
+          onClick={() => handleQuantity("sub")}
+          className=" rounded-md  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
 
       <div className=" flex justify-between my-4">
         <button className="bg-emerald-600 py-2 rounded-xl justify-center   w-[47%] text-center text-white text-sm flex gap-1 items-center">

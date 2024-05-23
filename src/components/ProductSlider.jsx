@@ -14,7 +14,7 @@ const ProductSlider = ({ heading, products, hide }) => {
 
           {!hide && (
             <Link
-              to={`/category/${products[0].category}`}
+              to={`/category/${products[0]?.category}`}
               className=" bg-transparent items-center text-xs flex gap-1 text-gray-400"
             >
               View more

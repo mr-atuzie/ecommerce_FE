@@ -9,7 +9,7 @@ const Home = () => {
         <ProductSlider
           heading={"Top Deals on Jackets"}
           products={productData.filter(
-            (product) => product.category === "Jackets"
+            (product) => product.category === "jackets"
           )}
         />
 
