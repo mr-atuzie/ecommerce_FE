@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { USDollar } from "../utils";
 
-const CartItem = ({ id, imageurl, name, price }) => {
+const CartItem = ({ id, imageurl, name, price, category }) => {
   return (
     <Link
       to={`/product/${id}`}
@@ -18,6 +18,9 @@ const CartItem = ({ id, imageurl, name, price }) => {
 
       <div className=" w-full px-2">
         <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
+        <p className=" text-xs truncate uppercase text-emerald-500">
+          {category}
+        </p>
         <div className="flex items-center  justify-between">
           <p className="font-semibold text-sm">${USDollar.format(price)}</p>
 

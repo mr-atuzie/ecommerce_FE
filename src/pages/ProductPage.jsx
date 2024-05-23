@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { productData } from "../data";
 import ProductSlider from "../components/ProductSlider";
+import { toast } from "react-toastify";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -23,6 +24,15 @@ const ProductPage = () => {
     if (value === "sub" && quantity > 1) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const addToCart = (item) => {
+    toast(`${item.name} added to cart`);
+    console.log(item);
+  };
+
+  const favourite = (name) => {
+    toast(`${name} saved`);
   };
 
   return (
@@ -101,7 +111,10 @@ const ProductPage = () => {
       </div>
 
       <div className=" flex justify-between my-4">
-        <button className="bg-emerald-600 py-2 rounded-xl justify-center   w-[47%] text-center text-white text-sm flex gap-1 items-center">
+        <button
+          onClick={() => addToCart({ ...product, quantity })}
+          className="bg-emerald-600 py-2 rounded-xl justify-center   w-[47%] text-center text-white text-sm flex gap-1 items-center"
+        >
           Add to cart
           <span>
             <svg
@@ -120,7 +133,10 @@ const ProductPage = () => {
             </svg>
           </span>
         </button>
-        <button className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border-2 border-emerald-600 bg-white text-sm flex gap-1 items-center">
+        <button
+          onClick={() => favourite(product?.name)}
+          className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border-2 border-emerald-600 bg-white text-sm flex gap-1 items-center"
+        >
           Favourite
           <span>
             <svg

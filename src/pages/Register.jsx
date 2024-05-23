@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import registerImg from "../assets/register.png";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { validateEmail } from "../utils";
@@ -53,8 +52,8 @@ const Register = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <section className="w-[90%] lg:w-[80%] h-[80vh] mx-auto  relative  flex justify-around  items-center">
-        <div className=" shadow-2xl p-5  bg-white w-full lg:w-[40%]">
+      <section className=" mx-auto  relative  flex justify-center  items-center">
+        <div className="  mt-10 p-2 lg:p-5  bg-white w-full lg:w-[40%]">
           <h2 className=" font-bold capitalize text-3xl text-center mb-6">
             Register
           </h2>
@@ -108,9 +107,6 @@ const Register = () => {
               Login
             </Link>
           </span>
-        </div>
-        <div className=" hidden lg:block">
-          <img src={registerImg} width={400} alt="register" />
         </div>
       </section>
     </>
