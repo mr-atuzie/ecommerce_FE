@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { productData } from "../data";
 import ProductSlider from "../components/ProductSlider";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -10,9 +13,12 @@ const ProductPage = () => {
   const [imagePreview, setImagePreview] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const item = productData.find((product) => product.id === Number(id));
     setProduct(item);
+    setImagePreview(0);
   }, [id]);
 
   const handleQuantity = (value) => {
@@ -26,9 +32,21 @@ const ProductPage = () => {
     }
   };
 
-  const addToCart = (item) => {
-    toast(`${item.name} added to cart`);
-    console.log(item);
+  const addToCart = async (items) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart", items);
+      dispatch(ADD_TO_CART(data));
+      toast(`${items.name} added to cart`);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      toast.error(message);
+    }
   };
 
   const favourite = (name) => {
@@ -47,7 +65,7 @@ const ProductPage = () => {
         <div className=" w-[80%] ">
           <div>
             <img
-              className=" rounded-xl object-cover h-80 w-full "
+              className=" rounded-xl bg-gray-200 object-cover h-80 w-full "
               src={product?.images[imagePreview]}
               alt=""
             />
@@ -61,7 +79,7 @@ const ProductPage = () => {
                 key={index}
                 className={`${
                   index === imagePreview ? " border-2 border-emerald-600" : ""
-                } object-cover rounded-xl w-20 aspect-square `}
+                } object-cover rounded-xl w-20 aspect-square  bg-gray-200`}
                 src={image}
                 alt=""
               />
@@ -75,7 +93,7 @@ const ProductPage = () => {
       <div className=" flex items-center gap-3 mt-2">
         <button
           onClick={() => handleQuantity("add")}
-          className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+          className=" rounded-md  bg-emerald-500 border-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +111,7 @@ const ProductPage = () => {
         <span className=" text-sm font-medium">{quantity}</span>
         <button
           onClick={() => handleQuantity("sub")}
-          className=" rounded-md  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-1"
+          className=" rounded-md  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +131,7 @@ const ProductPage = () => {
       <div className=" flex justify-between my-4">
         <button
           onClick={() => addToCart({ ...product, quantity })}
-          className="bg-emerald-600 py-2 rounded-xl justify-center   w-[47%] text-center text-white text-sm flex gap-1 items-center"
+          className="bg-emerald-600 py-2 rounded-xl justify-center border border-emerald-600   w-[47%] text-center text-white text-sm flex gap-1 items-center"
         >
           Add to cart
           <span>
@@ -135,7 +153,7 @@ const ProductPage = () => {
         </button>
         <button
           onClick={() => favourite(product?.name)}
-          className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border-2 border-emerald-600 bg-white text-sm flex gap-1 items-center"
+          className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border border-emerald-600 bg-white text-sm flex gap-1 items-center"
         >
           Favourite
           <span>

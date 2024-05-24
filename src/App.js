@@ -16,9 +16,14 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import ScrollTop from "./components/ScrollTop";
 import SearchPage from "./pages/SearchPage";
+import { SET_CART } from "./redux/features/cart/cartSlice";
+import Shipping from "./pages/Shipping";
+import Orders from "./pages/Orders";
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
-  axios.defaults.withCredentials = true;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,18 +33,27 @@ const App = () => {
     getLoginStatus();
   }, [dispatch]);
 
+  useEffect(() => {
+    axios.get("/api/v1/cart").then(({ data }) => {
+      dispatch(SET_CART(data));
+    });
+  }, [dispatch]);
+
   return (
     <>
       <BrowserRouter>
         <ToastContainer />
         <ScrollTop />
+
         <Routes>
-          <Route path="/search" element={<SearchPage />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/register" element={<Register />} />
             <Route index element={<Home />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/category/:id" element={<CategoryPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
             <Route
               path="/profile"
               element={
@@ -48,9 +62,31 @@ const App = () => {
                 </Private>
               }
             />
-            <Route path="/category/:id" element={<CategoryPage />} />
-            <Route path="/product/:id" element={<ProductPage />} />
+            <Route
+              path="/shipping"
+              element={
+                <Private>
+                  <Shipping />
+                </Private>
+              }
+            />
+            <Route
+              path="/orders"
+              element={
+                <Private>
+                  <Orders />
+                </Private>
+              }
+            />
           </Route>
+          {/* <Route
+            path="/profile"
+            element={
+              <Private>
+                <ProfileLayout />
+              </Private>
+            }
+          ></Route> */}
         </Routes>
       </BrowserRouter>
     </>

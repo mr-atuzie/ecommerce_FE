@@ -3,23 +3,42 @@ import { NavLink } from "react-router-dom";
 
 const ProfileMenu = () => {
   return (
-    <div>
-      <nav className=" bg-red-600 p-3">
-        <ul className=" flex gap-5 justify-center items-center text-white">
-          <li>
-            <NavLink to={"/profile"}>Profile</NavLink>
+    <nav className=" my-3">
+      <ul className=" flex gap-5 justify-center items-center">
+        <NavLink
+          to={"/profile"}
+          className={({ isActive }) =>
+            isActive ? " bg-emerald-500 text-white rounded-xl" : ""
+          }
+        >
+          <li className=" text-center flex justify-center items-center text-sm px-4 py-2">
+            <span>Profile</span>
           </li>
+        </NavLink>
 
-          <li>
-            <NavLink to={"/profile"}>Wallet</NavLink>
+        <NavLink
+          to={"/shipping"}
+          className={({ isActive }) =>
+            isActive ? " bg-emerald-500 text-white rounded-xl" : ""
+          }
+        >
+          <li className=" text-center flex justify-center items-center gap-1 text-sm px-4 py-2">
+            <span>Shipping form</span>
           </li>
+        </NavLink>
 
-          <li>
-            <NavLink to={"/profile"}>Wishlist</NavLink>
+        <NavLink
+          to={"/shipping"}
+          className={({ isActive }) =>
+            isActive ? " bg-emerald-500 text-white rounded-xl" : ""
+          }
+        >
+          <li className=" text-center flex justify-center items-center gap-1 text-sm px-4 py-2">
+            <span> Orders</span>
           </li>
-        </ul>
-      </nav>
-    </div>
+        </NavLink>
+      </ul>
+    </nav>
   );
 };
 

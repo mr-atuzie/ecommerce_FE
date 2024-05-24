@@ -39,44 +39,34 @@ const ProductSlider = ({ heading, products, hide }) => {
         </div>
 
         {/* desktop */}
-        {/* <div className=" hidden lg:block">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          slidesPerView={5}
-          spaceBetween={20}
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-        >
-          {productData.map((slide, index) => {
-            const { imageurl, name, price, description } = slide;
-            return (
-              <SwiperSlide key={index}>
-                <Link to={"/"}>
-                  <img
-                    className=" h-64 w-full object-cover"
-                    src={imageurl}
-                    alt=""
-                  />
-                  <p className=" mt-1 text-center text-sm text-red-600 font-medium">
-                    {price}
-                  </p>
-                  <h4 className=" text-center ">{shortenText(name, 18)}</h4>
-                  <p className=" text-gray-500 text-sm">
-                    {shortenText(description, 26)}
-                  </p>
-                </Link>
+        <div className=" hidden lg:block">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            slidesPerView={5}
+            spaceBetween={20}
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            {products?.map((product, index) => {
+              const { images, name, price, desc, id } = product;
 
-                <button className=" mt-2 bg-red-600 text-white font-medium text-sm w-full py-2.5">
-                  Add To Cart
-                </button>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div> */}
+              return (
+                <SwiperSlide key={index}>
+                  <ProductCard
+                    id={id}
+                    imageurl={images[1]}
+                    name={name}
+                    price={price}
+                    description={desc}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
 
         {/* mobile */}
         <div className=" block lg:hidden">

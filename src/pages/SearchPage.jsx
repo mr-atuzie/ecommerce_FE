@@ -14,7 +14,7 @@ const SearchPage = () => {
     setSearch(searchTerm);
 
     const search = productData.filter((product) =>
-      product.category.includes(searchTerm)
+      product.category.includes(searchTerm.toLowerCase())
     );
 
     setProducts(search);
@@ -41,7 +41,7 @@ const SearchPage = () => {
           </span>
           <form className=" w-full">
             <input
-              className=" block p-2 w-full bg-gray-100 border rounded-xl placeholder:text-sm placeholder:font-light"
+              className=" lowercases block p-2 w-full bg-gray-100 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="text"
               placeholder="shirts, shoes, jackets, hoodies..."
               required

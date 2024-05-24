@@ -1,31 +1,78 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { USDollar } from "../utils";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { REMOVE_ITEM_CART } from "../redux/features/cart/cartSlice";
 
 const CartItem = ({ id, imageurl, name, price, category }) => {
+  const dispatch = useDispatch();
+  const removeFromCart = async () => {
+    try {
+      const { data } = await axios.delete(`/api/v1/cart/${id}`);
+      dispatch(REMOVE_ITEM_CART(id));
+      console.log(data);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      toast.error(message);
+    }
+  };
   return (
-    <Link
-      to={`/product/${id}`}
-      className=" flex items-center gap-2 bg-white mb-4 "
-    >
+    <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">
       {imageurl && (
-        <img
-          className="rounded-xl  w-16 object-cover aspect-square "
-          src={imageurl}
-          alt=""
-        />
+        <Link to={`/product/${id}`}>
+          <img
+            className="rounded-xl  w-16 object-cover aspect-square "
+            src={imageurl}
+            alt=""
+          />
+        </Link>
       )}
 
       <div className=" w-full px-2">
-        <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
-        <p className=" text-xs truncate uppercase text-emerald-500">
-          {category}
-        </p>
+        <div className="flex justify-between">
+          <div>
+            <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
+            <p className=" text-xs truncate uppercase  text-emerald-500">
+              {category}
+            </p>
+          </div>
+
+          <button
+            className=" font-medium bg-gray-200 p-2 w-6 flex justify-center items-center h-6 rounded-full"
+            onClick={() => removeFromCart(id)}
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+
         <div className="flex items-center  justify-between">
           <p className="font-semibold text-sm">${USDollar.format(price)}</p>
 
           <div className=" flex items-center gap-3">
-            <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1">
+            <button className=" rounded-md  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -57,7 +104,7 @@ const CartItem = ({ id, imageurl, name, price, category }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const MobileNav = () => {
+  const { cartQuantity } = useSelector((state) => state.cart);
   return (
-    <div className=" bg-white border-t bottom-0 z-50  fixed w-full py-3 flex justify-evenly items-center  lg:hidden">
+    <div className=" bg-white border-t bottom-0 z-40  fixed w-full py-3 flex justify-evenly items-center  lg:hidden">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? " text-emerald-500" : "")}
@@ -50,7 +52,7 @@ const MobileNav = () => {
               />
             </svg>
           </span>
-          <p className=" text-xs">Cart 1</p>
+          <p className=" text-xs">Cart {cartQuantity > 0 && cartQuantity}</p>
         </div>
       </NavLink>
 
