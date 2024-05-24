@@ -46,7 +46,7 @@ const CartPage = () => {
       <div className=" mb-32">
         {cart.length > 0 &&
           cart?.map((product) => {
-            const { images, name, price, _id, category } = product;
+            const { images, name, price, _id, category, quantity } = product;
             return (
               <CartItem
                 id={_id}
@@ -54,6 +54,7 @@ const CartPage = () => {
                 name={name}
                 price={price}
                 category={category}
+                quantity={quantity}
                 key={_id}
               />
             );

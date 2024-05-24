@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { USDollar } from "../utils";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { REMOVE_ITEM_CART } from "../redux/features/cart/cartSlice";
 
-const CartItem = ({ id, imageurl, name, price, category }) => {
+const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
   const dispatch = useDispatch();
   const removeFromCart = async () => {
     try {
@@ -27,26 +26,24 @@ const CartItem = ({ id, imageurl, name, price, category }) => {
   return (
     <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">
       {imageurl && (
-        <Link to={`/product/${id}`}>
-          <img
-            className="rounded-xl  w-16 object-cover aspect-square "
-            src={imageurl}
-            alt=""
-          />
-        </Link>
+        <img
+          className="rounded-xl  h-20 object-cover aspect-square "
+          src={imageurl}
+          alt=""
+        />
       )}
 
       <div className=" w-full px-2">
         <div className="flex justify-between">
           <div>
             <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
-            <p className=" text-xs truncate uppercase  text-emerald-500">
+            <p className=" text-xs truncate capitalize  text-emerald-500">
               {category}
             </p>
           </div>
 
           <button
-            className=" font-medium bg-gray-200 p-2 w-6 flex justify-center items-center h-6 rounded-full"
+            className=" font-medium bg-gray-200 p-2 w-6 flex hover:scale-100 justify-center items-center h-6 rounded-full"
             onClick={() => removeFromCart(id)}
           >
             <span>
@@ -68,11 +65,10 @@ const CartItem = ({ id, imageurl, name, price, category }) => {
           </button>
         </div>
 
-        <div className="flex items-center  justify-between">
-          <p className="font-semibold text-sm">${USDollar.format(price)}</p>
-
-          <div className=" flex items-center gap-3">
-            <button className=" rounded-md  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-1">
+        <p className="font-semibold text-sm">${USDollar.format(price)}</p>
+        <div className=" mt-2">
+          <div className=" flex items-center gap-2">
+            <button className=" rounded-md hover:scale-100  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -86,8 +82,8 @@ const CartItem = ({ id, imageurl, name, price, category }) => {
                 />
               </svg>
             </button>
-            <span className=" text-xs ">1</span>
-            <button className=" rounded-md  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-1">
+            <span className=" text-sm">{quantity}</span>
+            <button className=" rounded-md  hover:scale-100 text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

@@ -19,6 +19,7 @@ import SearchPage from "./pages/SearchPage";
 import { SET_CART } from "./redux/features/cart/cartSlice";
 import Shipping from "./pages/Shipping";
 import Orders from "./pages/Orders";
+import ProfileLayout from "./ProfileLayout";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -48,12 +49,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/search" element={<SearchPage />} />
+
             <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/category/:id" element={<CategoryPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
+
             <Route
               path="/profile"
               element={
@@ -79,14 +81,9 @@ const App = () => {
               }
             />
           </Route>
-          {/* <Route
-            path="/profile"
-            element={
-              <Private>
-                <ProfileLayout />
-              </Private>
-            }
-          ></Route> */}
+          <Route path="/search" element={<ProfileLayout />}>
+            <Route index element={<SearchPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

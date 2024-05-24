@@ -152,6 +152,7 @@ const Profile = () => {
 
 export const Username = () => {
   const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const username = user?.name || "...";
   return <h2 className=" text-red-600"> Hi, {username}</h2>;
 };
