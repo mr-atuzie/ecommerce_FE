@@ -49,7 +49,7 @@ const CartPage = () => {
             const { images, name, price, category, quantity } = product;
             return (
               <CartItem
-                // imageurl={images[0]}
+                imageurl={images[0]}
                 name={name}
                 price={price}
                 category={category}
