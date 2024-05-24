@@ -144,6 +144,9 @@ const authSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
     },
+    SET_USER(state, action) {
+      state.user = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -298,6 +301,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { RESET_AUTH } = authSlice.actions;
+export const { RESET_AUTH, SET_USER } = authSlice.actions;
 
 export default authSlice.reducer;

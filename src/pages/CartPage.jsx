@@ -45,17 +45,16 @@ const CartPage = () => {
       )}
       <div className=" mb-32">
         {cart.length > 0 &&
-          cart?.map((product) => {
-            const { images, name, price, _id, category, quantity } = product;
+          cart?.map((product, index) => {
+            const { images, name, price, category, quantity } = product;
             return (
               <CartItem
-                id={_id}
-                imageurl={images[0]}
+                // imageurl={images[0]}
                 name={name}
                 price={price}
                 category={category}
                 quantity={quantity}
-                key={_id}
+                key={index}
               />
             );
           })}

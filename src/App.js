@@ -37,6 +37,8 @@ const App = () => {
   useEffect(() => {
     axios.get("/api/v1/cart").then(({ data }) => {
       dispatch(SET_CART(data));
+      // dispatch(SET_USER({ id: _id, name }));
+      console.log(data);
     });
   }, [dispatch]);
 

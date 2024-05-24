@@ -34,7 +34,9 @@ const ProductPage = () => {
 
   const addToCart = async (items) => {
     try {
-      const { data } = await axios.post("/api/v1/cart", items);
+      // console.log(items);
+      const { data } = await axios.patch("/api/v1/cart", items);
+      console.log(data);
       dispatch(ADD_TO_CART(data));
       toast(`${items.name} added to cart`);
     } catch (error) {
