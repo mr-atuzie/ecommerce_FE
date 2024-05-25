@@ -77,24 +77,27 @@ const ProductSlider = ({ heading, products, hide }) => {
           <Swiper
             modules={[Pagination, Autoplay]}
             slidesPerView={2.2}
-            spaceBetween={15}
+            spaceBetween={20}
             pagination={{ clickable: true }}
             autoplay={{
-              delay: 7000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
           >
             {products?.map((product, index) => {
-              const { images, name, price, desc, id } = product;
+              const { images, name, price, desc, id, category, size } = product;
 
+              console.log(product.images);
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
-                    imageurl={images[1]}
+                    image={images[0]}
                     name={name}
                     price={price}
                     description={desc}
+                    size={size}
+                    category={category}
                   />
                 </SwiperSlide>
               );

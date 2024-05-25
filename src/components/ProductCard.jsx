@@ -1,9 +1,6 @@
 import React from "react";
 import { USDollar, shortenText } from "../utils";
 import { Link } from "react-router-dom";
-import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
-import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 
 const ProductCard = ({
   image,
@@ -15,15 +12,6 @@ const ProductCard = ({
   size,
   quantity,
 }) => {
-  const dispatch = useDispatch();
-
-  console.log(image);
-
-  const addToCart = async (items) => {
-    dispatch(ADD_TO_CART(items));
-    toast(`${items.name} added to cart`);
-  };
-
   return (
     <Link to={`/product/${id}`}>
       <div>
@@ -44,21 +32,7 @@ const ProductCard = ({
         <div className="flex items-center mt-0.5 justify-between">
           <p className="font-bold">${USDollar.format(price)}</p>
 
-          <button
-            onClick={() =>
-              addToCart({
-                image,
-                price,
-                name,
-                description,
-                id,
-                size,
-                quantity,
-                category,
-              })
-            }
-            className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
-          >
+          <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
