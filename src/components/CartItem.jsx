@@ -1,27 +1,14 @@
 import React from "react";
 import { USDollar } from "../utils";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { REMOVE_ITEM_CART } from "../redux/features/cart/cartSlice";
 
 const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
   const dispatch = useDispatch();
-  const removeFromCart = async () => {
-    try {
-      const { data } = await axios.delete(`/api/v1/cart/${id}`);
-      dispatch(REMOVE_ITEM_CART(id));
-      console.log(data);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      toast.error(message);
-    }
+  const removeFromCart = () => {
+    dispatch(REMOVE_ITEM_CART({ id, price: Number(price) * Number(quantity) }));
+    toast.info(`${name} removed from cart`);
   };
   return (
     <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">

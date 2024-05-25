@@ -1,76 +1,91 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import cartService from "./cartService";
-// import { toast } from "react-toastify";
+
+const cart =
+  sessionStorage.getItem("cart") !== null
+    ? JSON.parse(sessionStorage.getItem("cart"))
+    : [];
+
+const cartQuantity =
+  sessionStorage.getItem("cartQuantity") !== null
+    ? JSON.parse(sessionStorage.getItem("cartQuantity"))
+    : 0;
+
+const cartTotal =
+  sessionStorage.getItem("cartTotal") !== null
+    ? JSON.parse(sessionStorage.getItem("cartTotal"))
+    : 0;
 
 const initialState = {
-  cart: [],
-  cartQuantity: 0,
-  isLoading: false,
-  isError: false,
-  isSuccess: false,
-  message: "",
+  cart: cart,
+  cartQuantity,
+  cartTotal,
 };
-
-// get cart
-// export const getCart = createAsyncThunk("cart/getCart", async (_, thunkAPI) => {
-//   try {
-//     return await cartService.getCart();
-//   } catch (error) {
-//     const message =
-//       (error.response && error.response.data && error.response.data.message) ||
-//       error.message ||
-//       error.toString();
-
-//     return thunkAPI.rejectWithValue(message);
-//   }
-// });
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     ADD_TO_CART(state, action) {
-      state.cart.push(action.payload);
-      state.cartQuantity = state.cartQuantity + 1;
-      console.log(action.payload);
-    },
-    SET_CART(state, action) {
-      state.cart = [...action.payload];
-      state.cartQuantity = state.cart.length;
-      console.log(action.payload);
-    },
-    REMOVE_ITEM_CART(state, action) {
-      state.cart = state.cart.filter(
-        (product) => product._id !== action.payload
+      const product = action.payload;
+
+      state.cart.push(product);
+      state.cartQuantity++;
+      state.cartTotal = state.cart.reduce(
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
       );
 
-      state.cartQuantity = state.cart.length;
+      sessionStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart.map((item) => item))
+      );
+
+      sessionStorage.setItem(
+        "cartQuantity",
+        JSON.stringify(state.cartQuantity)
+      );
+
+      sessionStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
+    },
+    REMOVE_ITEM_CART(state, action) {
+      const product = action.payload;
+
+      state.cartQuantity--;
+      state.cart = state.cart.filter((item) => item.id !== product.id);
+      state.cartTotal = Number(state.cartTotal) - Number(product.price);
+
+      sessionStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart.map((item) => item))
+      );
+
+      sessionStorage.setItem(
+        "cartQuantity",
+        JSON.stringify(state.cartQuantity)
+      );
+
+      sessionStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
+    },
+    CLEAR_CART: (state, action) => {
+      state.cartQuantity = 0;
+      state.cart = [];
+      state.cartTotal = 0;
+
+      sessionStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart.map((item) => item))
+      );
+
+      sessionStorage.setItem(
+        "cartQuantity",
+        JSON.stringify(state.cartQuantity)
+      );
+
+      sessionStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
     },
   },
-  //   extraReducers: (builder) => {
-  //     builder
-  //       //get cart
-  //       .addCase(getCart.pending, (state) => {
-  //         state.isLoading = true;
-  //       })
-  //       .addCase(getCart.fulfilled, (state, action) => {
-  //         state.isLoading = false;
-  //         state.isSuccess = true;
-  //         state.cart = action.payload;
-
-  //         console.log(action.payload);
-  //       })
-  //       .addCase(getCart.rejected, (state, action) => {
-  //         state.isLoading = false;
-  //         state.isSuccess = false;
-  //         state.isError = true;
-  //         state.message = action.payload;
-
-  //         toast.error(action.payload);
-  //       });
-  //   },
 });
 
-export const { ADD_TO_CART, SET_CART, REMOVE_ITEM_CART } = cartSlice.actions;
+export const { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM_CART } = cartSlice.actions;
 
 export default cartSlice.reducer;

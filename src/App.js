@@ -16,7 +16,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import ScrollTop from "./components/ScrollTop";
 import SearchPage from "./pages/SearchPage";
-import { SET_CART } from "./redux/features/cart/cartSlice";
+// import { SET_CART } from "./redux/features/cart/cartSlice";
 import Shipping from "./pages/Shipping";
 import Orders from "./pages/Orders";
 import ProfileLayout from "./ProfileLayout";
@@ -32,14 +32,6 @@ const App = () => {
       dispatch(loginStatus());
     };
     getLoginStatus();
-  }, [dispatch]);
-
-  useEffect(() => {
-    axios.get("/api/v1/cart").then(({ data }) => {
-      dispatch(SET_CART(data));
-      // dispatch(SET_USER({ id: _id, name }));
-      console.log(data);
-    });
   }, [dispatch]);
 
   return (

@@ -1,14 +1,35 @@
 import React from "react";
 import { USDollar, shortenText } from "../utils";
 import { Link } from "react-router-dom";
+import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
-const ProductCard = ({ imageurl, price, name, description, id }) => {
+const ProductCard = ({
+  image,
+  name,
+  price,
+  description,
+  id,
+  category,
+  size,
+  quantity,
+}) => {
+  const dispatch = useDispatch();
+
+  console.log(image);
+
+  const addToCart = async (items) => {
+    dispatch(ADD_TO_CART(items));
+    toast(`${items.name} added to cart`);
+  };
+
   return (
     <Link to={`/product/${id}`}>
       <div>
         <img
           className="rounded-xl min-h-52 bg-gray-100  w-full  aspect-square  object-cover"
-          src={imageurl}
+          src={image}
           alt=""
         />
 
@@ -23,7 +44,21 @@ const ProductCard = ({ imageurl, price, name, description, id }) => {
         <div className="flex items-center mt-0.5 justify-between">
           <p className="font-bold">${USDollar.format(price)}</p>
 
-          <button className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1">
+          <button
+            onClick={() =>
+              addToCart({
+                image,
+                price,
+                name,
+                description,
+                id,
+                size,
+                quantity,
+                category,
+              })
+            }
+            className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

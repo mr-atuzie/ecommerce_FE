@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { productData } from "../data";
 import ProductSlider from "../components/ProductSlider";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
 
@@ -33,22 +32,8 @@ const ProductPage = () => {
   };
 
   const addToCart = async (items) => {
-    try {
-      // console.log(items);
-      const { data } = await axios.patch("/api/v1/cart", items);
-      console.log(data);
-      dispatch(ADD_TO_CART(data));
-      toast(`${items.name} added to cart`);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      toast.error(message);
-    }
+    dispatch(ADD_TO_CART(items));
+    toast(`${items.name} added to cart`);
   };
 
   return (
@@ -57,7 +42,6 @@ const ProductPage = () => {
       <p className="text-xs uppercase text-gray-500 mb-1  ">
         {product?.category}
       </p>
-
       <h1 className=" font-semibold capitalize mb-1">${product?.price}</h1>
       <div className="   justify-center overflow-hidden flex gap-3">
         <div className=" w-[80%] ">
@@ -85,9 +69,7 @@ const ProductPage = () => {
           })}
         </div>
       </div>
-
       <p className=" text-gray-700 mt-2 text-sm">{product?.desc}</p>
-
       <div className=" flex items-center gap-3 mt-2">
         <button
           onClick={() => handleQuantity("add")}
@@ -127,7 +109,18 @@ const ProductPage = () => {
       </div>
 
       <button
-        onClick={() => addToCart({ ...product, quantity })}
+        onClick={() =>
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity,
+            size: product.size,
+            description: product.desc,
+            category: product.category,
+            image: product.images[0],
+          })
+        }
         className="bg-emerald-600 hover:scale-100 py-2 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
       >
         Add to cart
@@ -172,7 +165,6 @@ const ProductPage = () => {
           </span>
         </button>
       </div> */}
-
       <ProductSlider
         heading={`You may also like`}
         hide

@@ -2,8 +2,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import ProductCard from "./ProductCard";
+// import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
+import ProductCard from "./ProductCard";
 
 const ProductSlider = ({ heading, products, hide }) => {
   return (
@@ -51,16 +52,19 @@ const ProductSlider = ({ heading, products, hide }) => {
             }}
           >
             {products?.map((product, index) => {
-              const { images, name, price, desc, id } = product;
+              const { images, name, price, desc, id, category, size } = product;
 
+              console.log(product.images);
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
-                    imageurl={images[1]}
+                    image={images[0]}
                     name={name}
                     price={price}
                     description={desc}
+                    size={size}
+                    category={category}
                   />
                 </SwiperSlide>
               );

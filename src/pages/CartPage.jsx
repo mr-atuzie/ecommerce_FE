@@ -9,6 +9,10 @@ const CartPage = () => {
   // const [ready, setReady] = useState(false);
   const { cart } = useSelector((state) => state.cart);
 
+  // const cart = sessionStorage.getItem("key");
+
+  console.log(cart);
+
   // useEffect(() => {
   //   axios.get("/api/v1/cart").then(({ data }) => {
   //     setCart(data);
@@ -44,12 +48,14 @@ const CartPage = () => {
         </div>
       )}
       <div className=" mb-32">
-        {cart.length > 0 &&
+        {cart?.length >= 1 &&
           cart?.map((product, index) => {
-            const { images, name, price, category, quantity } = product;
+            const { images, name, price, category, quantity, id } = product;
+
             return (
               <CartItem
                 imageurl={images[0]}
+                id={id}
                 name={name}
                 price={price}
                 category={category}

@@ -3,7 +3,6 @@ import ProfileMenu from "../components/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout, updateUser } from "../redux/features/auth/authSlice";
 import Loader from "../components/Loader";
-import { Navigate } from "react-router-dom";
 
 // const cloud_name = process.env.REACT_APP_CLOUD_NAME;
 // const upload_preset = process.env.REACT_APP_UPLOAD_PRESET;
@@ -53,10 +52,6 @@ const Profile = () => {
     const { value, name } = e.target;
     setProfile({ ...profile, [name]: value });
   };
-
-  if (!isLoading && !user) {
-    return <Navigate to={"/login"} />;
-  }
 
   return (
     <>

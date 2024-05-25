@@ -8,12 +8,10 @@ const Home = () => {
       <div className=" mb-32 bg-gray-100">
         <ProductSlider
           heading={"Top Deals on Jackets"}
-          products={productData.filter(
-            (product) => product.category === "jackets"
-          )}
+          products={productData}
         />
 
-        <ProductSlider
+        {/* <ProductSlider
           heading={"Top sneakers collection"}
           products={productData.filter(
             (product) => product.category === "shoes"
@@ -46,7 +44,7 @@ const Home = () => {
           products={productData.filter(
             (product) => product.category === "trousers"
           )}
-        />
+        /> */}
       </div>
     </>
   );
