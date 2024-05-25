@@ -77,10 +77,10 @@ const ProductSlider = ({ heading, products, hide }) => {
           <Swiper
             modules={[Pagination, Autoplay]}
             slidesPerView={2.2}
-            spaceBetween={20}
+            spaceBetween={15}
             pagination={{ clickable: true }}
             autoplay={{
-              delay: 3000,
+              delay: 7000,
               disableOnInteraction: false,
             }}
           >
