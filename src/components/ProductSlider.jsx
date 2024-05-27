@@ -54,7 +54,7 @@ const ProductSlider = ({ heading, products, hide }) => {
             {products?.map((product, index) => {
               const { images, name, price, desc, id, category, size } = product;
 
-              console.log(product.images);
+              // console.log(product.images);
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
@@ -87,7 +87,6 @@ const ProductSlider = ({ heading, products, hide }) => {
             {products?.map((product, index) => {
               const { images, name, price, desc, id, category, size } = product;
 
-              console.log(product.images);
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
@@ -98,6 +97,7 @@ const ProductSlider = ({ heading, products, hide }) => {
                     description={desc}
                     size={size}
                     category={category}
+                    quantity={1}
                   />
                 </SwiperSlide>
               );

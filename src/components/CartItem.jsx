@@ -53,7 +53,7 @@ const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
         </div>
 
         <p className="font-semibold text-sm">${USDollar.format(price)}</p>
-        <div className=" mt-2">
+        {/* <div className=" mt-2">
           <div className=" flex items-center gap-2">
             <button className=" rounded-md hover:scale-100  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2">
               <svg
@@ -85,7 +85,7 @@ const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

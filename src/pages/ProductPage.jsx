@@ -121,7 +121,7 @@ const ProductPage = () => {
             image: product.images[0],
           })
         }
-        className="bg-emerald-600 hover:scale-100 py-2 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
+        className="bg-emerald-600 hover:scale-100 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
       >
         Add to cart
         <span>

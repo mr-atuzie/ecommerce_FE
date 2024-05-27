@@ -50,17 +50,29 @@ const CartPage = () => {
       <div className=" mb-32">
         {cart?.length >= 1 &&
           cart?.map((product, index) => {
-            const { images, name, price, category, quantity, id } = product;
-
+            const { image, name, price, category, quantity, id, size, desc } =
+              product;
+            console.log(image);
             return (
+              // <div>items</div>
+              // <CartItem
+              //   imageurl={image]}
+              //   id={id}
+              //   name={name}
+              //   price={price}
+              //   category={category}
+              //   quantity={quantity}
+              //   key={index}
+              // />
               <CartItem
-                imageurl={images[0]}
                 id={id}
+                imageurl={image}
                 name={name}
                 price={price}
+                description={desc}
+                size={size}
                 category={category}
                 quantity={quantity}
-                key={index}
               />
             );
           })}
