@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
 import { USDollar } from "../utils";
-
+import ShippingFormModal from "../components/ShippingFormModal";
 const CartPage = () => {
   const { cart, cartTotal } = useSelector((state) => state.cart);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
+  const [shipping, setShipping] = useState(false);
 
   return (
     <>
@@ -38,6 +34,11 @@ const CartPage = () => {
 
       {cart?.length >= 1 && (
         <div className="  mb-32">
+          <h1 className=" font-semibold -mb-3 text-lg">Cart</h1>
+          {/* <div className=" flex gap-2 items-center">
+            <span className=""> ${USDollar.format(cartTotal)}</span>
+          </div> */}
+          <span className="text-xs  text-gray-400">{cart.length} items</span>
           {cart?.map((product, index) => {
             const { image, name, price, category, quantity, id, size, desc } =
               product;
@@ -57,58 +58,21 @@ const CartPage = () => {
             );
           })}
 
-          <div>
-            <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-              type="text"
-              placeholder="Name"
-              required
-              value={name}
-              onChange={(ev) => setName(ev.target.value)}
+          {shipping && (
+            <ShippingFormModal
+              setShipping={setShipping}
+              cartTotal={cartTotal}
             />
-            <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-              type="text"
-              placeholder="State"
-              required
-              value={state}
-              onClick={(ev) => setState(ev.target.value)}
-            />
-            <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-              type="text"
-              placeholder="City"
-              required
-              value={city}
-              onChange={(ev) => setCity(ev.target.value)}
-            />
-            <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-              type="text"
-              placeholder="Street address"
-              required
-              value={address}
-              onChange={(ev) => setAddress(ev.target.value)}
-            />
-            <input
-              className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-              type="text"
-              placeholder="Phone number"
-              required
-              value={phone}
-              onChange={(ev) => setPhone(ev.target.value)}
-            />
-          </div>
-          <div className="  w-full mt-5">
-            <div className=" flex mt-1">
+          )}
+
+          <div className="  w-full border-2 border-dashed p-3 rounded-xl  mt-5">
+            <div className=" flex mt-1 ">
               <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
-              <h2 className="font-semibold text-sm">
-                ${USDollar.format(cartTotal)}
-              </h2>
+              <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
             </div>
-            <div className=" flex mt-1">
+            <div className=" flex mt-1 ">
               <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
-              <h2 className="font-semibold text-sm">$20</h2>
+              <h2 className="font-semibold ">$20</h2>
             </div>
             <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
               <h2 className="grow font-semibold text-gray-400">Total:</h2>
@@ -118,7 +82,10 @@ const CartPage = () => {
             </div>
           </div>
 
-          <button className=" bg-emerald-500 px-5 py-2.5 font-semibold shadow-md my-4 rounded-xl w-full text-white">
+          <button
+            onClick={() => setShipping(true)}
+            className=" bg-emerald-500 px-5 py-2.5 font-semibold shadow-md my-4 rounded-xl w-full text-white"
+          >
             Checkout ${USDollar.format(cartTotal + 20)}
           </button>
         </div>

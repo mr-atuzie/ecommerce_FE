@@ -22,8 +22,10 @@ const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
 
       <div className=" w-full px-2">
         <div className="flex justify-between">
-          <div>
-            <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
+          <div className=" w-[80%]">
+            <h2 className="leading-5 font-medium text-sm truncate">
+              <span>{quantity}</span> {name}
+            </h2>
             <p className=" text-xs truncate capitalize  text-emerald-500">
               {category}
             </p>
@@ -52,7 +54,9 @@ const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
           </button>
         </div>
 
-        <p className="font-semibold text-sm">${USDollar.format(price)}</p>
+        <p className="font-semibold text-sm">
+          ${USDollar.format(price * quantity)}
+        </p>
         {/* <div className=" mt-2">
           <div className=" flex items-center gap-2">
             <button className=" rounded-md hover:scale-100  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2">

@@ -20,16 +20,18 @@ const CategoryPage = () => {
 
       <div className=" grid gap-4 grid-cols-2">
         {products?.map((product, index) => {
-          const { images, name, price, desc, id } = product;
+          const { images, name, price, desc, id, size, category } = product;
 
           return (
             <ProductCard
-              key={index}
               id={id}
-              imageurl={images[2]}
+              image={images[0]}
               name={name}
               price={price}
               description={desc}
+              size={size}
+              category={category}
+              quantity={1}
             />
           );
         })}
