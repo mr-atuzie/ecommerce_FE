@@ -11,7 +11,7 @@ const ShippingFormModal = ({ cartTotal, setShipping }) => {
 
   return ReactDOM.createPortal(
     <div className=" w-full h-screen bg-black/90 fixed top-0 z-50 flex justify-center items-center">
-      <div className=" w-[96%] p-3 bg-white rounded-xl">
+      <div className=" w-[90%] p-3 bg-white rounded-xl">
         <div className=" flex justify-between items-start">
           <div>
             <h1 className=" font-semibold text-xl">Delivery Form</h1>
