@@ -94,7 +94,7 @@ const Register = () => {
             />
 
             <button
-              className="mb-4 rounded bg-emerald-500 text-white font-medium text-sm w-full py-2.5"
+              className="mb-4 rounded-xl bg-emerald-500 text-white font-medium text-sm w-full py-2.5"
               type="submit"
             >
               Register
