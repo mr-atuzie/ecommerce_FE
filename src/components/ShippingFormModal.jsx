@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { USDollar } from "../utils";
+// import { loadStripe } from "@stripe/stripe-js";
 
 const ShippingFormModal = ({ cartTotal, setShipping }) => {
   const [name, setName] = useState("");
@@ -8,6 +9,10 @@ const ShippingFormModal = ({ cartTotal, setShipping }) => {
   const [address, setAddress] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+
+  // const makePayment = async () => {
+  //   const stripe = await loadStripe("")
+  // };
 
   return ReactDOM.createPortal(
     <div className=" w-full h-screen bg-black/90 fixed top-0 z-50 flex justify-center items-center">
@@ -84,7 +89,7 @@ const ShippingFormModal = ({ cartTotal, setShipping }) => {
           onChange={(ev) => setPhone(ev.target.value)}
         />
         <button
-          onClick={() => setShipping(false)}
+          // onClick={makePayment}
           className=" bg-emerald-500 px-5 py-2.5 font-semibold shadow-md my-4 rounded-xl w-full text-white"
         >
           Pay ${USDollar.format(cartTotal + 20)}

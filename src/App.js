@@ -20,6 +20,8 @@ import SearchPage from "./pages/SearchPage";
 import Shipping from "./pages/Shipping";
 import Orders from "./pages/Orders";
 import ProfileLayout from "./ProfileLayout";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentCancel from "./pages/PaymentCancel";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -41,11 +43,20 @@ const App = () => {
         <ScrollTop />
 
         <Routes>
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/cancel-payment" element={<PaymentCancel />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
 
             <Route path="/register" element={<Register />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route
+              path="/cart"
+              element={
+                <Private>
+                  <CartPage />
+                </Private>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/category/:id" element={<CategoryPage />} />
             <Route path="/product/:id" element={<ProductPage />} />

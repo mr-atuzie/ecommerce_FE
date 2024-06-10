@@ -3,9 +3,35 @@ import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
 import { USDollar } from "../utils";
 import ShippingFormModal from "../components/ShippingFormModal";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 const CartPage = () => {
   const { cart, cartTotal } = useSelector((state) => state.cart);
   const [shipping, setShipping] = useState(false);
+
+  const makePayment = async () => {
+    const body = {
+      products: cart,
+    };
+
+    try {
+      const stripe = await loadStripe(
+        "pk_test_51PL7AtJPXBH06mUhMnLGbCOQlh9bvij17UHaCdhlC5ELPsIbFMz1jXUc2aqVw5c3pp2kkHvfcpxhC8xP0lcrYdhs00rJwueMHK"
+      );
+
+      const { data } = await axios.post("/api/v1/cart/checkout-session", body);
+
+      const result = stripe.redirectToCheckout({
+        sessionId: data.id,
+      });
+
+      if (result.error) {
+        console.log(result.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -65,7 +91,7 @@ const CartPage = () => {
             />
           )}
 
-          <div className="  w-full border-2 border-dashed p-3 rounded-xl  mt-5">
+          <div className=" font-mono  w-full border-2 border-dashed p-3 rounded-xl  mt-5">
             <div className=" flex mt-1 ">
               <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
               <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
@@ -83,7 +109,7 @@ const CartPage = () => {
           </div>
 
           <button
-            onClick={() => setShipping(true)}
+            onClick={makePayment}
             className=" bg-emerald-500 px-5 py-2.5 font-semibold shadow-md my-4 rounded-xl w-full text-white"
           >
             Checkout ${USDollar.format(cartTotal + 20)}
