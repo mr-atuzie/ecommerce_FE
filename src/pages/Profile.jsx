@@ -59,28 +59,39 @@ const Profile = () => {
       <section className=" mb-32">
         <div>
           <ProfileMenu />
-          <h2 className=" font-semibold text-3xl">Profile</h2>
+          {/* <h2 className=" font-semibold text-3xl">Profile</h2> */}
         </div>
         <div>
           {!isLoading && (
             <>
               <form className="flex flex-col gap-3" onSubmit={saveProfile}>
                 <div className="">
-                  <label htmlFor="email">Name</label>
+                  <label
+                    className=" text-sm text-gray-600  capitalize "
+                    htmlFor="email"
+                  >
+                    Name
+                  </label>
                   <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100 capitalize p-2.5 rounded-xl block w-full lg:w-[350px]"
                     type="text"
                     name="name"
                     id="name"
                     value={profile.name}
                     onChange={handleInputChange}
+                    required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email">email</label>
+                  <label
+                    className=" text-sm text-gray-600  capitalize "
+                    htmlFor="email"
+                  >
+                    email
+                  </label>
                   <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100 p-2.5 rounded-xl block w-full lg:w-[350px]"
                     type="email"
                     name="email"
                     id="email"
@@ -91,14 +102,20 @@ const Profile = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone">phone</label>
+                  <label
+                    className=" text-sm text-gray-600  capitalize "
+                    htmlFor="phone"
+                  >
+                    phone
+                  </label>
                   <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100 p-2.5 rounded-xl block w-full lg:w-[350px]"
                     type="text"
                     name="phone"
                     id="phone"
                     value={profile.phone}
                     onChange={handleInputChange}
+                    required
                   />
                 </div>
 
@@ -138,8 +155,8 @@ const Profile = () => {
                   />
                 </div> */}
 
-                <button className=" p-2.5 w-[350px] bg-emerald-600 text-white text-center rounded-xl">
-                  Submit
+                <button className=" p-2.5 mt-6 lg:w-[350px] bg-emerald-500  text-white text-center rounded-xl">
+                  Update Profile
                 </button>
               </form>
             </>

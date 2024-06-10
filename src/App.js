@@ -44,6 +44,15 @@ const App = () => {
 
         <Routes>
           <Route path="/cancel-payment" element={<PaymentCancel />} />
+
+          <Route
+            path="/shipping"
+            element={
+              <Private>
+                <Shipping />
+              </Private>
+            }
+          />
           <Route path="/" element={<Layout />}>
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route index element={<Home />} />
@@ -69,14 +78,7 @@ const App = () => {
                 </Private>
               }
             />
-            <Route
-              path="/shipping"
-              element={
-                <Private>
-                  <Shipping />
-                </Private>
-              }
-            />
+
             <Route
               path="/orders"
               element={

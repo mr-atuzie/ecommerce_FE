@@ -55,7 +55,7 @@ const ProductCard = ({
               image,
             })
           }
-          className=" rounded-md  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+          className=" rounded-md hover:scale-120  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -73,7 +73,7 @@ const ProductPage = () => {
       <div className=" flex items-center gap-3 mt-2">
         <button
           onClick={() => handleQuantity("add")}
-          className=" rounded-md  bg-emerald-500 border-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2"
+          className=" rounded-md hover:scale-120  bg-emerald-500 border-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ const ProductPage = () => {
         <span className=" text-sm font-medium">{quantity}</span>
         <button
           onClick={() => handleQuantity("sub")}
-          className=" rounded-md  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2"
+          className=" rounded-md hover:scale-120  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const ProductPage = () => {
             image: product.images[0],
           })
         }
-        className="bg-emerald-600 hover:scale-100 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
+        className="bg-emerald-600 hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
       >
         Add to cart
         <span>
