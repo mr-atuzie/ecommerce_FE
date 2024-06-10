@@ -5,9 +5,11 @@ import { USDollar } from "../utils";
 import ShippingFormModal from "../components/ShippingFormModal";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+// import { CLEAR_CART } from "../redux/features/cart/cartSlice";
 const CartPage = () => {
   const { cart, cartTotal } = useSelector((state) => state.cart);
   const [shipping, setShipping] = useState(false);
+  // const dispatch = useDispatch();
 
   const makePayment = async () => {
     const body = {
@@ -28,6 +30,8 @@ const CartPage = () => {
       if (result.error) {
         console.log(result.error);
       }
+
+      // dispatch(CLEAR_CART());
     } catch (error) {
       console.log(error);
     }

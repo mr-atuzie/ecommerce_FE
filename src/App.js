@@ -43,9 +43,9 @@ const App = () => {
         <ScrollTop />
 
         <Routes>
-          <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/cancel-payment" element={<PaymentCancel />} />
           <Route path="/" element={<Layout />}>
+            <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route index element={<Home />} />
 
             <Route path="/register" element={<Register />} />
