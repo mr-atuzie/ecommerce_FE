@@ -1,5 +1,5 @@
 import React from "react";
-import { USDollar } from "../utils";
+import { USDollar, shortenText } from "../utils";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { REMOVE_ITEM_CART } from "../redux/features/cart/cartSlice";
@@ -22,9 +22,9 @@ const CartItem = ({ id, imageurl, name, price, category, quantity }) => {
 
       <div className=" w-full px-2">
         <div className="flex justify-between">
-          <div className=" w-[80%]">
+          <div>
             <h2 className="leading-5 font-medium text-sm truncate">
-              <span>{quantity}</span> {name}
+              <span>{quantity}</span> {shortenText(name, 20)}
             </h2>
             <p className=" text-xs truncate capitalize  text-emerald-500">
               {category}

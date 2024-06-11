@@ -4,6 +4,9 @@ import { USDollar } from "../utils";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+// import { CLEAR_CART } from "../redux/features/cart/cartSlice";
 
 const Shipping = () => {
   const { cart, cartTotal } = useSelector((state) => state.cart);
@@ -16,8 +19,13 @@ const Shipping = () => {
   const navigate = useNavigate();
 
   const makePayment = async () => {
+    if (!name || !phone || !address || !state || !city) {
+      return toast.error("Please enter deliery details.");
+    }
+
     const body = {
       products: cart,
+      shipping: { name, phone, address, state, city },
     };
 
     try {
@@ -34,8 +42,6 @@ const Shipping = () => {
       if (result.error) {
         console.log(result.error);
       }
-
-      // dispatch(CLEAR_CART());
     } catch (error) {
       console.log(error);
     }
@@ -43,45 +49,29 @@ const Shipping = () => {
   return (
     <div>
       <div className=" w-[90%] mx-auto py-5">
-        <div className=" mb-4">
-          <div className=" flex gap-2 items-center">
-            <button onClick={() => navigate(-1)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <h1 className=" font-semibold text-xl">Delivery Form</h1>
-          </div>
-          <p className=" text-xs text-gray-500">
-            Please enter your delivery details
-          </p>
-        </div>
+        <div className=" mb-4 flex gap-2">
+          <button onClick={() => navigate(-1)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button>
 
-        <div className=" font-mono  w-full border-2 border-dashed p-3 rounded-xl  mb-4">
-          <div className=" flex mt-1 ">
-            <h2 className="grow font-semibold text-gray-400">Cattotal:</h2>
-            <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
-          </div>
-          <div className=" flex mt-1 ">
-            <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
-            <h2 className="font-semibold ">$20</h2>
-          </div>
-          <div className=" flex mt-1 pt-2 border-t-2 border-dashed border-emerald-500">
-            <h2 className="grow font-semibold text-gray-400">Total:</h2>
-            <h2 className=" font-semibold">
-              ${USDollar.format(cartTotal + 20)}
-            </h2>
+          <div>
+            <h1 className=" font-semibold text-xl">Delivery Form</h1>
+            <p className=" text-xs text-gray-500">
+              Please enter your delivery details
+            </p>
           </div>
         </div>
 
@@ -134,9 +124,27 @@ const Shipping = () => {
           value={phone}
           onChange={(ev) => setPhone(ev.target.value)}
         />
+
+        <h1 className=" font-medium mb-2">Cart Summary</h1>
+        <div className=" font-mono text-sm  w-full border-2 border-dashed p-3 rounded-xl  mb-5">
+          <div className=" flex mt-1 ">
+            <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
+            <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
+          </div>
+          <div className=" flex mt-1 ">
+            <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
+            <h2 className="font-semibold ">$20</h2>
+          </div>
+          <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
+            <h2 className="grow font-semibold text-gray-400">Total:</h2>
+            <h2 className=" font-semibold">
+              ${USDollar.format(cartTotal + 20)}
+            </h2>
+          </div>
+        </div>
         <button
           onClick={makePayment}
-          className=" bg-emerald-500 px-5 py-2.5  shadow-md my-4 rounded-xl w-full text-white"
+          className=" bg-emerald-500 px-5 py-2.5 hover:bg-white hover:text-emerald-500 hover:border-emerald-500  shadow-md my-4 rounded-xl w-full text-white"
         >
           Continue Checkout
         </button>
