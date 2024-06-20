@@ -6,7 +6,7 @@ import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 // import { getUser } from "../redux/features/auth/authSlice";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 // import { loadStripe } from "@stripe/stripe-js";
 // import axios from "axios";
 // import { CLEAR_CART } from "../redux/features/cart/cartSlice";
