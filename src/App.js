@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { loginStatus } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile";
@@ -22,11 +23,13 @@ import Orders from "./pages/Orders";
 import ProfileLayout from "./ProfileLayout";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
+import { SET_CART } from "./redux/features/cart/cartSlice";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
+  // const { isLoggedIn, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,10 +39,20 @@ const App = () => {
     getLoginStatus();
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log("rex");
+
+    const getUser = async () => {
+      const { data } = await axios.get("api/v1/users/getUser");
+      dispatch(SET_CART(data.cart));
+    };
+    getUser();
+  }, [dispatch]);
+
   return (
     <>
       <BrowserRouter>
-        <ToastContainer />
+        <Toaster position="top-center" reverseOrder={false} />
         <ScrollTop />
 
         <Routes>

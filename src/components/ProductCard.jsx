@@ -2,8 +2,9 @@ import React from "react";
 import { USDollar, shortenText } from "../utils";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
+import axios from "axios";
 
 const ProductCard = ({
   image,
@@ -11,6 +12,7 @@ const ProductCard = ({
   price,
   description,
   id,
+  productId,
   category,
   size,
   quantity,
@@ -18,9 +20,23 @@ const ProductCard = ({
   const dispatch = useDispatch();
 
   const addToCart = async (items) => {
-    dispatch(ADD_TO_CART(items));
-    toast(`${items.name} added to cart`);
+    try {
+      const { data } = await axios.patch("/api/v1/cart/addToCart", items);
+      console.log(data);
+      await dispatch(ADD_TO_CART(items));
+      toast.success(`${items.name} added to cart`);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      toast.error(message);
+    }
   };
+
   return (
     <div>
       <Link to={`/product/${id}`}>
@@ -45,6 +61,7 @@ const ProductCard = ({
         <button
           onClick={() =>
             addToCart({
+              productId,
               id,
               name,
               price,

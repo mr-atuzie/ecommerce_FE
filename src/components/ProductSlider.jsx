@@ -85,12 +85,13 @@ const ProductSlider = ({ heading, products, hide }) => {
             }}
           >
             {products?.map((product, index) => {
-              const { images, name, price, desc, id, category, size } = product;
+              const { images, name, price, desc, category, size, id } = product;
 
               return (
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
+                    productId={new Date().getTime().toString()}
                     image={images[0]}
                     name={name}
                     price={price}

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { productData } from "../data";
 import ProductSlider from "../components/ProductSlider";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
+import axios from "axios";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -32,8 +33,21 @@ const ProductPage = () => {
   };
 
   const addToCart = async (items) => {
-    dispatch(ADD_TO_CART(items));
-    toast(`${items.name} added to cart`);
+    try {
+      const { data } = await axios.patch("/api/v1/cart/addToCart", items);
+      console.log(data);
+      await dispatch(ADD_TO_CART(items));
+      toast.success(`${items.name} added to cart`);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      toast.error(message);
+    }
   };
 
   return (
@@ -55,6 +69,7 @@ const ProductPage = () => {
         </div>
         <div className=" grid ">
           {product?.images.map((image, index) => {
+            console.log(image);
             return (
               <img
                 onClick={() => setImagePreview(index)}
@@ -111,7 +126,8 @@ const ProductPage = () => {
       <button
         onClick={() =>
           addToCart({
-            id: product.id,
+            id,
+            productId: new Date().getTime().toString(),
             name: product.name,
             price: product.price,
             quantity,

@@ -18,7 +18,7 @@ const SearchItem = ({ id, imageurl, name, price, category }) => {
 
       <div className=" w-full  px-2">
         <h2 className="leading-5 font-medium text-sm truncate">{name}</h2>
-        <p className=" text-xs truncate uppercase text-emerald-500">
+        <p className=" text-xs truncate capitalize text-emerald-500">
           {category}
         </p>
         <div className="flex items-center  justify-between">

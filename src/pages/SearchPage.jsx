@@ -21,7 +21,7 @@ const SearchPage = () => {
   };
   return (
     <div>
-      <div className="w-[95%] mx-auto">
+      <div className="w-[95%] mx-auto mb-32">
         <header className="flex items-center sticky top-0 gap-2  z-40 bg-white   py-3">
           <span onClick={() => navigate(-1)}>
             <svg

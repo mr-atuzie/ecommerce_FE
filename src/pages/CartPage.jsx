@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { USDollar } from "../utils";
 import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
+import axios from "axios";
+// import { getUser } from "../redux/features/auth/authSlice";
+import Loader from "../components/Loader";
 // import { loadStripe } from "@stripe/stripe-js";
 // import axios from "axios";
 // import { CLEAR_CART } from "../redux/features/cart/cartSlice";
 const CartPage = () => {
-  const { cart, cartTotal } = useSelector((state) => state.cart);
+  const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+  // const { cartTotal } = useSelector((state) => state.cart);
   const [shipping, setShipping] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   // const dispatch = useDispatch();
 
   // const makePayment = async () => {
@@ -37,6 +44,34 @@ const CartPage = () => {
   //     console.log(error);
   //   }
   // };
+
+  useEffect(() => {
+    setLoading(true);
+    const getUser = async () => {
+      const { data } = await axios.get("api/v1/users/getUser");
+      setCart(data.cart);
+      setCartTotal(
+        data.cart.reduce(
+          (total, item) => total + Number(item.price) * Number(item.quantity),
+          0
+        )
+      );
+      setLoading(false);
+      console.log(data.cart);
+    };
+    getUser();
+  }, []);
+
+  const check = cart.reduce(
+    (total, item) => total + Number(item.price) * Number(item.quantity),
+    0
+  );
+
+  console.log(check);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -71,13 +106,21 @@ const CartPage = () => {
           </div> */}
           <span className="text-xs  text-gray-400">{cart.length} items</span>
           {cart?.map((product, index) => {
-            const { image, name, price, category, quantity, id, size, desc } =
-              product;
+            const {
+              image,
+              name,
+              price,
+              category,
+              quantity,
+              productId,
+              size,
+              desc,
+            } = product;
 
             return (
               <CartItem
                 key={index}
-                id={id}
+                id={productId}
                 imageurl={image}
                 name={name}
                 price={price}
@@ -85,6 +128,7 @@ const CartPage = () => {
                 size={size}
                 category={category}
                 quantity={quantity}
+                setCart={setCart}
               />
             );
           })}

@@ -15,10 +15,16 @@ const cartTotal =
     ? JSON.parse(sessionStorage.getItem("cartTotal"))
     : 0;
 
+const order =
+  sessionStorage.getItem("order") !== null
+    ? JSON.parse(sessionStorage.getItem("order"))
+    : null;
+
 const initialState = {
   cart: cart,
   cartQuantity,
   cartTotal,
+  order,
 };
 
 const cartSlice = createSlice({
@@ -30,6 +36,28 @@ const cartSlice = createSlice({
 
       state.cart.push(product);
       state.cartQuantity++;
+      state.cartTotal = state.cart.reduce(
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
+      );
+
+      sessionStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart.map((item) => item))
+      );
+
+      sessionStorage.setItem(
+        "cartQuantity",
+        JSON.stringify(state.cartQuantity)
+      );
+
+      sessionStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
+    },
+    SET_CART(state, action) {
+      const product = action.payload;
+
+      state.cart = product;
+      state.cartQuantity = product.length;
       state.cartTotal = state.cart.reduce(
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
@@ -86,6 +114,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM_CART } = cartSlice.actions;
+export const { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM_CART, SET_CART } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
