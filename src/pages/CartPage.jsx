@@ -15,7 +15,7 @@ const CartPage = () => {
   const [cartTotal, setCartTotal] = useState(0);
   // const { cartTotal } = useSelector((state) => state.cart);
   const [shipping, setShipping] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   // const dispatch = useDispatch();
 
@@ -68,9 +68,9 @@ const CartPage = () => {
 
   // console.log(check);
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
 
   return (
     <>
