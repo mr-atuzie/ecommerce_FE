@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { cartQuantity } = useSelector((state) => state.cart);
+  // const { cartQuantity } = useSelector((state) => state.cart);
 
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Header = () => {
         required
       />
 
-      <Link to={"/cart"}>
+      {/* <Link to={"/cart"}>
         <div className=" relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const Header = () => {
             </span>
           )}
         </div>
-      </Link>
+      </Link> */}
     </header>
   );
 };

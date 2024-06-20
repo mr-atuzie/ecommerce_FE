@@ -23,7 +23,6 @@ import Orders from "./pages/Orders";
 import ProfileLayout from "./ProfileLayout";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
-import { SET_CART } from "./redux/features/cart/cartSlice";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -37,16 +36,6 @@ const App = () => {
       dispatch(loginStatus());
     };
     getLoginStatus();
-  }, [dispatch]);
-
-  useEffect(() => {
-    console.log("rex");
-
-    const getUser = async () => {
-      const { data } = await axios.get("api/v1/users/getUser");
-      dispatch(SET_CART(data.cart));
-    };
-    getUser();
   }, [dispatch]);
 
   return (

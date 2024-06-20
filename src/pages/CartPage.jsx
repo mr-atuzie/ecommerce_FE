@@ -50,24 +50,23 @@ const CartPage = () => {
     const getUser = async () => {
       const { data } = await axios.get("api/v1/users/getUser");
       setCart(data.cart);
+      setLoading(false);
       setCartTotal(
         data.cart.reduce(
           (total, item) => total + Number(item.price) * Number(item.quantity),
           0
         )
       );
-      setLoading(false);
-      console.log(data.cart);
     };
     getUser();
   }, []);
 
-  const check = cart.reduce(
-    (total, item) => total + Number(item.price) * Number(item.quantity),
-    0
-  );
+  // const check = cart.reduce(
+  //   (total, item) => total + Number(item.price) * Number(item.quantity),
+  //   0
+  // );
 
-  console.log(check);
+  // console.log(check);
 
   if (loading) {
     return <Loader />;
@@ -75,7 +74,7 @@ const CartPage = () => {
 
   return (
     <>
-      {cart < 1 && (
+      {cart?.length < 1 && (
         <div className="mt-10  text-gray-400 flex justify-center items-center flex-col">
           <div>
             <svg
