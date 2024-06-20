@@ -46,11 +46,11 @@ const CartPage = () => {
   // };
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const getUser = async () => {
       const { data } = await axios.get("api/v1/users/getUser");
       setCart(data.cart);
-      setLoading(false);
+      // setLoading(false);
       setCartTotal(
         data.cart.reduce(
           (total, item) => total + Number(item.price) * Number(item.quantity),
