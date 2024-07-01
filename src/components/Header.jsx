@@ -34,7 +34,7 @@ const Header = () => {
             />
           </svg>
         </button>
-        <img className=" w-10 h-10  " src={logo} alt="" />
+        <img className=" w-12 h-12  " src={logo} alt="" />
         <div>
           <Link to={"/cart"}>
             <div className=" relative">
