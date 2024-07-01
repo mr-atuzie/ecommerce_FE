@@ -6,7 +6,7 @@ import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const CartPage = () => {
 
   return (
     <>
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
       {cart?.length < 1 && (
         <div className="mt-10  text-gray-400 flex justify-center items-center flex-col">
           <div>
