@@ -44,7 +44,7 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-5 h-5"
               >
                 <path
                   strokeLinecap="round"
@@ -53,7 +53,7 @@ const Header = () => {
                 />
               </svg>
               {cartQuantity > 0 && (
-                <span className=" w-5 h-5 -right-2 -top-1 rounded-full bg-emerald-500 text-white text-xs flex justify-center items-center p-1 absolute  ">
+                <span className=" w-5 h-5 -right-2 -top-1 rounded-full bg-emerald-500 text-white text-[10px] flex justify-center items-center p-1 absolute  ">
                   {cartQuantity}
                 </span>
               )}
