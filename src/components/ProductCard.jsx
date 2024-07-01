@@ -38,26 +38,23 @@ const ProductCard = ({
   };
 
   return (
-    <div>
+    <div className=" relative">
+      <img
+        className="rounded-xl min-h-52 bg-gray-100  w-full  aspect-square  object-cover"
+        src={image}
+        alt=""
+      />
+
       <Link to={`/product/${id}`}>
-        <img
-          className="rounded-xl min-h-52 bg-gray-100  w-full  aspect-square  object-cover"
-          src={image}
-          alt=""
-        />
-      </Link>
+        <h2 className=" text-xs truncate lg:text-base mt-1 font-medium">
+          {name}
+        </h2>
 
-      <h2 className=" text-xs truncate lg:text-base mt-1 font-medium">
-        {name}
-      </h2>
+        <p className=" text-gray-500 text-xs hidden lg:block">
+          {shortenText(description, 26)}
+        </p>
 
-      <p className=" text-gray-500 text-xs hidden lg:block">
-        {shortenText(description, 26)}
-      </p>
-
-      <div className="flex items-center mt-0.5 justify-between">
-        <p className="font-bold">${USDollar.format(price)}</p>
-
+        <p className=" text-xs text-gray-600">${USDollar.format(price)}</p>
         <button
           onClick={() =>
             addToCart({
@@ -72,7 +69,7 @@ const ProductCard = ({
               image,
             })
           }
-          className=" rounded-md hover:scale-120  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+          className=" absolute top-2 right-2 rounded-md hover:scale-120  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +86,10 @@ const ProductCard = ({
             />
           </svg>
         </button>
-      </div>
+        {/* <div className="flex items-center mt-0.5 justify-between">
+
+        </div> */}
+      </Link>
     </div>
   );
 };
