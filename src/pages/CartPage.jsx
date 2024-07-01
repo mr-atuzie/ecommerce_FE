@@ -6,23 +6,27 @@ import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Loader from "../components/Loader";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  // const [cartTotal, setCartTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [shipping, setShipping] = useState(false);
 
   const { cartTotal } = useSelector((state) => state.cart);
 
   useEffect(() => {
+    setLoading(true);
     const getUser = async () => {
       const { data } = await axios.get("api/v1/users/getUser");
       setCart(data.cart);
+      setLoading(false);
     };
     getUser();
   }, [cart]);
 
   return (
     <>
+      {loading && <Loader />}
       {cart?.length < 1 && (
         <div className="mt-10  text-gray-400 flex justify-center items-center flex-col">
           <div>

@@ -29,7 +29,7 @@ const CartItem = ({
     <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">
       {imageurl && (
         <img
-          className="rounded-xl  h-20 object-cover aspect-square "
+          className="rounded-xl  h-14 object-cover aspect-square "
           src={imageurl}
           alt=""
         />
@@ -47,7 +47,7 @@ const CartItem = ({
           </div>
 
           <button
-            className=" font-medium bg-gray-200 p-2 w-6 flex hover:scale-100 justify-center items-center h-6 rounded-full"
+            className=" font-medium bg-red-100 text-red-600 p-2 w-6 flex hover:scale-100 justify-center items-center h-6 rounded-full"
             onClick={() => removeFromCart(id)}
           >
             <span>
@@ -69,7 +69,7 @@ const CartItem = ({
           </button>
         </div>
 
-        <p className="font-semibold text-sm">
+        <p className="text-xs text-gray-600">
           ${USDollar.format(price * quantity)}
         </p>
         {/* <div className=" mt-2">
