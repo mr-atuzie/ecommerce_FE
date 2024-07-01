@@ -54,7 +54,9 @@ const ProductCard = ({
           {shortenText(description, 26)}
         </p>
 
-        <p className=" text-xs text-gray-600">${USDollar.format(price)}</p>
+        <p className=" text-sm font-medium text-gray-600">
+          ${USDollar.format(price)}
+        </p>
         <button
           onClick={() =>
             addToCart({
@@ -77,7 +79,7 @@ const ProductCard = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-4 h-4"
+            className="w-5 h-5"
           >
             <path
               strokeLinecap="round"
