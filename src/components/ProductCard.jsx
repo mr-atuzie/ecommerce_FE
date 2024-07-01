@@ -54,7 +54,7 @@ const ProductCard = ({
           {shortenText(description, 26)}
         </p>
 
-        <p className="  font-semibold ">${USDollar.format(price)}</p>
+        <p className=" text-sm font-semibold ">${USDollar.format(price)}</p>
         {/* <div className="flex items-center mt-0.5 justify-between">
 
 </div> */}
