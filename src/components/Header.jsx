@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className=" sticky top-0 shadow  gap-2 w-full z-40 bg-white">
       <nav className=" w-[90%] mx-auto flex items-center py-2 justify-between">
-        {/* <button>
+        <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -26,7 +26,7 @@ const Header = () => {
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
-        </button> */}
+        </button>
         <img className=" w-12 h-12  " src={logo} alt="" />
         <div>
           <Link to={"/cart"}>
