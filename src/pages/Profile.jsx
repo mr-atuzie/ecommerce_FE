@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProfileMenu from "../components/ProfileMenu";
+// import ProfileMenu from "../components/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout, updateUser } from "../redux/features/auth/authSlice";
 import Loader from "../components/Loader";
@@ -58,7 +58,7 @@ const Profile = () => {
       {isLoading && <Loader />}
       <section className=" mb-32">
         <div>
-          <ProfileMenu />
+          {/* <ProfileMenu /> */}
           {/* <h2 className=" font-semibold text-3xl">Profile</h2> */}
         </div>
         <div>

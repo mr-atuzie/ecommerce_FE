@@ -5,72 +5,21 @@ import { USDollar } from "../utils";
 import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { getUser } from "../redux/features/auth/authSlice";
-// import Loader from "../components/Loader";
-// import { loadStripe } from "@stripe/stripe-js";
-// import axios from "axios";
-// import { CLEAR_CART } from "../redux/features/cart/cartSlice";
+import { useSelector } from "react-redux";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
-  // const { cartTotal } = useSelector((state) => state.cart);
+  // const [cartTotal, setCartTotal] = useState(0);
   const [shipping, setShipping] = useState(false);
-  // const [loading, setLoading] = useState(false);
 
-  // const dispatch = useDispatch();
-
-  // const makePayment = async () => {
-  //   const body = {
-  //     products: cart,
-  //   };
-
-  //   try {
-  //     const stripe = await loadStripe(
-  //       "pk_test_51PL7AtJPXBH06mUhMnLGbCOQlh9bvij17UHaCdhlC5ELPsIbFMz1jXUc2aqVw5c3pp2kkHvfcpxhC8xP0lcrYdhs00rJwueMHK"
-  //     );
-
-  //     const { data } = await axios.post("/api/v1/cart/checkout-session", body);
-
-  //     const result = stripe.redirectToCheckout({
-  //       sessionId: data.id,
-  //     });
-
-  //     if (result.error) {
-  //       console.log(result.error);
-  //     }
-
-  //     // dispatch(CLEAR_CART());
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const { cartTotal } = useSelector((state) => state.cart);
 
   useEffect(() => {
-    // setLoading(true);
     const getUser = async () => {
       const { data } = await axios.get("api/v1/users/getUser");
       setCart(data.cart);
-      // setLoading(false);
-      setCartTotal(
-        data.cart.reduce(
-          (total, item) => total + Number(item.price) * Number(item.quantity),
-          0
-        )
-      );
     };
     getUser();
-  }, []);
-
-  // const check = cart.reduce(
-  //   (total, item) => total + Number(item.price) * Number(item.quantity),
-  //   0
-  // );
-
-  // console.log(check);
-
-  // if (loading) {
-  //   return <Loader />;
-  // }
+  }, [cart]);
 
   return (
     <>

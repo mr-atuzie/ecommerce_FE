@@ -4,10 +4,8 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import axios from "axios";
-// import { ToastContainer } from "react-toastify";
 import { Toaster } from "react-hot-toast";
-// import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginStatus } from "./redux/features/auth/authSlice";
 import Profile from "./pages/Profile";
 import Layout from "./Layout";
@@ -17,7 +15,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import ScrollTop from "./components/ScrollTop";
 import SearchPage from "./pages/SearchPage";
-// import { SET_CART } from "./redux/features/cart/cartSlice";
+import { SET_CART } from "./redux/features/cart/cartSlice";
 import Shipping from "./pages/Shipping";
 import Orders from "./pages/Orders";
 import ProfileLayout from "./ProfileLayout";
@@ -28,7 +26,7 @@ axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
-  // const { isLoggedIn, user } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,6 +35,21 @@ const App = () => {
     };
     getLoginStatus();
   }, [dispatch]);
+
+  console.log(isLoggedIn);
+
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await axios.get("api/v1/users/getUser");
+
+      dispatch(SET_CART(data.cart));
+      console.log(data);
+    };
+    if (isLoggedIn) {
+      getUser();
+      console.log("check");
+    }
+  }, [isLoggedIn, dispatch]);
 
   return (
     <>
