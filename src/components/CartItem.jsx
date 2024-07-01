@@ -2,7 +2,7 @@ import React from "react";
 import { USDollar, shortenText } from "../utils";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { REMOVE_ITEM_CART } from "../redux/features/cart/cartSlice";
+import { REMOVE_ITEM_CART, SET_CART } from "../redux/features/cart/cartSlice";
 import axios from "axios";
 
 const CartItem = ({
@@ -12,13 +12,14 @@ const CartItem = ({
   price,
   category,
   quantity,
-  setCart,
+  // setCart,
 }) => {
   const dispatch = useDispatch();
   const removeFromCart = async () => {
     try {
       const { data } = await axios.patch("/api/v1/cart/remove", { id });
-      setCart(data);
+      // setCart(data);
+      dispatch(SET_CART(data));
       await dispatch(
         REMOVE_ITEM_CART({ id, price: Number(price) * Number(quantity) })
       );
@@ -29,7 +30,7 @@ const CartItem = ({
     <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">
       {imageurl && (
         <img
-          className="rounded-xl  h-14 object-cover aspect-square "
+          className="rounded-xl  h-14 object-contain aspect-square "
           src={imageurl}
           alt=""
         />
@@ -69,7 +70,7 @@ const CartItem = ({
           </button>
         </div>
 
-        <p className="text-xs text-gray-600">
+        <p className="text-sm font-medium ">
           ${USDollar.format(price * quantity)}
         </p>
         {/* <div className=" mt-2">

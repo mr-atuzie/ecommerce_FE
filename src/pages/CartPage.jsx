@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CartItem from "../components/CartItem";
 // import { useSelector } from "react-redux";
 import { USDollar } from "../utils";
 import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { useSelector } from "react-redux";
 // import Loader from "../components/Loader";
 const CartPage = () => {
-  const [cart, setCart] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [cart, setCart] = useState([]);
+
   const [shipping, setShipping] = useState(false);
 
-  const { cartTotal } = useSelector((state) => state.cart);
+  const { cartTotal, cart } = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    setLoading(true);
-    const getUser = async () => {
-      const { data } = await axios.get("api/v1/users/getUser");
-      setCart(data.cart);
-      setLoading(false);
-    };
-    getUser();
-  }, [cart]);
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     const { data } = await axios.get("api/v1/users/getUser");
+
+  //     setCart(data.cart);
+  //   };
+  //   getUser();
+  // }, [cart]);
 
   return (
     <>
@@ -80,7 +79,7 @@ const CartPage = () => {
                 size={size}
                 category={category}
                 quantity={quantity}
-                setCart={setCart}
+                // setCart={setCart}
               />
             );
           })}

@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 // import ProfileMenu from "../components/ProfileMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Loader from "../components/Loader";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const orderProducts = async () => {
+      setLoading(true);
       try {
         const { data } = await axios.get("/api/v1/cart/order");
         setOrders(data);
+        setLoading(false);
       } catch (error) {
         const message =
           (error.response &&
@@ -32,6 +36,7 @@ const Orders = () => {
       {/* <div>
         <ProfileMenu />
       </div> */}
+      {loading && <Loader />}
       {orders?.length < 1 && (
         <div className="mt-10  text-gray-400 flex justify-center items-center flex-col">
           <div>
@@ -59,11 +64,19 @@ const Orders = () => {
         {orders.length > 0 &&
           orders.map((order) => {
             return (
-              <div
-                className=" font-mono text-sm border-dashed p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300"
-                key={order._id}
-              >
-                {order._id}
+              <div className="border-dashed font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
+                <h1 className="  text-sm " key={order._id}>
+                  <span className=" font-medium">ORDER ID:</span> {order._id}
+                </h1>
+                <p className=" text-sm ">
+                  <span className=" font-medium">NUMBER OF ITEMS:</span>{" "}
+                  {order?.products.length} items
+                </p>
+                <p className=" text-sm ">
+                  <span className=" font-medium">ADDRESS:</span> {""}
+                  {order?.delivery.address},{order?.delivery.state},
+                  {order?.delivery.country}.
+                </p>
               </div>
             );
           })}

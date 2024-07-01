@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <div className="  w-[95%] mx-auto">
+      <div className="  w-[90%] mx-auto">
         <Outlet />
       </div>
       {/* <MobileNav /> */}

@@ -13,7 +13,7 @@ const CategoryPage = () => {
   }, [id]);
 
   return (
-    <div className=" mb-32">
+    <div className=" mt-6 mb-32">
       <h2 className=" text-lg capitalize font-bold mb-2 lg:text-2xl">
         {id}({products.length})
       </h2>

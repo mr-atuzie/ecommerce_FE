@@ -53,10 +53,15 @@ const ProductPage = () => {
   return (
     <div className="py-4 mb-32">
       <h1 className=" font-semibold capitalize">{product?.name}</h1>
-      <p className="text-xs uppercase text-gray-500 mb-1  ">
-        {product?.category}
-      </p>
-      <h1 className=" font-semibold capitalize mb-1">${product?.price}</h1>
+      <div className=" flex flex-col   mb-5 gap-2">
+        <h1 className=" font-bold text-2xl  text-gray-600 capitalize ">
+          ${product?.price}
+        </h1>
+        <p className="text-xs uppercase text-emerald-500  underline font-medium ">
+          {product?.category}
+        </p>
+      </div>
+
       <div className="   justify-center overflow-hidden flex gap-3">
         <div className=" w-[80%] ">
           <div>
@@ -75,7 +80,7 @@ const ProductPage = () => {
                 onClick={() => setImagePreview(index)}
                 key={index}
                 className={`${
-                  index === imagePreview ? " border-2 border-emerald-600" : ""
+                  index === imagePreview ? " border-2 border-emerald-500" : ""
                 } object-cover rounded-xl w-20 aspect-square  bg-gray-200`}
                 src={image}
                 alt=""
@@ -137,7 +142,7 @@ const ProductPage = () => {
             image: product.images[0],
           })
         }
-        className="bg-emerald-600 hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
+        className="bg-emerald-500 hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
       >
         Add to cart
         <span>

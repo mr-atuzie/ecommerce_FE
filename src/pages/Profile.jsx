@@ -56,7 +56,7 @@ const Profile = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <section className=" mb-32">
+      <section className=" mt-4 mb-32">
         <div>
           {/* <ProfileMenu /> */}
           {/* <h2 className=" font-semibold text-3xl">Profile</h2> */}

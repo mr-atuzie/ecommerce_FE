@@ -9,7 +9,7 @@ import ProductCard from "./ProductCard";
 const ProductSlider = ({ heading, products, hide }) => {
   return (
     <>
-      <div className=" bg-white py-5 mb-8">
+      <div className=" bg-white py-5 ">
         <div className=" flex items-center justify-between">
           <h2 className="  capitalize font-bold mb-2 lg:text-2xl">{heading}</h2>
 

@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/ecommece_logo_1.jpg";
+import { productData } from "../data";
 
 const Header = () => {
   const { cartQuantity } = useSelector((state) => state.cart);
+  const [category, setCategory] = useState(false);
 
   // const navigate = useNavigate();
+
+  const allCategory = productData.map((item) => item.category);
+
+  const uniqueArray = [...new Set(allCategory)];
+  console.log(uniqueArray);
 
   return (
     <header className=" sticky top-0 shadow  gap-2 w-full z-40 bg-white">
       <nav className=" w-[90%] mx-auto flex items-center py-2 justify-between">
-        <button>
+        <button onClick={() => setCategory(true)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -193,6 +200,65 @@ const Header = () => {
           </div>
         </NavLink>
       </div>
+      {category && (
+        <section className=" w-[80%] h-screen fixed left-0 py-4 bg-white top-0 shadow-md">
+          <div className=" w-[90%] mx-auto">
+            <div className=" flex justify-between ">
+              <h2 className="  capitalize font-bold mb-2 lg:text-2xl">
+                Categories
+              </h2>
+
+              <button onClick={() => setCategory(false)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className=" my-6">
+              {uniqueArray.map((item) => {
+                return (
+                  <Link
+                    onClick={() => setCategory(false)}
+                    to={`/category/${item}`}
+                  >
+                    <div className=" flex items-center gap-3 mb-2.5">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-3"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      </span>
+                      <p className="capitalize font-medium">{item}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
       {/* <input
         className=" block p-2 w-full bg-gray-100 border rounded-xl placeholder:text-sm placeholder:font-light"
         type="text"
