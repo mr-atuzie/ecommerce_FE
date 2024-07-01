@@ -47,7 +47,7 @@ const CartPage = () => {
       )}
 
       {cart?.length >= 1 && (
-        <div className="  mb-32">
+        <div className=" mt-4  mb-32">
           <h1 className=" font-semibold -mb-3 text-lg">Cart</h1>
           {/* <div className=" flex gap-2 items-center">
             <span className=""> ${USDollar.format(cartTotal)}</span>
