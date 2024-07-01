@@ -64,15 +64,15 @@ const Orders = () => {
         {orders.length > 0 &&
           orders.map((order) => {
             return (
-              <div className="border-dashed font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
-                <h1 className="  text-sm " key={order._id}>
+              <div className="border-dashed text-xs font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
+                <h1 className="  " key={order._id}>
                   <span className=" font-medium">ORDER ID:</span> {order._id}
                 </h1>
-                <p className=" text-sm ">
+                <p className=" ">
                   <span className=" font-medium">NUMBER OF ITEMS:</span>{" "}
                   {order?.products.length} items
                 </p>
-                <p className=" text-sm ">
+                <p className=" ">
                   <span className=" font-medium">ADDRESS:</span> {""}
                   {order?.delivery.address},{order?.delivery.state},
                   {order?.delivery.country}.
