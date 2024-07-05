@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import MobileNav from "./components/MobileNav";
+// import MobileNav from "./components/MobileNav";
 
 const ProfileLayout = () => {
   return (
@@ -8,7 +8,7 @@ const ProfileLayout = () => {
       <div className="  w-[92%] mx-auto">
         <Outlet />
       </div>
-      <MobileNav />
+      {/* <MobileNav /> */}
     </>
   );
 };
