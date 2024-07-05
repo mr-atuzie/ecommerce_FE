@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { productData } from "../data";
-import SearchItem from "../components/SearchItem";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 

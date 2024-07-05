@@ -15,7 +15,7 @@ const PaystackPayment = ({ email, amount, publicKey, onSuccess, onClose }) => {
       ],
     },
     publicKey,
-    text: "Pay Now",
+    text: "Pay $" + 20 + amount * 100,
     onSuccess,
     onClose,
     onError: (error) => {

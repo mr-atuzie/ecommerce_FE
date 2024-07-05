@@ -223,13 +223,22 @@ const Shipping = () => {
               </div>
             </div>
 
-            <PaystackPayment
-              email={email}
-              amount={amount}
-              publicKey={publicKey}
-              onSuccess={handleSuccess}
-              onClose={handleClose}
-            />
+            {!name || !phone || !address || !state || !city ? (
+              <button
+                disabled={true}
+                className=" bg-emerald-500 lg:text-base px-5 lg:py-3 py-2 font-medium hover:border-2 hover:bg-white hover:text-emerald-500 hover:border-emerald-500  shadow-md my-4 rounded-xl w-full text-white"
+              >
+                Pay ${USDollar.format(cartTotal + 20)}
+              </button>
+            ) : (
+              <PaystackPayment
+                email={email}
+                amount={amount}
+                publicKey={publicKey}
+                onSuccess={handleSuccess}
+                onClose={handleClose}
+              />
+            )}
           </div>
         </div>
       </div>
