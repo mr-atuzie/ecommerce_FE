@@ -1,5 +1,6 @@
 import React from "react";
 import { PaystackButton } from "react-paystack";
+import { USDollar } from "../utils";
 
 const PaystackPayment = ({ email, amount, publicKey, onSuccess, onClose }) => {
   const componentProps = {
@@ -15,7 +16,7 @@ const PaystackPayment = ({ email, amount, publicKey, onSuccess, onClose }) => {
       ],
     },
     publicKey,
-    text: "Pay $" + 20 + amount * 100,
+    text: `Pay $${USDollar.format(amount + 20)}`,
     onSuccess,
     onClose,
     onError: (error) => {

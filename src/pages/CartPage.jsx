@@ -46,9 +46,7 @@ const CartPage = () => {
 
       {cart?.length >= 1 && (
         <div className=" lg:w-[80%] lg:mx-auto py-4 lg:py-10  mb-32">
-          <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
-            Cart
-          </h2>
+          <h2 className="  capitalize font-bold  lg:text-3xl">Cart</h2>
           <span className="text-xs lg:text-sm  text-gray-400">
             {cart.length} items
           </span>

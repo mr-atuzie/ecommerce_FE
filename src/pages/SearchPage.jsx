@@ -21,7 +21,7 @@ const SearchPage = () => {
   };
   return (
     <div className="">
-      <div className="w-[90%] mx-auto mb-32">
+      <div className="w-full mx-auto mb-32">
         <header className="flex items-center sticky top-0 gap-2  z-40 bg-white    py-3">
           <span className=" lg:hidden" onClick={() => navigate(-1)}>
             <svg
@@ -30,7 +30,7 @@ const SearchPage = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-4 h-4"
             >
               <path
                 strokeLinecap="round"
@@ -43,7 +43,7 @@ const SearchPage = () => {
             <input
               className=" lowercases block lg:py-3 p-2 w-full bg-gray-100 border rounded-xl placeholder:text-sm placeholder:font-light"
               type="text"
-              placeholder="eg shirts, shoes, jackets, hoodies..."
+              placeholder="Eg Shirts, Shoes, Jackets, Hoodies..."
               required
               autoFocus
               onChange={(ev) => handleChange(ev)}
@@ -53,7 +53,7 @@ const SearchPage = () => {
         {search && products.length <= 0 && <p>Nothing found</p>}
 
         {search && products.length > 0 ? (
-          <div className=" grid grid-cols-2 gap-4 md:grid-cols-3 m lg:grid-cols-5">
+          <div className=" grid grid-cols-2 gap-4 md:grid-cols-3 mt-3 lg:grid-cols-5">
             {products.map((product, index) => {
               const { images, name, price, id, category, desc, size } = product;
               return (
