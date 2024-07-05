@@ -33,9 +33,6 @@ const Orders = () => {
   console.log(orders);
   return (
     <div className=" py-4 lg:py-10">
-      {/* <div>
-        <ProfileMenu />
-      </div> */}
       {loading && <Loader />}
       {orders?.length < 1 && (
         <div className="mt-10  text-gray-400 flex justify-center items-center flex-col">
@@ -60,29 +57,33 @@ const Orders = () => {
         </div>
       )}
 
-      <div className=" w-[50%] mx-auto">
-        <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
-          Your Orders
-        </h2>
-        {orders.length > 0 &&
-          orders.map((order) => {
-            return (
-              <div className="border-dashed text-xs lg:text-base font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
-                <h1 className="  " key={order._id}>
-                  <span className=" font-medium">ORDER ID:</span> {order._id}
-                </h1>
-                <p className=" ">
-                  <span className=" font-medium">NUMBER OF ITEMS:</span>{" "}
-                  {order?.products.length} items
-                </p>
-                <p className=" ">
-                  <span className=" font-medium">ADDRESS:</span> {""}
-                  {order?.delivery.address},{order?.delivery.state},
-                  {order?.delivery.country}.
-                </p>
-              </div>
-            );
-          })}
+      <div className=" lg:w-[50%] mx-auto">
+        {orders.length > 0 && (
+          <div>
+            <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
+              Your Orders
+            </h2>
+
+            {orders.map((order) => {
+              return (
+                <div className="border-dashed text-xs lg:text-base font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
+                  <h1 className="  " key={order._id}>
+                    <span className=" font-medium">ORDER ID:</span> {order._id}
+                  </h1>
+                  <p className=" ">
+                    <span className=" font-medium">NUMBER OF ITEMS:</span>{" "}
+                    {order?.products.length} items
+                  </p>
+                  <p className=" ">
+                    <span className=" font-medium">ADDRESS:</span> {""}
+                    {order?.delivery.address},{order?.delivery.state},
+                    {order?.delivery.country}.
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

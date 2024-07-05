@@ -240,7 +240,7 @@ const Header = () => {
                 />
               </svg>
             </span>
-            <p className=" text-[10px] tracking-wider">Home</p>
+            <p className=" text-[10px] tracking-wider">Store</p>
           </div>
         </NavLink>
 
@@ -357,10 +357,8 @@ const Header = () => {
       {category && (
         <section className=" w-[80%] h-screen fixed left-0 py-4 bg-white top-0 shadow-md">
           <div className=" w-[90%] mx-auto">
-            <div className=" flex justify-between ">
-              <h2 className="  capitalize font-bold mb-2 lg:text-2xl">
-                Categories
-              </h2>
+            <div className=" flex items-center justify-between ">
+              <img className=" w-12 h-12   " src={logo} alt="" />
 
               <button onClick={() => setCategory(false)}>
                 <svg
@@ -379,6 +377,9 @@ const Header = () => {
                 </svg>
               </button>
             </div>
+            <h2 className="  capitalize font-bold mt-2 lg:mb-4 lg:text-3xl">
+              Categories
+            </h2>
 
             <div className=" my-6">
               {uniqueArray.map((item) => {

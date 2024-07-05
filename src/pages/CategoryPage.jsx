@@ -18,7 +18,7 @@ const CategoryPage = () => {
         {id}({products.length})
       </h2>
 
-      <div className=" grid gap-4  gap-8grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className=" grid gap-4  lg:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {products?.map((product, index) => {
           const { images, name, price, desc, id, size, category } = product;
 

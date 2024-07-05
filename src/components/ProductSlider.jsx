@@ -7,6 +7,18 @@ import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 const ProductSlider = ({ heading, products, hide }) => {
+  function makeid(length) {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
   return (
     <>
       <div className=" bg-white py-5 lg:py-14 ">
@@ -61,7 +73,7 @@ const ProductSlider = ({ heading, products, hide }) => {
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
-                    productId={new Date().getTime().toString()}
+                    productId={makeid(10)}
                     image={images[0]}
                     name={name}
                     price={price}
@@ -95,7 +107,7 @@ const ProductSlider = ({ heading, products, hide }) => {
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
-                    productId={new Date().getTime().toString()}
+                    productId={makeid(10)}
                     image={images[0]}
                     name={name}
                     price={price}

@@ -2,7 +2,7 @@ import React from "react";
 import { USDollar, shortenText } from "../utils";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { REMOVE_ITEM_CART, SET_CART } from "../redux/features/cart/cartSlice";
+import { SET_CART } from "../redux/features/cart/cartSlice";
 import axios from "axios";
 
 const CartItem = ({
@@ -20,23 +20,14 @@ const CartItem = ({
       const { data } = await axios.patch("/api/v1/cart/remove", { id });
       // setCart(data);
       dispatch(SET_CART(data));
-      await dispatch(
-        REMOVE_ITEM_CART({ id, price: Number(price) * Number(quantity) })
-      );
       toast.success(`${name} removed from cart`);
     } catch (error) {}
   };
   return (
-    <div className=" flex items-center border-b py-2 gap-2 bg-white mb-2 ">
-      {imageurl && (
-        <img
-          className="rounded-xl  h-14 object-contain aspect-square "
-          src={imageurl}
-          alt=""
-        />
-      )}
+    <div className=" flex items-center border rounded-xl overflow-hidden  gap-2 bg-white mb-4 ">
+      {imageurl && <img className="  h-20 " src={imageurl} alt="" />}
 
-      <div className=" w-full px-2">
+      <div className=" w-full py-2 px-2">
         <div className="flex justify-between">
           <div>
             <h2 className="leading-5 font-medium lg:text-base text-sm truncate">
@@ -58,7 +49,7 @@ const CartItem = ({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-4"
+                className="size-5 font-semibold"
               >
                 <path
                   strokeLinecap="round"
@@ -70,9 +61,13 @@ const CartItem = ({
           </button>
         </div>
 
-        <p className="text-sm font-medium ">
-          ${USDollar.format(price * quantity)}
+        <p className=" text-[10px] flex items-center">
+          $
+          <span className="text-sm font-medium ">
+            {USDollar.format(price * quantity)}
+          </span>
         </p>
+
         {/* <div className=" mt-2">
           <div className=" flex items-center gap-2">
             <button className=" rounded-md hover:scale-100  bg-emerald-500 text-white border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2">

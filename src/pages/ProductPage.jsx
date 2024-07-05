@@ -51,6 +51,19 @@ const ProductPage = () => {
     }
   };
 
+  function makeid(length) {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+
   return (
     <div className="py-4 lg:py-14  mb-32">
       <div className="lg:w-[60%] mx-auto">
@@ -61,8 +74,11 @@ const ProductPage = () => {
           <p className="text-[10px] text-emerald-500 -mt-1  uppercase font-medium">
             <span> {product?.category}</span>
           </p>
-          <h1 className=" font-semibold text-2xl  capitalize ">
-            ${product?.price}
+          <h1 className=" flex items-center ">
+            $
+            <span className="font-semibold text-2xl  capitalize ">
+              {product?.price}
+            </span>
           </h1>
         </div>
 
@@ -105,8 +121,11 @@ const ProductPage = () => {
               <p className="text-xs text-emerald-500 -mt-1  uppercase font-medium">
                 <span> {product?.category}</span>
               </p>
-              <h1 className=" font-semibold text-2xl  capitalize ">
-                ${product?.price}
+              <h1 className=" flex items-center ">
+                $
+                <span className="font-semibold text-2xl  capitalize ">
+                  {product?.price}
+                </span>
               </h1>
             </div>
 
@@ -156,7 +175,7 @@ const ProductPage = () => {
               onClick={() =>
                 addToCart({
                   id,
-                  productId: new Date().getTime().toString(),
+                  productId: makeid(id),
                   name: product.name,
                   price: product.price,
                   quantity,
@@ -166,10 +185,10 @@ const ProductPage = () => {
                   image: product.images[0],
                 })
               }
-              className="bg-emerald-500 lg:text-base hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
+              className="bg-emerald-500 lg:text-base hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-500 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
             >
               Add to cart
-              <span>
+              {/* <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -184,7 +203,7 @@ const ProductPage = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
                   />
                 </svg>
-              </span>
+              </span> */}
             </button>
           </div>
         </div>

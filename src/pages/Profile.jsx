@@ -66,7 +66,7 @@ const Profile = () => {
                     Name
                   </label>
                   <input
-                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 rounded-xl block w-full "
+                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 text-sm rounded-xl block w-full "
                     type="text"
                     name="name"
                     id="name"
@@ -81,7 +81,7 @@ const Profile = () => {
                     email
                   </label>
                   <input
-                    className=" bg-gray-100  p-2.5 lg:py-3 rounded-xl block w-full "
+                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 text-sm rounded-xl block w-full "
                     type="email"
                     name="email"
                     id="email"
@@ -96,7 +96,7 @@ const Profile = () => {
                     phone
                   </label>
                   <input
-                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 rounded-xl block w-full "
+                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 text-sm rounded-xl block w-full "
                     type="text"
                     name="phone"
                     id="phone"
