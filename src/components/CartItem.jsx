@@ -39,7 +39,7 @@ const CartItem = ({
       <div className=" w-full px-2">
         <div className="flex justify-between">
           <div>
-            <h2 className="leading-5 font-medium text-sm truncate">
+            <h2 className="leading-5 font-medium lg:text-base text-sm truncate">
               <span>{quantity}</span> {shortenText(name, 20)}
             </h2>
             <p className=" text-xs truncate capitalize  text-emerald-500">
@@ -48,7 +48,7 @@ const CartItem = ({
           </div>
 
           <button
-            className=" font-medium bg-red-100 text-red-600 p-2 w-6 flex hover:scale-100 justify-center items-center h-6 rounded-full"
+            className=" font-medium  text-red-600 p-2 w-6 flex hover:scale-100 justify-center items-center h-6 rounded-full"
             onClick={() => removeFromCart(id)}
           >
             <span>

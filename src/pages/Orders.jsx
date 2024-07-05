@@ -32,7 +32,7 @@ const Orders = () => {
 
   console.log(orders);
   return (
-    <div className=" mt-4 mb-32">
+    <div className=" py-4 lg:py-10">
       {/* <div>
         <ProfileMenu />
       </div> */}
@@ -60,11 +60,14 @@ const Orders = () => {
         </div>
       )}
 
-      <div>
+      <div className=" w-[50%] mx-auto">
+        <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
+          Your Orders
+        </h2>
         {orders.length > 0 &&
           orders.map((order) => {
             return (
-              <div className="border-dashed text-xs font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
+              <div className="border-dashed text-xs lg:text-base font-mono p-3 w-full bg-gray-100 mb-4 rounded-lg  border-2 border-gray-300">
                 <h1 className="  " key={order._id}>
                   <span className=" font-medium">ORDER ID:</span> {order._id}
                 </h1>

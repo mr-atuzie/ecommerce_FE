@@ -4,7 +4,7 @@ import { productData } from "../data";
 import ProductSlider from "../components/ProductSlider";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
+import { SET_CART } from "../redux/features/cart/cartSlice";
 import axios from "axios";
 
 const ProductPage = () => {
@@ -35,8 +35,9 @@ const ProductPage = () => {
   const addToCart = async (items) => {
     try {
       const { data } = await axios.patch("/api/v1/cart/addToCart", items);
-      console.log(data);
-      await dispatch(ADD_TO_CART(items));
+
+      const cart = data.cart;
+      await dispatch(SET_CART(cart));
       toast.success(`${items.name} added to cart`);
     } catch (error) {
       const message =
@@ -51,141 +52,143 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="py-4 mb-32">
-      <h1 className=" font-semibold capitalize">{product?.name}</h1>
-      <div className=" flex flex-col   mb-5 gap-2">
-        <h1 className=" font-bold text-2xl  text-gray-600 capitalize ">
-          ${product?.price}
-        </h1>
-        <p className="text-xs uppercase text-emerald-500  underline font-medium ">
-          {product?.category}
-        </p>
-      </div>
+    <div className="py-4 lg:py-14  mb-32">
+      <div className="lg:w-[60%] mx-auto">
+        <div className=" flex flex-col mb-4 lg:hidden">
+          <h1 className=" font-semibold capitalize lg:text-xl">
+            {product?.name}
+          </h1>
+          <p className="text-[10px] text-emerald-500 -mt-1  uppercase font-medium">
+            <span> {product?.category}</span>
+          </p>
+          <h1 className=" font-semibold text-2xl  capitalize ">
+            ${product?.price}
+          </h1>
+        </div>
 
-      <div className="   justify-center overflow-hidden flex gap-3">
-        <div className=" w-[80%] ">
-          <div>
-            <img
-              className=" rounded-xl bg-gray-200 object-cover h-80 w-full "
-              src={product?.images[imagePreview]}
-              alt=""
-            />
+        <div className=" flex flex-col lg:flex-row justify-between">
+          <div className=" lg:w-[50%]  justify-center overflow-hidden flex gap-3">
+            <div className=" w-[80%] lg:w-full ">
+              <div>
+                <img
+                  className=" rounded-xl bg-gray-200 object-cover h-80 lg:h-full w-full "
+                  src={product?.images[imagePreview]}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className=" grid lg:gap-2 ">
+              {product?.images.map((image, index) => {
+                console.log(image);
+                return (
+                  <img
+                    onClick={() => setImagePreview(index)}
+                    key={index}
+                    className={`${
+                      index === imagePreview
+                        ? " border-2 border-emerald-500"
+                        : ""
+                    } object-cover rounded-xl w-20 lg:h-full aspect-square  bg-gray-200`}
+                    src={image}
+                    alt=""
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+          <div className=" lg:w-[45%]">
+            <div className=" hidden lg:block">
+              <h1 className=" font-semibold capitalize lg:text-xl">
+                {product?.name}
+              </h1>
+              <p className="text-xs text-emerald-500 -mt-1  uppercase font-medium">
+                <span> {product?.category}</span>
+              </p>
+              <h1 className=" font-semibold text-2xl  capitalize ">
+                ${product?.price}
+              </h1>
+            </div>
+
+            <p className=" text-gray-700 mt-2  text-sm lg:text-base">
+              {product?.desc}
+            </p>
+            <div className=" flex items-center gap-3 mt-2 lg:mt-4">
+              <button
+                onClick={() => handleQuantity("add")}
+                className=" rounded-md hover:scale-120  bg-emerald-500 border-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 lg:w-5 lg:h-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              <span className=" text-sm lg:text-base font-medium">
+                {quantity}
+              </span>
+              <button
+                onClick={() => handleQuantity("sub")}
+                className=" rounded-md hover:scale-120  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 lg:w-5 lg:h-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <button
+              onClick={() =>
+                addToCart({
+                  id,
+                  productId: new Date().getTime().toString(),
+                  name: product.name,
+                  price: product.price,
+                  quantity,
+                  size: product.size,
+                  description: product.desc,
+                  category: product.category,
+                  image: product.images[0],
+                })
+              }
+              className="bg-emerald-500 lg:text-base hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
+            >
+              Add to cart
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
         </div>
-        <div className=" grid ">
-          {product?.images.map((image, index) => {
-            console.log(image);
-            return (
-              <img
-                onClick={() => setImagePreview(index)}
-                key={index}
-                className={`${
-                  index === imagePreview ? " border-2 border-emerald-500" : ""
-                } object-cover rounded-xl w-20 aspect-square  bg-gray-200`}
-                src={image}
-                alt=""
-              />
-            );
-          })}
-        </div>
       </div>
-      <p className=" text-gray-700 mt-2 text-sm">{product?.desc}</p>
-      <div className=" flex items-center gap-3 mt-2">
-        <button
-          onClick={() => handleQuantity("add")}
-          className=" rounded-md hover:scale-120  bg-emerald-500 border-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-        <span className=" text-sm font-medium">{quantity}</span>
-        <button
-          onClick={() => handleQuantity("sub")}
-          className=" rounded-md hover:scale-120  text-emerald-500 border border-emerald-500 font-medium text-sm   flex justify-center items-center p-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <button
-        onClick={() =>
-          addToCart({
-            id,
-            productId: new Date().getTime().toString(),
-            name: product.name,
-            price: product.price,
-            quantity,
-            size: product.size,
-            description: product.desc,
-            category: product.category,
-            image: product.images[0],
-          })
-        }
-        className="bg-emerald-500 hover:scale-100 hover:bg-white hover:text-emerald-500 hover:border-emerald-500 py-3 rounded-xl justify-center border border-emerald-600 my-4  w-full text-center text-white text-sm flex gap-1 items-center"
-      >
-        Add to cart
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-            />
-          </svg>
-        </span>
-      </button>
-      {/* <div className=" flex justify-between my-4">
-        <button
-          onClick={() => favourite(product?.name)}
-          className="text-emerald-600 py-2 rounded-xl justify-center  w-[47%] text-center border border-emerald-600 bg-white text-sm flex gap-1 items-center"
-        >
-          Favourite
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-              />
-            </svg>
-          </span>
-        </button>
-      </div> */}
       <ProductSlider
         heading={`You may also like`}
         hide

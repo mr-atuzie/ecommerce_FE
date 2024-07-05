@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import CartItem from "../components/CartItem";
-// import { useSelector } from "react-redux";
 import { USDollar } from "../utils";
-import ShippingFormModal from "../components/ShippingFormModal";
 import { Link } from "react-router-dom";
-// import axios from "axios";
 import { useSelector } from "react-redux";
-// import Loader from "../components/Loader";
+
 const CartPage = () => {
   // const [cart, setCart] = useState([]);
-
-  const [shipping, setShipping] = useState(false);
 
   const { cartTotal, cart } = useSelector((state) => state.cart);
 
@@ -50,69 +45,76 @@ const CartPage = () => {
       )}
 
       {cart?.length >= 1 && (
-        <div className=" mt-4  mb-32">
-          <h1 className=" font-semibold -mb-3 text-lg">Cart</h1>
-          {/* <div className=" flex gap-2 items-center">
-            <span className=""> ${USDollar.format(cartTotal)}</span>
-          </div> */}
-          <span className="text-xs  text-gray-400">{cart.length} items</span>
-          {cart?.map((product, index) => {
-            const {
-              image,
-              name,
-              price,
-              category,
-              quantity,
-              productId,
-              size,
-              desc,
-            } = product;
+        <div className=" lg:w-[80%] lg:mx-auto py-4 lg:py-10  mb-32">
+          <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
+            Cart
+          </h2>
+          <span className="text-xs lg:text-sm  text-gray-400">
+            {cart.length} items
+          </span>
 
-            return (
-              <CartItem
-                key={index}
-                id={productId}
-                imageurl={image}
-                name={name}
-                price={price}
-                description={desc}
-                size={size}
-                category={category}
-                quantity={quantity}
-                // setCart={setCart}
-              />
-            );
-          })}
+          <div className="  lg:flex  lg: mt-4 lg:justify-between">
+            <div className=" lg:w-[50%]">
+              {cart?.map((product, index) => {
+                const {
+                  image,
+                  name,
+                  price,
+                  category,
+                  quantity,
+                  productId,
+                  size,
+                  desc,
+                } = product;
 
-          {shipping && (
-            <ShippingFormModal
-              setShipping={setShipping}
-              cartTotal={cartTotal}
-            />
-          )}
-
-          <div className=" font-mono text-sm  w-full border-2 border-dashed p-3 rounded-xl  mt-5">
-            <div className=" flex mt-1 ">
-              <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
-              <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
+                return (
+                  <CartItem
+                    key={index}
+                    id={productId}
+                    imageurl={image}
+                    name={name}
+                    price={price}
+                    description={desc}
+                    size={size}
+                    category={category}
+                    quantity={quantity}
+                    // setCart={setCart}
+                  />
+                );
+              })}
             </div>
-            <div className=" flex mt-1 ">
-              <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
-              <h2 className="font-semibold ">$20</h2>
-            </div>
-            <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
-              <h2 className="grow font-semibold text-gray-400">Total:</h2>
-              <h2 className=" font-semibold">
-                ${USDollar.format(cartTotal + 20)}
-              </h2>
+
+            <div className=" lg:w-[40%]">
+              <div className=" bg-gray-50 font-mono text-sm lg:text-base  w-full border-2 border-dashed p-3 rounded-xl  mt-5">
+                <div className=" flex mt-1 ">
+                  <h2 className="grow font-semibold text-gray-400">
+                    Subtotal:
+                  </h2>
+                  <h2 className="font-semibold ">
+                    ${USDollar.format(cartTotal)}
+                  </h2>
+                </div>
+                <div className=" flex mt-1 ">
+                  <h2 className="grow font-semibold text-gray-400">
+                    Delivery:
+                  </h2>
+                  <h2 className="font-semibold ">$20</h2>
+                </div>
+                <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
+                  <h2 className="grow font-semibold text-gray-400">Total:</h2>
+                  <h2 className=" font-semibold">
+                    ${USDollar.format(cartTotal + 20)}
+                  </h2>
+                </div>
+              </div>
+
+              <Link to={"/shipping"}>
+                <button className=" hover:border-2 bg-emerald-500 lg:text-base text-sm h px-5 py-2.5 font-semibold hover:bg-white hover:text-emerald-500 hover:border-emerald-500 shadow-md lg:my-8 my-4 rounded-xl w-full text-white">
+                  Checkout ${USDollar.format(cartTotal + 20)}
+                </button>
+              </Link>
             </div>
           </div>
-
-          <Link to={"/shipping"}>
-            <button className=" bg-emerald-500 text-sm h px-5 py-2.5 font-semibold hover:bg-white hover:text-emerald-500 hover:border-emerald-500 shadow-md my-4 rounded-xl w-full text-white">
-              Checkout ${USDollar.format(cartTotal + 20)}
-            </button>
-          </Link>
         </div>
       )}
     </>

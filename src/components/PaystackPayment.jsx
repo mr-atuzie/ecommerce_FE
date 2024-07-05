@@ -25,7 +25,7 @@ const PaystackPayment = ({ email, amount, publicKey, onSuccess, onClose }) => {
   };
   return (
     <PaystackButton
-      className=" bg-emerald-500 px-5 py-2 font-medium hover:border-2 hover:bg-white hover:text-emerald-500 hover:border-emerald-500  shadow-md my-4 rounded-xl w-full text-white"
+      className=" bg-emerald-500 lg:text-base px-5 lg:py-3 py-2 font-medium hover:border-2 hover:bg-white hover:text-emerald-500 hover:border-emerald-500  shadow-md my-4 rounded-xl w-full text-white"
       {...componentProps}
     />
   );

@@ -9,9 +9,11 @@ import ProductCard from "./ProductCard";
 const ProductSlider = ({ heading, products, hide }) => {
   return (
     <>
-      <div className=" bg-white py-5 ">
+      <div className=" bg-white py-5 lg:py-14 ">
         <div className=" flex items-center justify-between">
-          <h2 className="  capitalize font-bold mb-2 lg:text-2xl">{heading}</h2>
+          <h2 className="  capitalize font-bold mb-2 lg:mb-4 lg:text-3xl">
+            {heading}
+          </h2>
 
           {!hide && (
             <Link
@@ -59,12 +61,14 @@ const ProductSlider = ({ heading, products, hide }) => {
                 <SwiperSlide key={index}>
                   <ProductCard
                     id={id}
+                    productId={new Date().getTime().toString()}
                     image={images[0]}
                     name={name}
                     price={price}
                     description={desc}
                     size={size}
                     category={category}
+                    quantity={1}
                   />
                 </SwiperSlide>
               );

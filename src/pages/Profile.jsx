@@ -56,24 +56,17 @@ const Profile = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <section className=" mt-4 mb-32">
-        <div>
-          {/* <ProfileMenu /> */}
-          {/* <h2 className=" font-semibold text-3xl">Profile</h2> */}
-        </div>
-        <div>
+      <section className=" py-4 lg:py-14">
+        <div className="  lg:w-[40%] mx-auto">
           {!isLoading && (
             <>
               <form className="flex flex-col gap-3" onSubmit={saveProfile}>
                 <div className="">
-                  <label
-                    className=" text-sm text-gray-600  capitalize "
-                    htmlFor="email"
-                  >
+                  <label className=" text-sm   capitalize " htmlFor="email">
                     Name
                   </label>
                   <input
-                    className=" bg-gray-100 capitalize p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 rounded-xl block w-full "
                     type="text"
                     name="name"
                     id="name"
@@ -84,14 +77,11 @@ const Profile = () => {
                 </div>
 
                 <div>
-                  <label
-                    className=" text-sm text-gray-600  capitalize "
-                    htmlFor="email"
-                  >
+                  <label className=" text-sm  capitalize " htmlFor="email">
                     email
                   </label>
                   <input
-                    className=" bg-gray-100 p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100  p-2.5 lg:py-3 rounded-xl block w-full "
                     type="email"
                     name="email"
                     id="email"
@@ -102,14 +92,11 @@ const Profile = () => {
                 </div>
 
                 <div>
-                  <label
-                    className=" text-sm text-gray-600  capitalize "
-                    htmlFor="phone"
-                  >
+                  <label className=" text-sm   capitalize " htmlFor="phone">
                     phone
                   </label>
                   <input
-                    className=" bg-gray-100 p-2.5 rounded-xl block w-full lg:w-[350px]"
+                    className=" bg-gray-100 capitalize p-2.5 lg:py-3 rounded-xl block w-full "
                     type="text"
                     name="phone"
                     id="phone"
@@ -119,43 +106,7 @@ const Profile = () => {
                   />
                 </div>
 
-                {/* <div>
-                  <label htmlFor="address">address</label>
-                  <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
-                    type="text"
-                    name="address"
-                    id="address"
-                    value={profile?.address?.address}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="state">state</label>
-                  <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
-                    type="text"
-                    name="state"
-                    id="state"
-                    value={profile?.address?.state}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="country">country</label>
-                  <input
-                    className=" bg-gray-200 p-2.5 rounded-xl block w-full lg:w-[350px]"
-                    type="text"
-                    name="country"
-                    id="country"
-                    value={profile?.address?.country}
-                    onChange={handleInputChange}
-                  />
-                </div> */}
-
-                <button className=" p-2.5 mt-6 lg:w-[350px] bg-emerald-500  text-white text-center rounded-xl">
+                <button className=" p-2.5 lg:py-3 mt-6 text-sm lg:text-base font-medium  bg-emerald-500  text-white text-center rounded-xl">
                   Update Profile
                 </button>
               </form>
@@ -166,8 +117,22 @@ const Profile = () => {
         <div className="flex justify-center items-center mt-16">
           <button
             onClick={() => dispatch(logout())}
-            className=" py-2 px-4 w-fit bg-red-600 text-sm  text-white text-center rounded-xl"
+            className=" py-2 flex items-center gap-1 lg:py-3 px-4 w-fit bg-red-600 text-sm  text-white text-center rounded-xl"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
+              />
+            </svg>
             Logout
           </button>
         </div>

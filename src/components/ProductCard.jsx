@@ -3,7 +3,7 @@ import { USDollar, shortenText } from "../utils";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-import { ADD_TO_CART } from "../redux/features/cart/cartSlice";
+import { SET_CART } from "../redux/features/cart/cartSlice";
 import axios from "axios";
 
 const ProductCard = ({
@@ -22,8 +22,8 @@ const ProductCard = ({
   const addToCart = async (items) => {
     try {
       const { data } = await axios.patch("/api/v1/cart/addToCart", items);
-      console.log(data);
-      await dispatch(ADD_TO_CART(items));
+      const cart = data.cart;
+      await dispatch(SET_CART(cart));
       toast.success(`${items.name} added to cart`);
     } catch (error) {
       const message =
@@ -40,7 +40,7 @@ const ProductCard = ({
   return (
     <div className=" relative">
       <img
-        className="rounded-xl min-h-52 bg-gray-100  w-full  aspect-square  object-cover"
+        className="rounded-xl h-52 lg:h-80 bg-gray-100  w-full  aspect-square  object-cover"
         src={image}
         alt=""
       />
@@ -50,8 +50,8 @@ const ProductCard = ({
           {name}
         </h2>
 
-        <p className=" text-gray-500 text-xs hidden lg:block">
-          {shortenText(description, 26)}
+        <p className=" text-gray-600 text-xs hidden lg:block">
+          {shortenText(description, 36)}
         </p>
 
         <p className=" text-sm font-semibold ">${USDollar.format(price)}</p>
@@ -73,7 +73,7 @@ const ProductCard = ({
             image,
           })
         }
-        className=" absolute top-2 right-2 rounded-md hover:scale-120  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
+        className=" absolute shadow-lg shadow-gray-200 top-2 right-2 rounded-md hover:scale-120  bg-emerald-500 text-white font-medium text-sm   flex justify-center items-center p-1"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -60,15 +60,15 @@ const App = () => {
         <Routes>
           <Route path="/cancel-payment" element={<PaymentCancel />} />
 
-          <Route
-            path="/shipping"
-            element={
-              <Private>
-                <Shipping />
-              </Private>
-            }
-          />
           <Route path="/" element={<Layout />}>
+            <Route
+              path="/shipping"
+              element={
+                <Private>
+                  <Shipping />
+                </Private>
+              }
+            />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route index element={<Home />} />
 

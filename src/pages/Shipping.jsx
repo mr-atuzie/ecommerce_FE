@@ -120,7 +120,6 @@ const Shipping = () => {
   const amount = cartTotal; // Amount in dollar
 
   const handleSuccess = (reference) => {
-    console.log({ name, phone, address, cart });
     console.log(reference);
     orderProducts();
     // Handle the successful payment here
@@ -142,105 +141,97 @@ const Shipping = () => {
 
   return (
     <div>
-      <div className=" w-[90%] mx-auto py-3">
-        <button className="  text-xs" onClick={() => navigate(-1)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-            />
-          </svg>
-        </button>
+      <div className="lg:py-10 py-3">
         <div className=" mb-4 flex flex-col justify-center text-center items-center">
-          <h1 className=" font-semibold text-xl">Delivery Form</h1>
-          <p className=" text-xs text-gray-500">
+          <h1 className=" font-semibold text-xl lg:text-3xl">Delivery Form</h1>
+          <p className=" lg:text-sm text-xs text-gray-500">
             Please enter your delivery details
           </p>
         </div>
 
-        <label className=" text-sm text-gray-600">Recipient name</label>
-        <input
-          className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-          type="text"
-          placeholder="Enter fullname"
-          required
-          value={name}
-          onChange={(ev) => setName(ev.target.value)}
-        />
+        <div className=" lg:flex lg:justify-around">
+          <div className=" lg:w-[50%]">
+            <label className=" text-sm">Recipient name</label>
+            <input
+              className=" block p-2.5 lg:p-3 w-full bg-gray-100 mb-4 lg:mb-7 border rounded-xl placeholder:text-sm placeholder:font-light"
+              type="text"
+              placeholder="Enter fullname"
+              required
+              value={name}
+              onChange={(ev) => setName(ev.target.value)}
+            />
 
-        <label className=" text-sm text-gray-600">Address</label>
-        <input
-          className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-          type="text"
-          placeholder="Enter street address"
-          required
-          value={address}
-          onChange={(ev) => setAddress(ev.target.value)}
-        />
+            <label className=" text-sm ">Address</label>
+            <input
+              className=" block p-2.5 lg:p-3 w-full bg-gray-100 mb-4 lg:mb-7 border rounded-xl placeholder:text-sm placeholder:font-light"
+              type="text"
+              placeholder="Enter street address"
+              required
+              value={address}
+              onChange={(ev) => setAddress(ev.target.value)}
+            />
 
-        <label className=" text-sm text-gray-600">State</label>
-        <input
-          className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-          type="text"
-          placeholder="Enter delivery state"
-          required
-          value={state}
-          onChange={(ev) => setState(ev.target.value)}
-        />
+            <label className=" text-sm ">State</label>
+            <input
+              className=" block p-2.5 lg:p-3 w-full bg-gray-100 mb-4 lg:mb-7 border rounded-xl placeholder:text-sm placeholder:font-light"
+              type="text"
+              placeholder="Enter delivery state"
+              required
+              value={state}
+              onChange={(ev) => setState(ev.target.value)}
+            />
 
-        <label className=" text-sm text-gray-600">City</label>
-        <input
-          className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-          type="text"
-          placeholder="Enter delivery city"
-          required
-          value={city}
-          onChange={(ev) => setCity(ev.target.value)}
-        />
+            <label className=" text-sm ">City</label>
+            <input
+              className=" block p-2.5 lg:p-3 w-full bg-gray-100 mb-4 lg:mb-7 border rounded-xl placeholder:text-sm placeholder:font-light"
+              type="text"
+              placeholder="Enter delivery city"
+              required
+              value={city}
+              onChange={(ev) => setCity(ev.target.value)}
+            />
 
-        <label className=" text-sm text-gray-600">Phone Number</label>
-        <input
-          className=" block p-2.5 w-full bg-gray-100 mb-4 border rounded-xl placeholder:text-sm placeholder:font-light"
-          type="text"
-          placeholder="Phone number"
-          required
-          value={phone}
-          onChange={(ev) => setPhone(ev.target.value)}
-        />
-
-        <h1 className=" font-medium text-sm mb-2">Cart Summary</h1>
-        <div className=" font-mono text-sm  w-full border-2 border-dashed p-3 rounded-xl  mb-5">
-          <div className=" flex mt-1 ">
-            <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
-            <h2 className="font-semibold ">${USDollar.format(cartTotal)}</h2>
+            <label className=" text-sm ">Phone Number</label>
+            <input
+              className=" block p-2.5 lg:p-3 w-full bg-gray-100 mb-4 lg:mb-7 border rounded-xl placeholder:text-sm placeholder:font-light"
+              type="text"
+              placeholder="Phone number"
+              required
+              value={phone}
+              onChange={(ev) => setPhone(ev.target.value)}
+            />
           </div>
-          <div className=" flex mt-1 ">
-            <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
-            <h2 className="font-semibold ">$20</h2>
-          </div>
-          <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
-            <h2 className="grow font-semibold text-gray-400">Total:</h2>
-            <h2 className=" font-semibold">
-              ${USDollar.format(cartTotal + 20)}
-            </h2>
+
+          <div className=" lg:w-[35%]">
+            <h1 className=" font-medium text-sm mb-2">Cart Summary</h1>
+            <div className=" font-mono bg-gray-50 text-sm  w-full border-2 border-dashed p-3 rounded-xl  mb-5">
+              <div className=" flex mt-1 ">
+                <h2 className="grow font-semibold text-gray-400">Subtotal:</h2>
+                <h2 className="font-semibold ">
+                  ${USDollar.format(cartTotal)}
+                </h2>
+              </div>
+              <div className=" flex mt-1 ">
+                <h2 className="grow font-semibold text-gray-400">Delivery:</h2>
+                <h2 className="font-semibold ">$20</h2>
+              </div>
+              <div className=" flex mt-1 pt-2 border-t border-dashed border-emerald-500">
+                <h2 className="grow font-semibold text-gray-400">Total:</h2>
+                <h2 className=" font-semibold">
+                  ${USDollar.format(cartTotal + 20)}
+                </h2>
+              </div>
+            </div>
+
+            <PaystackPayment
+              email={email}
+              amount={amount}
+              publicKey={publicKey}
+              onSuccess={handleSuccess}
+              onClose={handleClose}
+            />
           </div>
         </div>
-
-        <PaystackPayment
-          email={email}
-          amount={amount}
-          publicKey={publicKey}
-          onSuccess={handleSuccess}
-          onClose={handleClose}
-        />
       </div>
     </div>
   );
