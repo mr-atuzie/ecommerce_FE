@@ -152,11 +152,11 @@ const Header = () => {
                   />
                 </svg>
               </span>
-              <ShowOnLogin>
-                <p className=" text-[10px] tracking-wider">
-                  Cart {cartQuantity > 0 && cartQuantity}
-                </p>
-              </ShowOnLogin>
+
+              <p className=" text-[10px] tracking-wider">
+                Cart
+                <ShowOnLogin>{cartQuantity > 0 && cartQuantity}</ShowOnLogin>
+              </p>
             </div>
           </NavLink>
 
@@ -294,11 +294,10 @@ const Header = () => {
                 />
               </svg>
             </span>
-            <ShowOnLogin>
-              <p className=" text-[10px] tracking-wider">
-                Cart {cartQuantity > 0 && cartQuantity}
-              </p>
-            </ShowOnLogin>
+            <p className=" text-[10px] tracking-wider">
+              Cart
+              <ShowOnLogin>{cartQuantity > 0 && cartQuantity}</ShowOnLogin>
+            </p>
           </div>
         </NavLink>
 
