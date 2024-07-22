@@ -73,7 +73,7 @@ Backend Repository: [https://github.com/mr-atuzie/ecommerce_BE](https://github.c
 - Proceed to checkout and complete your purchase using the integrated payment system.
 
 ## Demo
-[https://2fa-form.netlify.app](https://2fa-form.netlify.app)
+[https://ec-shop.netlify.app](https://ec-shop.netlify.app)
 
 ## Contributions
 Steps to Contribute
